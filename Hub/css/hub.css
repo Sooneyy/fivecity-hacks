@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #0a0a0a;
+  overflow-x: hidden;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-inline: 12rem;
+}
+
+.header {
+  padding: 30px 40px;
+  background: #181818;
+  box-shadow: 0 0 15px #1b1b1b, inset 0 0 30px #0f0f0f;
+  border-radius: 30px 5px 30px 5px;
+  font-weight: bold;
+  font-size: 24px;
+  animation: show-header 1s ease;
+}
+
+@keyframes show-header {
+  0% {
+    opacity: 0;
+    translate: -300% 0;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.header p {
+  background: linear-gradient(to right, #9c9c9c, #545454);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fcity {
+  background: linear-gradient(45deg, #8f00ff 30%, #310058);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cards-list {
+  height: 500px;
+  width: 100%;
+  padding: 20px;
+  animation: show-cardlist 1s ease;
+  display: flex;
+  justify-content: center;
+  gap: 105px;
+}
+
+.cards-list::-webkit-scrollbar {
+  height: 5px;
+}
+
+.cards-list::-webkit-scrollbar-track {
+  background: #33333335;
+  border-radius: 5vw;
+}
+
+.cards-list::-webkit-scrollbar-thumb {
+  background: #3f3f3f65;
+  border-radius: 5vw;
+}
+
+.cards-list::-webkit-scrollbar-thumb:hover {
+  background: #3f3f3fa5;
+  border-radius: 5vw;
+}
+
+@keyframes show-cardlist {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card {
+  height: 100%;
+  width: 320px;
+  padding: 35px;
+  border-radius: 60px 10px 60px 10px;
+  background: #181818;
+  box-shadow: 15px 15px 8px #111111, inset 0 0 45px #0b0b0b;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-title {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background: linear-gradient(45deg, #1e1e1e 0%, #171717 100%);
+  border-radius: 30px 5px 30px 5px;
+  box-shadow: inset 0px 0px 20px #121212;
+  color: #777777;
+  font-size: 25px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.heist-name {
+  font-style: italic;
+}
+
+.card-items {
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 15px;
+  margin-top: 35px;
+  isolation: isolate;
+}
+
+.card-items button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: #222222;
+  padding: 6px;
+  width: 100%;
+  box-shadow: inset 0 0 15px #151515;
+  border-radius: 15px;
+  text-align: left;
+  position: relative;
+}
+
+.hack-name {
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: bold;
+  vertical-align: middle;
+  padding-left: 2px;
+}
+
+.card-items a{
+  opacity: .4;
+  transition: opacity .2s linear;
+}
+
+.card-items a:hover{
+  opacity: 1;
+}
+
+.footer {
+  background: #181818;
+  padding: 10px 30px;
+  border-radius: 30px 5px 30px 5px;
+  font-weight: bold;
+  box-shadow: 0 0 15px #1b1b1b, inset 0 0 30px #0f0f0f;
+  font-size: 20px;
+  text-align: center;
+  animation: show-footer 1s ease;
+}
+
+@keyframes show-footer {
+  0% {
+    opacity: 0;
+    translate: 300% 0;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.footer p {
+  color: #9c9c9ce5;
+}
+
+.footer h5{
+  color: rgba(255, 255, 255, .3);
+  font-size: 12px !important;
+  margin-top: 10px;
+}
+
+.footer svg{
+  vertical-align: middle;
+  translate: 0 -1px;
+  color: rgba(255, 255, 255, .3);
+}
+
+#kornik{
+  color: rgba(255, 255, 255, .6);
+  position: relative;
+}
+
+#kornik::before{
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, .6);
+  width: 100%;
+  height: 2px;
+  top: 100%;
+  transform: scaleX(0);
+  transition: transform .1s linear;
+}
+
+#kornik:hover::before{
+  transform: scaleX(1);
+}
