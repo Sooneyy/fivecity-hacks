@@ -20,7 +20,7 @@ if (wins === null) wins = 0;
 if (loses === null) loses = 0;
 
 var progressBarInterval;
-var playTime = 155;
+var playTime = 15;
 var height = 6;
 var width = 6;
 var squares = [];
