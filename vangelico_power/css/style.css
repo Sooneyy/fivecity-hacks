@@ -293,7 +293,7 @@ body {
 }
 
 .square, .square > * {
-  transition: all .085s linear;
+  transition: all .1s linear;
 }
 
 .set{
