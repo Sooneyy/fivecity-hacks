@@ -159,5 +159,3 @@ statisticsButton.addEventListener('click', () => {
     statisticsButtonArrow.classList.toggle('open');
     statisticsMenu.classList.toggle('collapsed');
 })
-
-//Logika z internetu bo nie wiedziałem na jakiej zasadzie ona działa C:
