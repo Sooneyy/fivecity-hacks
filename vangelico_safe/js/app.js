@@ -37,6 +37,7 @@ function hack() {
 
 function startHack() {
     squares = [];
+    attempts++;
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
     createGrid();
