@@ -196,7 +196,7 @@ function randomColors(a, n) {
     let array = new Array(a);
 
     for (let i = 0; i < array.length; i++) {
-        array[i] = 0;
+        array[i] = 2;
     }
 
     for (let i = 0; i < n; i++) {
