@@ -315,8 +315,10 @@ function handleKeyPress(e) {
     }
 
     const mazeSquares = document.querySelectorAll('.mazesquare');
+    const finishSquare = document.querySelector('.finish');
     const goodElements = document.querySelectorAll('.good');
-    if(goodElements.length === mazeSquares.length - 1 && hasClass(mazeSquares[0], 'head')){
+    
+    if(goodElements.length === mazeSquares.length - 1 && hasClass(finishSquare, 'head')){
         gameWin();
     }
 
