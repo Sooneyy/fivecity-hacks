@@ -270,11 +270,11 @@ statisticsButton.addEventListener('click', () => {
 })
 
 function howToPlay(){
-    modal.classList.remove('hidden');
-    modal.classList.add('revealed');
+    modal.classList.remove('modal-hidden');
+    modal.classList.add('modal-revealed');
 }
 
 function closeModal(){
-    modal.classList.remove('revealed');
-    modal.classList.add('hidden');
+    modal.classList.remove('modal-revealed');
+    modal.classList.add('modal-hidden');
 }
