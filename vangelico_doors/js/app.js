@@ -10,6 +10,7 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
+const modal = document.getElementById('modal');
 
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
@@ -267,3 +268,13 @@ statisticsButton.addEventListener('click', () => {
     statisticsButtonArrow.classList.toggle('open');
     statisticsMenu.classList.toggle('collapsed');
 })
+
+function howToPlay(){
+    modal.classList.remove('hidden');
+    modal.classList.add('revealed');
+}
+
+function closeModal(){
+    modal.classList.remove('revealed');
+    modal.classList.add('hidden');
+}
