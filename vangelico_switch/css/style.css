@@ -28,29 +28,28 @@ body {
 }
 
 .start-hack {
-  --height: 4rem;
-  background: #14BDAD;
-  border: 2px solid #005b55;
+  --height: 3.5rem;
+  background: #FFFFFF;
+  border: 2px solid #0f003f;
   outline: none;
   height: var(--height);
-  width: calc(var(--height) * 2.5);
+  width: calc(var(--height) * 3);
   color: #000;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   font-size: 22px;
-  border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
-  transition: background .15s linear;
 }
 
 .start-hack:hover {
-  background: #036B64;
+  background: #0f003f;
+  color: #fff;
 }
 
 .start-hack:active {
-  transform: scale(0.95);
+  transform: scale(.9);
 }
 
 #back {
