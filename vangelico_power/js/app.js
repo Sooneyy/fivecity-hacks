@@ -11,10 +11,6 @@ const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 
-const random = (max, min) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
 var loses = localStorage.getItem('loses');
@@ -320,13 +316,17 @@ function handleKeyPress(e) {
 
     const mazeSquares = document.querySelectorAll('.mazesquare');
     const goodElements = document.querySelectorAll('.good');
-    if(goodElements.length === mazeSquares.length - 1){
+    if(goodElements.length === mazeSquares.length - 1 && hasClass(mazeSquares[0], 'head')){
         gameWin();
     }
 
     if (wrong > 3) {
         gameOver();
     }
+}
+
+function hasClass(el, className){
+    return (' ' + el.className + ' ').indexOf(' ' + className + ' ') > -1;
 }
 
 statisticsButton.addEventListener('click', () => {
