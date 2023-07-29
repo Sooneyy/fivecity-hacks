@@ -93,7 +93,9 @@ function progressBar(w, t) {
                 const squares = document.querySelectorAll('.square');
                 setTimeout(() => {
                     squares.forEach((sqr) => {
-                        sqr.classList.add('hidden');
+                        if(!sqr.classList.contains('hidden')) {
+                            sqr.classList.add('hidden');
+                        }else return;
                     })
                 }, (playTime * 1000) / 2)
                 progressBar('game', playTime);
@@ -160,11 +162,15 @@ function createGrid() {
             const pos = parseInt(this.dataset.pos);
             number = parseInt(this.textContent);
 
-            if (el.classList.contains('hidden')) {
                 if (pos === 0) return;
 
                 if (lastPosition === 0) {
                     const breathingEls = document.querySelectorAll('.breathing');
+                    const squares = document.querySelectorAll('.square');
+
+                    squares.forEach((sqr) => {
+                        sqr.classList.add('hidden');
+                    })
 
                     breathingEls.forEach((el) => {
                         el.classList.remove('breathing');
@@ -193,7 +199,7 @@ function createGrid() {
                         this.classList.add('bad');
                     }
                 }
-            } else return;
+            
 
             if (wrong >= 3) {
                 gameOver();
@@ -207,6 +213,7 @@ function createGrid() {
         hackFunction.appendChild(el)
     }
 }
+
 function maxVertical(pos) {
     return Math.floor((35 - pos) / 6);
 }
