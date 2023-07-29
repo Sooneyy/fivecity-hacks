@@ -208,13 +208,13 @@ body {
   transition: opacity .2s linear, visibility .2s linear, transform .4s ease;
 }
 
-.hidden{
+.modal-hidden{
   transform: translateY(200%);
   opacity: 0;
   visibility: hidden;
 }
 
-.revealed{
+.modal-revealed{
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
