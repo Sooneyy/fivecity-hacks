@@ -49,7 +49,32 @@
                 </div>
             </div>
         </div>
+        <div id="modal" class="hidden">
+            <div class="modal-header">
+                <div class="modal-title">pomocnik.exe - Jeweler</div>
+                <div class="buttons">
+                    <img src="./imgs/minimize.png">
+                    <img src="./imgs/resize.png">
+                    <img src="./imgs/close.png" onclick="closeModal()" title="Zamknij modal">
+                </div>
+            </div>
+            <div class="modal-container">
+                <div class="content-title">
+                    <h1>Pomocnik do hacka</h1>
+                </div>
+                <div class="modal-content">
+                    <p>Przeskakujesz o ilość pól ile jest w kwadracie, który został przez Ciebie nacisnięty.</p>
+                    <p>Czyli jeżeli nacisnąłeś kwadrat, który zawiera liczbę 3 to przeskakujesz nie licząc kwadratu naciśniętego, poziomo albo pionowo na 3 kwadrat od tego naciśniętego</p>
+                    <h2>Przykład na screenshocie poniżej</h2>
+                    <img src="./imgs/helper.png" alt="auxiliary-screenshot"/>
+                    <p>By zamknąć naciśnij przycisk close</p>
+                </div>
+            </div>
+        </div>
+        <div class="play-buttons">
         <button class="start-hack" onclick="startHack()">Hackuj</button>
+        <button class="how-to-play" onclick="howToPlay()">Jak Grać?</button>
+        </div>
     </div>
 </body>
 </html>
