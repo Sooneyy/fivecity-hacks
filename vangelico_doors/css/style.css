@@ -194,6 +194,110 @@ body {
   user-select: none;
 }
 
+#modal{
+  width: 600px;
+  height: 650px;
+  background: #fff;
+  border: 3px solid #ABB0B0;
+  padding: 10px 25px;
+  position: absolute;
+  top: 100px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff,
+              inset -2px -2px 0 1px #fff, inset 0 0 0 2px #8D8D8D;
+  transition: opacity .2s linear, visibility .2s linear, transform .4s ease;
+}
+
+.hidden{
+  transform: translateY(200%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.revealed{
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-header{
+  height: 1.8rem;
+  width: 595px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 3px 2px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-bottom: 3px solid #ABB0B0;
+  justify-content: space-between;
+  box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff;
+  align-items: center;
+  background: rgb(64, 0, 255);
+  color: #fff;
+}
+
+.modal-header .buttons{
+  height: 18px;
+  display: flex;
+  gap: 3px;
+}
+
+.modal-header .buttons img:nth-child(3){
+  cursor: pointer;
+}
+
+.modal-container{
+  position: absolute;
+  width: 100%;
+  top: 1.8rem;
+  left: 0;
+  padding: .75rem;
+  box-sizing: border-box;
+}
+
+.modal-container > * > *{
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+}
+
+.content-title{
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #000;
+}
+
+.modal-content{
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.modal-content p{
+  margin-bottom: 20px;
+}
+
+.modal-content h2{
+  color: #4000FF;
+  text-shadow: 0 0 20px #4000FF;
+  text-decoration: underline;
+}
+
+.modal-content img{
+  margin-inline: auto;
+  margin-top: 2rem;
+  width: 300px;
+  height: 300px;
+}
+
+.modal-content p:nth-of-type(3){
+  font-size: 10px;
+  opacity: .7;
+  margin-top: 30px;
+}
+
 .hack-header{
   height: 1.8rem;
   width: 720px;
