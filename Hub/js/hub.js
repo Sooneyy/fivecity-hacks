@@ -26,6 +26,7 @@ const hacksList = [
     {
         name: 'Włamywanie do sejfu / POPRAWIAM',
         heist: 'Vangelico',
+        link: './'
     },
 ]
 
