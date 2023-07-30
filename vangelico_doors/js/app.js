@@ -44,7 +44,6 @@ function startHack() {
     lastPosition = 0;
     wrong = 0;
     attempts++;
-    console.log(lastPosition)
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
     createGrid();
