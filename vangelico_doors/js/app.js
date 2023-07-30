@@ -27,7 +27,7 @@ var width = 6;
 var number = 0;
 var wrong = 0;
 var isOver = false;
-var lastPosition;
+var lastPosition, bestRoute, goodPositions;
 
 function hack() {
     hackInfoBox.style.display = '';
@@ -129,8 +129,8 @@ function createGrid() {
     hackFunction.innerHTML = '';
 
     let breathingPosition = 1;
-    let bestRoute = generateRoute(breathingPosition);
-    let goodPositions = Object.keys(bestRoute);
+    bestRoute = generateRoute(breathingPosition);
+    goodPositions = Object.keys(bestRoute);
     
     for (let i = 0; i < height * width; i++) {
         const el = document.createElement('div');
