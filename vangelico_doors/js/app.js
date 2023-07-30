@@ -81,7 +81,7 @@ function gameOver() {
         squares[pos].classList.add('right-path');
     });
     hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
-    progressBar('end', 20);
+    progressBar('end', 10);
 }
 
 function progressBar(w, t) {
