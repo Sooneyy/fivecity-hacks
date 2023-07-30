@@ -81,7 +81,6 @@ function gameOver() {
         squares[pos].classList.add('right-path');
     });
     hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
-    return;
     progressBar('end', 20);
 }
 
@@ -172,6 +171,8 @@ function createGrid() {
 
                 if (pos === 0) return;
 
+                if (isOver) return;
+            
                 if (lastPosition === 0) {
                     const breathingEls = document.querySelectorAll('.breathing');
                     const squares = document.querySelectorAll('.square');
