@@ -74,6 +74,7 @@ function gameOver() {
     document.getElementById('number-l').textContent = String(loses);
     localStorage.setItem('loses', loses);
     isOver = true;
+    document.querySelectorAll('.breathing').forEach((b) => b.classList.remove('breathing'));
     document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
     let squares = document.querySelectorAll('.square');
     goodPositions.push(35);
