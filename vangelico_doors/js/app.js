@@ -26,6 +26,7 @@ var height = 6;
 var width = 6;
 var number = 0;
 var wrong = 0;
+var isOver = false;
 var lastPosition;
 
 function hack() {
@@ -39,6 +40,7 @@ function hack() {
 }
 
 function startHack() {
+    isOver = false;
     lastPosition = 0;
     wrong = 0;
     attempts++;
@@ -94,7 +96,7 @@ function progressBar(w, t) {
                 const squares = document.querySelectorAll('.square');
                 setTimeout(() => {
                     squares.forEach((sqr) => {
-                        if(!sqr.classList.contains('hidden')) {
+                        if(!sqr.classList.contains('hidden') && !isOver) {
                             sqr.classList.add('hidden');
                         }else return;
                     })
@@ -204,6 +206,7 @@ function createGrid() {
             
 
             if (wrong >= 3) {
+                isOver = true;
                 document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
                 let squares = document.querySelectorAll('.square');
                 goodPositions.push(35);
