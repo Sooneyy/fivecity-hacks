@@ -10,6 +10,9 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
+const input = document.querySelector('.input');
+const gridInput = document.querySelector('.grid-size');
+const gridSizeText = document.getElementById('size');
 
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
@@ -27,6 +30,7 @@ var stepsCount = 0;
 var squares = [];
 
 function hack() {
+    gridSizeText.textContent = gridInput.value + 'x' + gridInput.value;
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę';
     hackFunction.style.display = 'none';
@@ -42,6 +46,13 @@ function startHack() {
     attempts++;
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
+    if (gridInput.value == 5) {
+        hackFunction.style.gridTemplateColumns = `repeat(5, auto)`
+    } else if (gridInput.value == 6) {
+        hackFunction.style.gridTemplateColumns = `repeat(6, auto)`
+    } else if (gridInput.value == 7) {
+        hackFunction.style.gridTemplateColumns = `repeat(7, auto)`
+    }
     createGrid();
     hackTitle.innerHTML = 'Odznacz wszystkie pola';
     hackTitleBox.style.display = 'none';
@@ -164,4 +175,11 @@ statisticsButton.addEventListener('click', () => {
     statisticsButton.classList.toggle('opened');
     statisticsButtonArrow.classList.toggle('open');
     statisticsMenu.classList.toggle('collapsed');
+})
+
+gridInput.addEventListener('input', (e) => {
+    height = e.target.value;
+    width = e.target.value;
+
+    gridSizeText.textContent = e.target.value + 'x' + e.target.value;
 })
