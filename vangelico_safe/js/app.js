@@ -23,6 +23,7 @@ var progressBarInterval;
 var playTime = 15;
 var height = 6;
 var width = 6;
+var stepsCount = 0;
 var squares = [];
 
 function hack() {
@@ -36,6 +37,7 @@ function hack() {
 }
 
 function startHack() {
+    stepsCount = 0;
     squares = [];
     attempts++;
     document.getElementById('number-a').textContent = String(attempts);
@@ -52,6 +54,7 @@ function startHack() {
 
 function gameWin() {
     wins++;
+    alert('Hack zrobiony w ' + stepsCount + ' ruchach');
     document.getElementById('number-w').textContent = String(wins);
     localStorage.setItem('wins', wins);
     hackTitleBox.style.display = 'none';
@@ -121,6 +124,8 @@ function createGrid() {
             el.onclick = function(){
                 const row = parseInt(this.dataset.row);
                 const column = parseInt(this.dataset.column);
+
+                stepsCount++;
 
                 toggleLightOnSquare(row, column);
                 toggleLightOnSquare(row - 1, column);
