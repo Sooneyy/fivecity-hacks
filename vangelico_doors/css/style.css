@@ -479,3 +479,12 @@ body {
   color: transparent;
 }
 
+.right-path{
+  position: relative;
+  z-index: 100000;
+  opacity: 1;
+  background: #007fff;
+  border: 2px solid #004182;
+  filter: drop-shadow(0 50px 30px #7f98a8);
+}
+
