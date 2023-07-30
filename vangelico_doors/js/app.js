@@ -122,13 +122,13 @@ function progressBar(w, t) {
 function createGrid() {
     hackFunction.innerHTML = '';
 
+    let breathingPosition = 1;
+    let bestRoute = generateRoute(breathingPosition);
+    let goodPositions = Object.keys(bestRoute);
+    
     for (let i = 0; i < height * width; i++) {
         const el = document.createElement('div');
         el.classList.add('square')
-
-        let breathingPosition = 1;
-        let bestRoute = generateRoute(breathingPosition);
-        let goodPositions = Object.keys(bestRoute);
 
         el.dataset.pos = i;
         let text;
@@ -150,14 +150,13 @@ function createGrid() {
             default: {
                 text = random(1, 5);
             }
-
-                if (goodPositions.includes(i.toString())) {
-                    text = bestRoute[i];
-                }
         }
 
+         if (goodPositions.includes(i.toString())) {
+                text = bestRoute[i];
+         }
+
         el.textContent = text;
-        el.dataset.num = text;
 
         el.onclick = function () {
             const pos = parseInt(this.dataset.pos);
