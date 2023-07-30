@@ -193,6 +193,49 @@ body {
   user-select: none;
 }
 
+.input > *{
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.input{
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 20px;
+}
+
+.grid-size{
+  width: 300px;
+  vertical-align: middle;
+  border-radius: 15px;
+  height: 4px;
+  opacity: .7;
+  outline: none;
+  background: #a5f6ff;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.grid-size::-webkit-slider-thumb{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0d58a8;
+  box-shadow: 0 0 200px #0d58a8, 0 0 0 4px rgba(13, 88, 168, .6);
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.grid-size:hover{
+  opacity: 1;
+}
+
 .hack-header{
   height: 1.8rem;
   width: 720px;
