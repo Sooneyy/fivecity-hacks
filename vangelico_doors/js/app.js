@@ -73,12 +73,16 @@ function gameOver() {
     loses++;
     document.getElementById('number-l').textContent = String(loses);
     localStorage.setItem('loses', loses);
-    hackFunction.style.display = 'none';
-    hackTitleBox.style.display = 'none';
-    hackInfoBox.style.display = '';
-    hackInfo.textContent = 'Hack nieudany';
-    progressBarBox.style.display = 'block';
-    progressBar('end', 9);
+    isOver = true;
+    document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
+    let squares = document.querySelectorAll('.square');
+    goodPositions.push(35);
+    goodPositions.forEach(pos => {
+        squares[pos].classList.add('right-path');
+    });
+    hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
+    return;
+    progressBar('end', 20);
 }
 
 function progressBar(w, t) {
@@ -205,16 +209,8 @@ function createGrid() {
                 }
             
 
-            if (wrong >= 3) {
-                isOver = true;
-                document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
-                let squares = document.querySelectorAll('.square');
-                goodPositions.push(35);
-                goodPositions.forEach( pos => {
-                    squares[pos].classList.add('right-path');
-                });
-                hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
-                progressBar('end', 20);
+            if (wrong === 3) {
+                gameOver();
             }
 
             if (lastPosition === 35 && document.querySelectorAll('.square')[lastPosition].classList.contains('good')) {
