@@ -110,6 +110,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
+                hackInfoBox.style.display = '';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
             }
         }
@@ -157,6 +158,7 @@ function createGrid() {
          }
 
         el.textContent = text;
+        hackFunction.appendChild(el)
 
         el.onclick = function () {
             const pos = parseInt(this.dataset.pos);
@@ -202,15 +204,20 @@ function createGrid() {
             
 
             if (wrong >= 3) {
-                gameOver();
+                document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
+                let squares = document.querySelectorAll('.square');
+                goodPositions.push(35);
+                goodPositions.forEach( pos => {
+                    squares[pos].classList.add('right-path');
+                });
+                hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
+                progressBar('end', 20);
             }
 
             if (lastPosition === 35 && document.querySelectorAll('.square')[lastPosition].classList.contains('good')) {
                 gameWin();
             }
         }
-
-        hackFunction.appendChild(el)
     }
 }
 
