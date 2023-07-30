@@ -46,6 +46,7 @@ function startHack() {
     attempts++;
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
+    input.style.display = 'none';
     if (gridInput.value == 5) {
         hackFunction.style.gridTemplateColumns = `repeat(5, auto)`
     } else if (gridInput.value == 6) {
@@ -111,6 +112,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
+                input.style.display = '';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
             }
         }
