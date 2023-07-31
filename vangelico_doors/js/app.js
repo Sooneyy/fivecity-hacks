@@ -21,12 +21,12 @@ if (wins === null) wins = 0;
 if (loses === null) loses = 0;
 
 var progressBarInterval;
-var playTime = 8;
+var playTime = 10;
 var height = 6;
 var width = 6;
 var number = 0;
-var wrong = 0;
 var isOver = false;
+var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
 
 function hack() {
@@ -72,23 +72,19 @@ function gameOver() {
     loses++;
     document.getElementById('number-l').textContent = String(loses);
     localStorage.setItem('loses', loses);
-    isOver = true;
-    document.querySelectorAll('.breathing').forEach((b) => b.classList.remove('breathing'));
-    document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
-    let squares = document.querySelectorAll('.square');
-    goodPositions.push(35);
-    goodPositions.forEach(pos => {
-        squares[pos].classList.add('right-path');
-    });
-    hackTitle.textContent = 'Hack Nieudany / Poprawny pathing';
-    progressBar('end', 10);
+    hackFunction.style.display = 'none';
+    hackTitleBox.style.display = 'none';
+    progressBarBox.style.display = 'block';
+    hackInfoBox.style.display = '';
+    hackInfo.textContent = 'Hack nieudany'
+    progressBar('end', 9);
 }
 
 function progressBar(w, t) {
     let width = 1000;
     function updateProgress() {
         if (width > 0) {
-            if (w === 'start' || w === 'end') width -= 3;
+            if (w === 'start' || w === 'end' || w === 'game') width -= 3;
             else width--;
             progressBarFn.style.width = (width * 100) / 1000 + '%';
         } else {
@@ -99,13 +95,24 @@ function progressBar(w, t) {
                 const squares = document.querySelectorAll('.square');
                 setTimeout(() => {
                     squares.forEach((sqr) => {
-                        if(!sqr.classList.contains('hidden') && !isOver) {
+                        if (!sqr.classList.contains('hidden') && !isOver) {
                             sqr.classList.add('hidden');
-                        }else return;
+                        } else return;
                     })
                 }, (playTime * 1000) / 2)
-                progressBar('game', playTime);
+                progressBar('displaypath', playTime);
                 return;
+            }
+            if(w === 'displaypath'){
+                isOver = true;
+                document.querySelectorAll('.breathing').forEach((b) => b.classList.remove('breathing'));
+                document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
+                let squares = document.querySelectorAll('.square');
+                goodPositions.push(35);
+                goodPositions.forEach(pos => {
+                    squares[pos].classList.add('right-path');
+                });
+                progressBar('game', 9)
             }
             if (w === 'game') {
                 gameOver();
@@ -131,12 +138,14 @@ function createGrid() {
     let breathingPosition = 1;
     bestRoute = generateRoute(breathingPosition);
     goodPositions = Object.keys(bestRoute);
-    
-    for (let i = 0; i < height * width; i++) {
+    console.log(bestRoute)
+
+    for (let i = 0; i < 36; i++) {
         const el = document.createElement('div');
         el.classList.add('square')
 
-        el.dataset.pos = i;
+        el.dataset.pos = i.toString();
+
         let text;
         switch (i) {
             case 0: {
@@ -150,17 +159,16 @@ function createGrid() {
             case breathingPosition:
             case (breathingPosition * 6): {
                 el.classList.add('breathing');
-                text = random(1, 5);
+                text = random(1, 4);
                 break;
             }
             default: {
                 text = random(1, 5);
             }
         }
-
-         if (goodPositions.includes(i.toString())) {
-                text = bestRoute[i];
-         }
+        if (goodPositions.includes(i.toString())) {
+            text = bestRoute[i];
+        }
 
         el.textContent = text;
         hackFunction.appendChild(el)
@@ -169,49 +177,56 @@ function createGrid() {
             const pos = parseInt(this.dataset.pos);
             number = parseInt(this.textContent);
 
-                if (pos === 0) return;
+            if (pos === 0) return;
 
-                if (isOver) return;
-            
-                if (lastPosition === 0) {
-                    const breathingEls = document.querySelectorAll('.breathing');
-                    const squares = document.querySelectorAll('.square');
+            if (isOver) return;
 
-                    squares.forEach((sqr) => {
-                        sqr.classList.add('hidden');
-                    })
+            if (lastPosition === 0) {
+                const breathingEls = document.querySelectorAll('.breathing');
+                const squares = document.querySelectorAll('.square');
 
-                    breathingEls.forEach((el) => {
-                        el.classList.remove('breathing');
-                    })
+                squares.forEach((sqr) => {
+                    sqr.classList.add('hidden');
+                })
 
-                    if (pos === breathingPosition || pos === breathingPosition * 6) {
-                        lastPosition = pos;
-                        this.classList.add('good');
-                    } else {
-                        this.classList.add('bad');
-                        wrong++;
-                    }
+                breathingEls.forEach((el) => {
+                    el.classList.remove('breathing');
+                })
+
+                if (pos === breathingPosition || pos === breathingPosition * 6) {
+                    lastPosition = pos;
+                    this.classList.add('good');
                 } else {
-                    let jump = parseInt(document.querySelectorAll('.square')[lastPosition].textContent, 10);
-                    let maxV = maxVertical(lastPosition);
-                    let maxH = maxHorizontal(lastPosition);
-
-                    if (jump <= maxH && pos === lastPosition + jump) {
-                        lastPosition = pos;
-                        this.classList.add('good');
-                    } else if (jump <= maxV && pos === lastPosition + (jump * 6)) {
-                        lastPosition = pos;
-                        this.classList.add('good');
-                    } else {
-                        wrong++;
-                        this.classList.add('bad');
-                    }
+                    this.classList.add('bad');
+                    wrong++;
                 }
-            
+            } else {
+                let jump = parseInt(document.querySelectorAll('.square')[lastPosition].textContent, 10);
+                let maxV = maxVertical(lastPosition);
+                let maxH = maxHorizontal(lastPosition);
+
+                if (jump <= maxH && pos === lastPosition + jump) {
+                    lastPosition = pos;
+                    this.classList.add('good');
+                } else if (jump <= maxV && pos === lastPosition + (jump * 6)) {
+                    lastPosition = pos;
+                    this.classList.add('good');
+                } else {
+                    wrong++;
+                    this.classList.add('bad');
+                }
+            }
 
             if (wrong === 3) {
-                gameOver();
+                isOver = true;
+                document.querySelectorAll('.breathing').forEach((b) => b.classList.remove('breathing'));
+                document.querySelectorAll('.square').forEach((s) => s.classList.remove('hidden'));
+                let squares = document.querySelectorAll('.square');
+                goodPositions.push(35);
+                goodPositions.forEach(pos => {
+                    squares[pos].classList.add('right-path');
+                });
+                progressBar('game', 9)
             }
 
             if (lastPosition === 35 && document.querySelectorAll('.square')[lastPosition].classList.contains('good')) {
@@ -234,6 +249,7 @@ function maxHorizontal(pos) {
 function generateNextPosition(pos) {
     let maxV = maxVertical(pos);
     let maxH = maxHorizontal(pos);
+
     if (maxV === 0) {
         let newPosition = random(random(1, maxH), maxH);
         return [newPosition, pos + newPosition];
@@ -275,12 +291,12 @@ statisticsButton.addEventListener('click', () => {
     statisticsMenu.classList.toggle('collapsed');
 })
 
-function howToPlay(){
+function howToPlay() {
     modal.classList.remove('modal-hidden');
     modal.classList.add('modal-revealed');
 }
 
-function closeModal(){
+function closeModal() {
     modal.classList.remove('modal-revealed');
     modal.classList.add('modal-hidden');
 }
