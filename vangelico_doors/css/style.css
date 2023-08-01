@@ -469,7 +469,7 @@ body {
   z-index: 9999;
   position: relative;
   opacity: 1;
-  border: 2px solid #AD434C;
+  border: 1px solid #AD434C;
   box-shadow: inset 0 0 2px #E18E92;
   background: #E18E92;
   filter: drop-shadow(0 50px 30px #E18E92)
