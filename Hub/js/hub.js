@@ -24,9 +24,9 @@ const hacksList = [
         link: './vangelico_doors'
     },
     {
-        name: 'Na sejf na nowo pisze algorytm',
+        name: 'Włamywanie do sejfu - fixed',
         heist: 'Vangelico',
-        link: './'
+        link: './vangelico_safe'
     },
 ]
 
