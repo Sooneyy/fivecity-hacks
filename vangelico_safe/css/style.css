@@ -193,11 +193,11 @@ body {
   user-select: none;
 }
 
-.input > *{
+.options > *{
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-.input{
+.options{
   font-size: 18px;
   font-weight: 600;
   display: flex;
@@ -205,9 +205,10 @@ body {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 20px;
+  margin-left: 15px;
 }
 
-.grid-size{
+.input{
   width: 300px;
   vertical-align: middle;
   border-radius: 15px;
@@ -220,7 +221,7 @@ body {
   appearance: none;
 }
 
-.grid-size::-webkit-slider-thumb{
+.input::-webkit-slider-thumb{
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -232,7 +233,7 @@ body {
   appearance: none;
 }
 
-.grid-size:hover{
+.input:hover{
   opacity: 1;
 }
 
