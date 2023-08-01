@@ -31,7 +31,7 @@ var lastPosition, bestRoute, goodPositions;
 
 function hack() {
     hackInfoBox.style.display = '';
-    hackInfo.textContent = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę';
+    hackInfo.innerHTML = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę' + '<br>' + '(Może być więcej poprawnych dróg niż ta, która się podświetla)' + '<br>' + 'Ta co się podświetla jest najszybsza';
     hackFunction.style.display = 'none';
     progressBarBox.style.display = 'none';
     document.getElementById('number-a').textContent = String(attempts);
