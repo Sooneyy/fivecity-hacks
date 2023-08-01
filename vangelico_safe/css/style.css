@@ -239,7 +239,7 @@ body {
 
 .hack-header{
   height: 1.8rem;
-  width: 720px;
+  width: 820px;
   display: flex;
   padding: 3px 2px;
   box-sizing: border-box;
@@ -259,7 +259,7 @@ body {
 }
 
 .hack-box {
-  width: 720px;
+  width: 820px;
   height: 700px;
   background: #fff;
   border: 3px solid #ABB0B0;
@@ -300,7 +300,7 @@ body {
 .hack-footer {
   position: absolute;
   bottom: 15px;
-  width: 670px;
+  width: 770px;
 }
 
 .progress-bar {
