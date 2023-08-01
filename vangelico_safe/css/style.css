@@ -326,7 +326,6 @@ body {
   width: 350px;
   display: grid;
   transform: translateY(70px);
-  grid-template-columns: repeat(6, auto);
 }
 
 .hack-fn::after{
@@ -351,12 +350,19 @@ body {
   border-radius: 50px 0 0 0;
 }
 
+.row{
+  display: flex;
+  width: 100%;
+}
+
 .square{
   display: grid;
   place-items: center;
   background: #C1C0C1;
   border: 1px solid #BEBDBE;
   padding: 6px;
+  width: 100%;
+  margin: 
 }
 
 .active{
@@ -364,6 +370,6 @@ body {
   border: 1px solid #548384;
 }
 
-.active:first-child{
+.row:nth-child(1) .active:nth-child(1){
   background: #609596;
 }
