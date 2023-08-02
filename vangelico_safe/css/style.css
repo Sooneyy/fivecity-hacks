@@ -362,14 +362,14 @@ body {
   border: 1px solid #BEBDBE;
   padding: 6px;
   width: 100%;
-  margin: 
 }
 
 .active{
-  background: #59898A;
-  border: 1px solid #548384;
+  background: #5C5E80;
+  border: 1px solid #5f6184;
 }
 
 .row:nth-child(1) .active:nth-child(1){
-  background: #609596;
+  background: #737598;
+  border: 1px solid #76789b;
 }
