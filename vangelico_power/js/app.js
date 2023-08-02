@@ -322,7 +322,7 @@ function handleKeyPress(e) {
         gameWin();
     }
 
-    if (wrong === 3) {
+    if (wrong > 3) {
         gameOver();
     }
 }
