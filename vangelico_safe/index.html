@@ -11,12 +11,17 @@
 
 <body onload="hack()">
     <a id="back" href="../"> <!-- #podjebaned styl od kornika :\ -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512">
+            <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="48"
+                d="M244 400L100 256l144-144M120 256h292" />
+        </svg>
     </a>
     <div class="statistics-container">
         <div class="statistics-header">
             <span>Statystyki</span>
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"/></svg></span>
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z" />
+                </svg></span>
         </div>
         <div class="statistics-menu">
             <div id="attempts">Ilość prób: <b id="number-a"></b></div>
@@ -37,13 +42,20 @@
             <div class="hack-title">
                 <h1 id="hack-title-text"></h1>
             </div>
+            <div class="hack-options">
+                <div class="options">
+                    <div>Wielkość Planszy:</div>
+                    <input type="range" class="input" id="input-size" value="5" min="5" max="7" step="1" />
+                    <div id="size"></div>
+                </div>
+                <div class="options">
+                    <div>Czas długości hackowania:</div>
+                    <input type="range" class="input" id="input-time" value="15" min="10" max="60" step="1" />
+                    <div id="time"></div>
+                </div>
+            </div>
             <div class="hack-info">
                 <h1 id="hack-info-text"></h1>
-                <div class="options">
-                    <span>Wielkość Planszy:</span>
-                    <input type="range" class="input" value="5" min="5" max="7" step="1"/>
-                    <span id="size"></span>
-                </div>
             </div>
             <div class="hack-fn"></div>
             <div class="hack-footer">
@@ -54,7 +66,81 @@
                 </div>
             </div>
         </div>
-        <button class="start-hack" onclick="startHack()">Hackuj</button>
+        <div id="modal" class="modal-hidden">
+            <div class="modal-header">
+                <div class="modal-title">pomocnik.exe - Jeweler</div>
+                <div class="buttons">
+                    <img src="./imgs/minimize.png">
+                    <img src="./imgs/resize.png">
+                    <img src="./imgs/close.png" onclick="closeModal()" title="Zamknij modal">
+                </div>
+            </div>
+            <div class="modal-container">
+                <div class="content-title">
+                    <h1>Pomocnik do hacka</h1>
+                </div>
+                <div class="modal-content">
+                    <p>Jeżeli naciskasz dany kwadrat to zapalają się w okół niego kwadraty (top, bottom, right, left), a w momencie gdy jakiś jest zapalony to się zgasza</p>
+                    <p>Najlepiej jest przechodzić metodą z ang. Chase the lights, czyli zaczynasz od drugiego rzędu i naciskasz przyciski pod kwadratami, które są zapalone nad danym przyciskiem</p>
+                    <h2>Link do tutorialu niżej jak ktoś nie ogarnia</h2>
+                    <div class="link">
+                        <a href="https://www.youtube.com/watch?v=ffCWa3Cppk4" target="_blank">Lights out - Tutorial</a>
+                    </div>
+                    <div class="patterns">
+                        <h1>Patterny</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>0 - nieaktywne 
+                                        <br> 
+                                        . oznacza puste pole
+                                    </th>
+                                    <th>1 - aktywne
+                                        <br>
+                                        + oznacza który kwadrat nacisnąć
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Rząd na samym dole</th>
+                                    <th>Rząd na samej górze</th>
+                                </tr>
+                                <tr>
+                                    <td>0 0 1 1 1</td>
+                                    <td>. . . + .</td>
+                                </tr>
+                                <tr>
+                                    <td>0 1 0 1 0</td>
+                                    <td>. + . . +</td>
+                                </tr>
+                                <tr>
+                                    <td>0 1 1 0 1</td>
+                                    <td>+ . . . .</td>
+                                </tr>
+                                <tr>
+                                    <td>1 0 0 0 1</td>
+                                    <td>. . . + +</td>
+                                </tr>
+                                <tr>
+                                    <td>1 1 0 1 1</td>
+                                    <td>. . + . .</td>
+                                </tr>
+                                <tr>
+                                    <td>1 1 1 0 0</td>
+                                    <td>. + . . .</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="play-buttons">
+            <button class="start-hack" onclick="startHack()">Hackuj</button>
+            <button class="how-to-play" onclick="howToPlay()">Jak Grać / Patterny</button>
+        </div>
     </div>
 </body>
+
 </html>
