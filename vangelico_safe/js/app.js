@@ -10,9 +10,12 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
+const hackOptions = document.querySelector('.hack-options');
 const options = document.querySelector('.options');
-const input = document.querySelector('.input');
+const inputSize = document.getElementById('input-size');
 const sizeText = document.getElementById('size');
+const inputTime = document.getElementById('input-time');
+const timeText = document.getElementById('time');
 
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
@@ -26,7 +29,8 @@ var className = new Array();
     className[0] = 'empty';
     className[1] = 'active';
 var progressBarInterval;
-var playTime = 15;
+var playTime = inputTime;
+var dftPlayTime = 15;
 var stepsCount = 0;
 var height = 5;
 var width = 5;
@@ -44,7 +48,8 @@ var r;
 var maxr;
 
 function hack() {
-    sizeText.textContent = input.value + 'x' + input.value;
+    sizeText.textContent = inputSize.value + 'x' + inputSize.value;
+    timeText.textContent = String(dftPlayTime);
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę';
     hackFunction.style.display = 'none';
@@ -66,7 +71,7 @@ function startHack() {
     attempts++;
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
-    options.style.display = 'none';
+    hackOptions.style.display = 'none';
     createGrid();
     newGame();
     hackTitle.innerHTML = 'Odznacz wszystkie pola';
@@ -116,7 +121,7 @@ function progressBar(w, t) {
                 hackTitleBox.style.display = '';
                 hackInfoBox.style.display = 'none';
                 hackFunction.style.display = '';
-                progressBar('game', playTime);
+                progressBar('game', playTime.value);
                 return;
             }
             if (w === 'game') {
@@ -127,7 +132,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
-                options.style.display = '';
+                hackOptions.style.display = '';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
             }
         }
@@ -349,7 +354,7 @@ function sweepStep() {
                 if (a(i, j) != 0) return false;
         return true;
     }
-    alert("Błąd wewnętrzny - odśwież stronę");
+    alert("Błąd wewnętrzny - zrestartuj stronę");
     return false;
 }
 
@@ -378,9 +383,25 @@ statisticsButton.addEventListener('click', () => {
     statisticsMenu.classList.toggle('collapsed');
 })
 
-input.addEventListener('input', (e) => {
+inputSize.addEventListener('input', (e) => {
     height = Number(e.target.value)
     width = Number(e.target.value);
 
     sizeText.textContent = e.target.value + 'x' + e.target.value;
 })
+
+inputTime.addEventListener('input', (e) => {
+    timeText.textContent = e.target.value;
+})
+
+const modal = document.getElementById('modal');
+
+function howToPlay() {
+    modal.classList.remove('modal-hidden');
+    modal.classList.add('modal-revealed');
+}
+
+function closeModal() {
+    modal.classList.remove('modal-revealed');
+    modal.classList.add('modal-hidden');
+}
