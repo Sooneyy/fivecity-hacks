@@ -46,7 +46,7 @@ body {
 }
 
 .how-to-play {
-  width: 200px
+  width: 200px !important;
 }
 
 .start-hack:hover, .how-to-play:hover{
