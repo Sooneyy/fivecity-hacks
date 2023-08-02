@@ -31,7 +31,7 @@ const hacksList = [
 ]
 
 window.load = () => {
-    alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ UŁOŻYC!!")
+    alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ PRZEJŚĆ!!")
 }
 
 for (let i = 0; i < heistsList.length; i++) {
