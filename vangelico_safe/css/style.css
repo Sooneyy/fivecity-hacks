@@ -29,10 +29,6 @@ body {
   justify-content: center;
 }
 
-.how-to-play {
-  width: 200px
-}
-
 .start-hack, .how-to-play {
   --height: 3.5rem;
   background: #FFFFFF;
@@ -47,6 +43,10 @@ body {
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
+}
+
+.how-to-play {
+  width: 200px
 }
 
 .start-hack:hover, .how-to-play:hover{
