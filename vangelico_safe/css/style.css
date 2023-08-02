@@ -27,6 +27,10 @@ body {
   align-items: center;
 }
 
+.how-to-play {
+  width: 200px
+}
+
 .start-hack, .how-to-play {
   --height: 3.5rem;
   background: #FFFFFF;
