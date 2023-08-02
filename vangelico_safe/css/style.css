@@ -374,6 +374,20 @@ table tbody tr td{
   border: 1px solid #000430;
 }
 
+#close-modal{
+  font-family: "IBM Plex Sans", sans-serif;
+  padding: 8px 14px;
+  background: rgba(0, 4, 48, .3);
+  border: 1px solid rgb(0, 4, 48);
+  font-size: 16px;
+  transition: all .2s linear;
+  cursor: pointer;
+}
+
+#close-modal:hover{
+  background: rgb(0, 4, 48);
+}
+
 .hack-options {
   margin-top: 50px;
 }
