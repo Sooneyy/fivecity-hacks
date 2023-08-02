@@ -405,3 +405,36 @@ function closeModal() {
     modal.classList.remove('modal-revealed');
     modal.classList.add('modal-hidden');
 }
+
+var offsetX, offsetY;
+var mouseX = 0,
+    mouseY = 0;
+
+function startMoving(e) {
+    isHolding = true;
+    offsetX = e.clientX - modal.getBoundingClientRect().left
+    console.log(e.clientX, modal.getBoundingClientRect().left)
+    offsetY = e.clientY - modal.getBoundingClientRect().top
+}
+
+function stopMoving() {
+    isHolding = false;
+}
+
+function move(e) {
+    if (!isHolding) return;
+
+    if (isHolding) {
+        mouseX = e.clientX - offsetX;
+        mouseY = e.clientY - offsetY;
+
+        if (mouseY <= 0 || mouseY >= 905) return;
+
+        modal.style.left = mouseX + 'px';
+        modal.style.top = mouseY + 'px';
+    }
+}
+
+document.querySelector('.modal-header').addEventListener('mousedown', startMoving);
+document.addEventListener('mouseup', stopMoving);
+document.addEventListener('mousemove', move);
