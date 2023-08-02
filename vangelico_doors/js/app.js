@@ -21,7 +21,7 @@ if (wins === null) wins = 0;
 if (loses === null) loses = 0;
 
 var progressBarInterval;
-var playTime = 10;
+var playTime = 7;
 var height = 6;
 var width = 6;
 var number = 0;
