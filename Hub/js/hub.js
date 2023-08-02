@@ -30,6 +30,10 @@ const hacksList = [
     },
 ]
 
+window.load = () => {
+    alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ UŁOŻYC!!")
+}
+
 for (let i = 0; i < heistsList.length; i++) {
 
     const card = document.createElement('div');
