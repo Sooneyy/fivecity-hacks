@@ -30,7 +30,7 @@ const hacksList = [
     },
 ]
 
-window.load = () => {
+window.onload = () => {
     alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ PRZEJŚĆ!!")
 }
 
