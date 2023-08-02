@@ -256,10 +256,6 @@ body {
   gap: 3px;
 }
 
-.modal-header .buttons img:nth-child(3) {
-  cursor: pointer;
-}
-
 .modal-container {
   position: absolute;
   width: 100%;
