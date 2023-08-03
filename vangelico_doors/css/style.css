@@ -30,7 +30,7 @@ body {
 .start-hack, .how-to-play {
   --height: 3.5rem;
   background: #FFFFFF;
-  border: 2px solid #0f003f;
+  border: 2px solid #0400ff;
   outline: none;
   height: var(--height);
   width: calc(var(--height) * 3);
@@ -44,7 +44,7 @@ body {
 }
 
 .start-hack:hover, .how-to-play:hover{
-  background: #0f003f;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -240,7 +240,7 @@ body {
   justify-content: space-between;
   box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff;
   align-items: center;
-  background: #000430;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -286,7 +286,7 @@ body {
 }
 
 .modal-content h2{
-  color: #000430;
+  color: #0400ff;
   text-decoration: underline;
 }
 
@@ -314,7 +314,7 @@ body {
   justify-content: space-between;
   box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff;
   align-items: center;
-  background: #000430;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -382,7 +382,7 @@ body {
 #progress-bar-fn {
   position: relative;
   height: 100%;
-  background: #000430;
+  background: #0400ff;
 }
 
 .hack-fn {
@@ -420,7 +420,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 30px #E1D489);
+  filter: drop-shadow(0 50px 35px #E1D489);
 }
 
 .square:last-child{
@@ -431,7 +431,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 30px #E1D489)
+  filter: drop-shadow(0 50px 35px #E1D489)
 }
 
 .breathing{
@@ -439,10 +439,9 @@ body {
   position: relative;
   background: #A09CB8;
   border: 1px solid #50487B;
-  box-shadow: inset 0 0 2px #A09CB8;
   opacity: 1;
-  filter: drop-shadow(0 50px 30px #A09CB8);
-  animation: breathing 1.5s linear infinite;
+  filter: drop-shadow(0 50px 35px #A09CB8);
+  animation: breathing 2s ease infinite;
 }
 
 @keyframes breathing{
@@ -450,7 +449,7 @@ body {
     opacity: 1;
   }
   50%{
-    opacity: .7;
+    opacity: .8;
   }
 }
 
@@ -459,9 +458,8 @@ body {
   position: relative;
   opacity: 1;
   border: 1px solid #579362;
-  box-shadow: inset 0 0 2px #579362;
   background: #AED1B2;
-  filter: drop-shadow(0 50px 30px #579362)
+  filter: drop-shadow(0 50px 35px #579362)
 }
 
 .bad{
@@ -469,9 +467,8 @@ body {
   position: relative;
   opacity: 1;
   border: 1px solid #AD434C;
-  box-shadow: inset 0 0 2px #E18E92;
   background: #E18E92;
-  filter: drop-shadow(0 50px 30px #E18E92)
+  filter: drop-shadow(0 50px 35px #E18E92)
 }
 
 .hidden{
