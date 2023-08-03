@@ -10,6 +10,7 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
+const hackOptions = document.querySelector('.hack-options');
 
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -50,6 +51,7 @@ function startHack() {
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
     hackFunction.innerHTML = '';
+    hackOptions.style.display = 'none';
     createGrid();
     hackTitle.innerHTML = 'Przejdź labirynt';
     hackTitleBox.style.display = 'none';
@@ -108,6 +110,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
+                hackOptions.style.display = '';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
             }
         }
