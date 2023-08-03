@@ -36,6 +36,7 @@ var height = 5;
 var width = 5;
 var squares = [];
 var classCount = className.length;
+var antiSolverMode = false;
 var isHolding = false;
 var cells;
 var col;
@@ -438,3 +439,25 @@ function move(e) {
 document.querySelector('.modal-header').addEventListener('mousedown', startMoving);
 document.addEventListener('mouseup', stopMoving);
 document.addEventListener('mousemove', move);
+
+$(document).ready(function () {
+
+    $("#game-mode").on("change", function () {
+        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
+        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
+    })
+    
+    $(".start-hack").on("click", function() {
+        let randomOperator = Math.random() < 0.5 ? "" : "-";
+
+        if(antiSolverMode){
+            $(".hack-box").css({
+                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 20)}px, ${randomOperator}${random(10,20)}px)`,
+            });
+        }else {
+            $(".hack-box").css({
+                "transform": `rotate(0deg) translate(0, 0)`,
+            });
+        }
+    })
+})
