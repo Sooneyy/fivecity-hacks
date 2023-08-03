@@ -193,43 +193,98 @@ body {
   user-select: none;
 }
 
-.hack-header{
-  height: 1.8rem;
-  width: 720px;
-  display: flex;
-  padding: 3px 2px;
-  box-sizing: border-box;
-  font-size: 14px;
-  border: 3px solid #ABB0B0;
-  justify-content: space-between;
-  box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff;
-  align-items: center;
-  background: #0400ff;
-  color: #fff;
+.hack-options {
+  margin-top: 50px;
 }
 
-.hack-header .buttons{
-  height: 18px;
+.options > * {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.options {
+  font-size: 14px;
+  font-weight: 600;
   display: flex;
-  gap: 3px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 20px;
+}
+
+.options:last-child{
+  justify-content: flex-start;
+}
+
+.checkbox{
+  display: grid;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 1.35em;
+  width: 1.35em;
+  color: currentColor;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  place-content: center;
+  translate: 0 1px;
+}
+
+.checkbox::before{
+  content: '';
+  box-shadow: inset 1em 1em currentColor;
+  clip-path: polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0,43% 62%);
+  transform: scale(0);
+  transform-origin: center center;
+  transition: transform .1s ease-in-out;
+  width: .85em;
+  height: .85em;
+}
+
+.checkbox:checked::before{
+  transform: scale(1);
 }
 
 .hack-box {
   width: 720px;
   height: 700px;
   background: #fff;
-  border: 3px solid #ABB0B0;
+  border: 3px solid #abb0b0;
   padding: 10px 25px;
   position: relative;
   margin-bottom: 1.5rem;
   box-sizing: border-box;
-  box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff,
-              inset -2px -2px 0 1px #fff, inset 0 0 0 2px #8D8D8D;
+  box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff,
+    inset -2px -2px 0 1px #fff, inset 0 0 0 2px #8d8d8d;
+}
+
+.hack-header {
+  position: absolute;
+  top: -1.95rem;
+  z-index: -1;
+  left: -3px;
+  height: 1.8rem;
+  width: 720px;
+  display: flex;
+  padding: 3px 2px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 3px solid #abb0b0;
+  justify-content: space-between;
+  box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff;
+  align-items: center;
+  background: #000430;
+  color: #fff;
+}
+
+.hack-header .buttons {
+  height: 18px;
+  display: flex;
+  gap: 3px;
 }
 
 .hack-info {
   color: #000;
-  height: 300px;
+  height: 260px;
   width: 100%;
   text-align: center;
   translate: 0 100%;
