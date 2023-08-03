@@ -86,13 +86,12 @@ function startHack() {
 
 function gameWin() {
     wins++;
-    alert('Hack zrobiony w ' + stepsCount + ' ruchach');
     document.getElementById('number-w').textContent = String(wins);
     localStorage.setItem('wins', wins);
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
     hackInfoBox.style.display = '';
-    hackInfo.textContent = 'Hack udany';
+    hackInfo.textContent = `Hack udany w ${stepsCount} ruchach`;
     progressBarBox.style.display = 'block';
     progressBar('end', 8);
 }
