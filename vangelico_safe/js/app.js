@@ -51,7 +51,7 @@ function hack() {
     sizeText.textContent = inputSize.value + 'x' + inputSize.value;
     timeText.textContent = String(dftPlayTime);
     hackInfoBox.style.display = '';
-    hackInfo.textContent = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę';
+    hackInfo.innerHTML = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę' + '<br>' + 'Okno z zasadami / patternami można przesunąć sobie przytrzymując jego górną część jak w OS-ach' + '<br>' + 'Dla ułatwienia :>';
     hackFunction.style.display = 'none';
     progressBarBox.style.display = 'none';
     document.getElementById('number-a').textContent = String(attempts);
