@@ -10,6 +10,7 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
+const hackOptions = document.querySelector('.hack-options');
 const modal = document.getElementById('modal');
 
 var attempts = localStorage.getItem('attempts');
@@ -47,6 +48,7 @@ function startHack() {
     attempts++;
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
+    hackOptions.style.display = 'none';
     createGrid();
     hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
     hackTitleBox.style.display = 'none';
@@ -122,6 +124,7 @@ function progressBar(w, t) {
             if (w === 'end') {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
+                hackOptions.style.display = '';
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = '';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
