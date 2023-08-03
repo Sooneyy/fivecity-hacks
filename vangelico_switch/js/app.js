@@ -11,7 +11,8 @@ const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 const hackCount = document.querySelector('.hack-count');
-const input = document.querySelector('input');
+const hackOptions = document.querySelector('.hack-options')
+const input = document.querySelector('#colors-number');
 const hackLevel = document.querySelector('.hack-level');
 const level = document.getElementById('level');
 
@@ -58,6 +59,7 @@ function startHack() {
     document.getElementById('number-a').textContent = String(attempts);
     localStorage.setItem('attempts', attempts);
     hackTitleBox.style.display = 'none';
+    hackOptions.style.display = 'none';
     hackFunction.style.display = 'none';
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Przygotuj się...';
@@ -146,6 +148,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
+                hackOptions.style.display = '';
                 hackCount.style.display = 'none';
                 hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
             }
