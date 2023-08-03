@@ -17,6 +17,10 @@ const sizeText = document.getElementById('size');
 const inputTime = document.getElementById('input-time');
 const timeText = document.getElementById('time');
 
+const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
 var loses = localStorage.getItem('loses');
