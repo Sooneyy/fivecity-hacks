@@ -29,6 +29,7 @@ var height = 7;
 var width = 7;
 var randomColor = 0;
 var randomPlaceholderColor = 0;
+var antiSolverMode = false;
 var levelCount = 0;
 var numbers = [];
 var colors = ['niebieskiego', 'czerwonego', 'zielonego'];
@@ -240,4 +241,26 @@ statisticsButton.addEventListener('click', () => {
     statisticsButton.classList.toggle('opened');
     statisticsButtonArrow.classList.toggle('open');
     statisticsMenu.classList.toggle('collapsed');
+})
+
+$(document).ready(function () {
+
+    $("#game-mode").on("change", function () {
+        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
+        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
+    })
+    
+    $(".start-hack").on("click", function() {
+        let randomOperator = Math.random() < 0.5 ? "" : "-";
+
+        if(antiSolverMode){
+            $(".hack-box").css({
+                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 20)}px, ${randomOperator}${random(10,20)}px)`,
+            });
+        }else {
+            $(".hack-box").css({
+                "transform": `rotate(0deg) translate(0, 0)`,
+            });
+        }
+    })
 })
