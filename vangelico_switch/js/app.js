@@ -12,7 +12,7 @@ const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 const hackCount = document.querySelector('.hack-count');
 const hackOptions = document.querySelector('.hack-options')
-const input = document.querySelector('#colors-number');
+const input = document.querySelector('#color-number');
 const hackLevel = document.querySelector('.hack-level');
 const level = document.getElementById('level');
 
