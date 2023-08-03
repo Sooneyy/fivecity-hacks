@@ -30,7 +30,7 @@ body {
 .start-hack {
   --height: 3.5rem;
   background: #FFFFFF;
-  border: 2px solid #0f003f;
+  border: 2px solid #0400ff;
   outline: none;
   height: var(--height);
   width: calc(var(--height) * 3);
@@ -44,7 +44,7 @@ body {
 }
 
 .start-hack:hover {
-  background: #0f003f;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -204,7 +204,7 @@ body {
   justify-content: space-between;
   box-shadow: 1px 1px 0 .1px #000, -1px -1px 2px .1px #fff;
   align-items: center;
-  background: #000430;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -272,7 +272,7 @@ body {
 #progress-bar-fn {
   position: relative;
   height: 100%;
-  background: #000430;
+  background: #0400ff;
 }
 
 .hack-fn {
