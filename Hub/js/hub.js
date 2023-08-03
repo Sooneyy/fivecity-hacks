@@ -24,14 +24,14 @@ const hacksList = [
         link: './vangelico_doors'
     },
     {
-        name: 'Włamywanie do sejfu - fixed',
+        name: 'Włamywanie do sejfu',
         heist: 'Vangelico',
         link: './vangelico_safe'
     },
 ]
 
 window.onload = () => {
-    alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ PRZEJŚĆ!!")
+    alert("ALGORYTM NA SEJF ZOSTAŁ NAPRAWIONY. TERAZ ZAWSZE DA SIĘ PRZEJŚĆ!")
 }
 
 for (let i = 0; i < heistsList.length; i++) {
