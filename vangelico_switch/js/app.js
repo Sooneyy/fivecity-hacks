@@ -262,7 +262,7 @@ $(document).ready(function () {
 
         if(antiSolverMode){
             $(".hack-box").css({
-                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 20)}px, ${randomOperator}${random(10,20)}px)`,
+                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 25)}px, ${randomOperator}${random(20, 30)}px)`,
             });
         }else {
             $(".hack-box").css({
