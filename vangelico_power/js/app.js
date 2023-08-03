@@ -11,6 +11,10 @@ const statisticsButton = document.querySelector('.statistics-header');
 const statisticsMenu = document.querySelector('.statistics-menu');
 const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 
+const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
 var loses = localStorage.getItem('loses');
