@@ -15,6 +15,10 @@ const input = document.querySelector('input');
 const hackLevel = document.querySelector('.hack-level');
 const level = document.getElementById('level');
 
+const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var attempts = localStorage.getItem('attempts');
 var wins = localStorage.getItem('wins');
 var loses = localStorage.getItem('loses');
