@@ -25,6 +25,7 @@ var playTime = 7;
 var height = 6;
 var width = 6;
 var number = 0;
+var antiSolverMode = false;
 var isOver = false;
 var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
@@ -300,3 +301,25 @@ function closeModal() {
     modal.classList.remove('modal-revealed');
     modal.classList.add('modal-hidden');
 }
+
+$(document).ready(function () {
+
+    $("#game-mode").on("change", function () {
+        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
+        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
+    })
+    
+    $(".start-hack").on("click", function() {
+        let randomOperator = Math.random() < 0.5 ? "" : "-";
+
+        if(antiSolverMode){
+            $(".hack-box").css({
+                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 20)}px, ${randomOperator}${random(10,20)}px)`,
+            });
+        }else {
+            $(".hack-box").css({
+                "transform": `rotate(0deg) translate(0, 0)`,
+            });
+        }
+    })
+})
