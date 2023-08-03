@@ -377,8 +377,8 @@ table tbody tr td{
 #close-modal{
   font-family: "IBM Plex Sans", sans-serif;
   padding: 8px 14px;
-  background: rgba(30, 0, 255, .2);
-  border: 1px solid rgba(30, 0, 255, .6);
+  background: rgba(30, 0, 255, .4);
+  border: 1px solid rgba(30, 0, 255, .4);
   font-size: 16px;
   font-weight: 600;
   color: #fff;
