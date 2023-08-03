@@ -32,7 +32,7 @@ body {
 .start-hack, .how-to-play {
   --height: 3.5rem;
   background: #FFFFFF;
-  border: 2px solid #0f003f;
+  border: 2px solid #0400ff;
   outline: none;
   height: var(--height);
   width: calc(var(--height) * 3);
@@ -50,7 +50,7 @@ body {
 }
 
 .start-hack:hover, .how-to-play:hover{
-  background: #0f003f;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -246,7 +246,7 @@ body {
   justify-content: space-between;
   box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff;
   align-items: center;
-  background: #000430;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -288,7 +288,7 @@ body {
 }
 
 .modal-content h2 {
-  color: #000430;
+  color: #0400ff;
   text-decoration: underline;
 }
 
@@ -305,7 +305,7 @@ body {
 .link a{
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 32px;
-  color: #000430;
+  color: #0400ff;
   letter-spacing: .1em;
   position: relative;
 }
@@ -317,7 +317,7 @@ body {
   top: 100%;
   height: 5px;
   width: 100%;
-  background: #000430;
+  background: #6764fc;
   transform: scaleX(0);
   transition: transform .2s linear;
 }
@@ -329,9 +329,9 @@ body {
 .patterns h1{
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 32px;
-  color: #000430;
+  color: #0400ff;
   text-decoration: underline;
-  filter: drop-shadow(0 15px 15px #000430);
+  filter: drop-shadow(0 15px 15px #0400ff);
 }
 
 .patterns{
@@ -366,12 +366,12 @@ table thead tr th{
 table tbody tr th{
   font-size: 18px;
   padding: 10px;
-  border: 1px solid #000430;
+  border: 1px solid #0400ff;
   text-decoration: underline;
 }
 
 table tbody tr td{
-  border: 1px solid #000430;
+  border: 1px solid #0400ff;
 }
 
 #close-modal{
@@ -459,7 +459,7 @@ table tbody tr td{
   justify-content: space-between;
   box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff;
   align-items: center;
-  background: #000430;
+  background: #0400ff;
   color: #fff;
 }
 
@@ -527,7 +527,7 @@ table tbody tr td{
 #progress-bar-fn {
   position: relative;
   height: 100%;
-  background: #000430;
+  background: #0400ff;
 }
 
 .hack-fn {
