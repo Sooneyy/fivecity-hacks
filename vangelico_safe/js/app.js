@@ -36,6 +36,7 @@ var height = 5;
 var width = 5;
 var squares = [];
 var classCount = className.length;
+var isHolding = false;
 var cells;
 var col;
 var row;
@@ -412,8 +413,8 @@ var mouseX = 0,
 
 function startMoving(e) {
     isHolding = true;
+    
     offsetX = e.clientX - modal.getBoundingClientRect().left
-    console.log(e.clientX, modal.getBoundingClientRect().left)
     offsetY = e.clientY - modal.getBoundingClientRect().top
 }
 
