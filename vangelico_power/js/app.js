@@ -24,6 +24,7 @@ var playTime = 10;
 var height = 15;
 var width = 15;
 var path;
+var antiSolverMode = false;
 var wrong = 0;
 var good = 0;
 var keyCodes = { left: 37, up: 38, right: 39, down: 40 }
@@ -335,4 +336,26 @@ statisticsButton.addEventListener('click', () => {
     statisticsButton.classList.toggle('opened');
     statisticsButtonArrow.classList.toggle('open');
     statisticsMenu.classList.toggle('collapsed');
+})
+
+$(document).ready(function () {
+
+    $("#game-mode").on("change", function () {
+        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
+        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
+    })
+    
+    $(".start-hack").on("click", function() {
+        let randomOperator = Math.random() < 0.5 ? "" : "-";
+
+        if(antiSolverMode){
+            $(".hack-box").css({
+                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(10, 20)}px, ${randomOperator}${random(10,20)}px)`,
+            });
+        }else {
+            $(".hack-box").css({
+                "transform": `rotate(0deg) translate(0, 0)`,
+            });
+        }
+    })
 })
