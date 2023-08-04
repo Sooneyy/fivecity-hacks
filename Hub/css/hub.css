@@ -11,104 +11,48 @@
 
 body {
   height: 100vh;
-  background: #0a0a0a;
+  background: #55aaaa;
   overflow-x: hidden;
+  padding: 20px 30px;
+  box-sizing: border-box;
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
-  padding-inline: 12rem;
 }
 
 .header {
-  padding: 30px 40px;
-  background: #181818;
-  box-shadow: 0 0 15px #1b1b1b, inset 0 0 30px #0f0f0f;
-  border-radius: 30px 5px 30px 5px;
+  padding: 10px;
+  width: 500px;
+  text-align: center;
+  background: #c0c0c0;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
   font-weight: bold;
-  font-size: 24px;
-  animation: show-header 1s ease;
+  border: 6px solid #c0c0c0;
+  font-size: 28px;
 }
 
-@keyframes show-header {
-  0% {
-    opacity: 0;
-    translate: -300% 0;
-  }
-  50% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-
-.header p {
-  background: linear-gradient(to right, #9c9c9c, #545454);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.fcity {
-  background: linear-gradient(45deg, #8f00ff 30%, #310058);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.cards-list {
-  height: 500px;
+.heists-list {
+  height: 550px;
   width: 100%;
-  padding: 20px;
-  animation: show-cardlist 1s ease;
   display: flex;
   justify-content: center;
   gap: 105px;
 }
 
-.cards-list::-webkit-scrollbar {
-  height: 5px;
-}
-
-.cards-list::-webkit-scrollbar-track {
-  background: #33333335;
-  border-radius: 5vw;
-}
-
-.cards-list::-webkit-scrollbar-thumb {
-  background: #3f3f3f65;
-  border-radius: 5vw;
-}
-
-.cards-list::-webkit-scrollbar-thumb:hover {
-  background: #3f3f3fa5;
-  border-radius: 5vw;
-}
-
-@keyframes show-cardlist {
-  from {
-    opacity: 0;
-    transform: scale(0);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.card {
+.heist {
   height: 100%;
-  max-height: 95%;
-  overflow: auto;
-  width: 320px;
-  padding: 35px;
-  border-radius: 60px 10px 60px 10px;
-  background: #181818;
-  box-shadow: 15px 15px 8px #111111, inset 0 0 45px #0b0b0b;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 400px;
+  padding: 20px 30px;
+  background: #c0c0c0;
+  box-shadow: -1px -1px 0 2px #fff, 1px 1px 0 2px #000;
+  border: 6px solid #c0c0c0;
   flex-shrink: 0;
   box-sizing: border-box;
   display: flex;
@@ -116,136 +60,170 @@ body {
   flex-direction: column;
 }
 
-.card::-webkit-scrollbar{
-  width: 4px;
-}
-
-.card::-webkit-scrollbar-track{
-  border-radius: 10px;
-  background: #191919;
-}
-
-.card::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-  background: #232323;
-}
-
-.card::-webkit-scrollbar-thumb:hover{
-  background: #333333;
-}
-
-.card-title {
-  padding: 10px 15px;
-  margin-top: 10px;
-  background: linear-gradient(45deg, #1e1e1e 0%, #171717 100%);
-  border-radius: 30px 5px 30px 5px;
-  box-shadow: inset 0px 0px 20px #121212;
-  color: #777777;
-  font-size: 25px;
+.heist-title {
+  width: 100%;
+  background: #0029ff;
+  border: 4px solid #c0c0c0;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  color: #fff;
+  padding-block: 12px;
+  text-align: center;
+  font-size: 26px;
   font-weight: 600;
   user-select: none;
 }
 
-.heist-name {
-  font-style: italic;
-}
-
-.card-items {
+.heist-items {
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  padding-inline: 15px;
-  margin-top: 35px;
-  isolation: isolate;
+  padding: 5px;
+  margin-top: 45px;
+  max-height: 95%;
+  border-bottom: 2px solid #fff;
 }
 
-.card-items button {
+.heist-items button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: none;
-  background: #222222;
-  padding: 6px;
+  background: #c0c0c0;
+  padding: 7px;
   width: 100%;
-  box-shadow: inset 0 0 15px #151515;
-  border-radius: 15px;
-  text-align: left;
+  height: 55px;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  margin-bottom: 30px;
+  cursor: pointer;
   position: relative;
 }
 
-.hack-name {
+.heist-items button:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #808080;
+}
+
+.heist-items button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: #808080;
+}
+
+.heist-items button div {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.heist-items button:hover {
+  background: #0029ff;
+}
+
+.heist-items button:hover div {
+  color: #fff;
+}
+
+.heist-name {
   text-transform: uppercase;
-  font-size: 8px;
-  font-weight: bold;
-  vertical-align: middle;
-  padding-left: 2px;
-}
-
-.card-items a{
-  opacity: .4;
-  transition: opacity .1s linear;
-}
-
-.card-items a:hover{
-  opacity: 1;
 }
 
 .footer {
-  background: #181818;
+  width: 1200px;
+  height: 100px;
   padding: 10px 30px;
-  border-radius: 30px 5px 30px 5px;
-  font-weight: bold;
-  box-shadow: 0 0 15px #1b1b1b, inset 0 0 30px #0f0f0f;
-  font-size: 20px;
-  text-align: center;
-  animation: show-footer 1s ease;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
 }
 
-@keyframes show-footer {
-  0% {
-    opacity: 0;
-    translate: 300% 0;
-  }
-  50% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 1;
-    translate: 0 0;
-  }
+.desc {
+  height: 100%;
+  background: #c0c0c0;
+  border: 4px solid #c0c0c0;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 26px;
 }
 
-.footer p {
-  color: #9c9c9ce5;
+.author {
+  height: 100%;
+  background: #c0c0c0;
+  border: 4px solid #c0c0c0;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  box-sizing: border-box;
+  padding: 5px;
 }
 
-.footer h5{
-  color: rgba(255, 255, 255, .3);
-  font-size: 12px !important;
-  margin-top: 10px;
+.socials {
+  margin-top: 5px;
+  padding: 4px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  isolation: isolate;
 }
 
-.footer svg{
-  vertical-align: middle;
-  translate: 0 -1px;
-  color: rgba(255, 255, 255, .3);
-}
-
-#kornik{
-  color: rgba(255, 255, 255, .6);
+.social-link {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-content: center;
+  background: #c0c0c0;
+  padding: 4px;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  color: #000;
+  cursor: pointer;
   position: relative;
 }
 
-#kornik::before{
-  content: '';
+.social-link:before {
+  content: "";
   position: absolute;
-  background: rgba(255, 255, 255, .6);
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 2px;
-  top: 100%;
-  transform: scaleX(0);
-  transition: transform .1s linear;
+  background: #808080;
 }
 
-#kornik:hover::before{
-  transform: scaleX(1);
+.social-link:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: #808080;
 }
+
+.social-link:hover {
+  background: #0029ff;
+  color: #fff;
+}
+
+#discord{
+  cursor: pointer;
+}
+
+#copy{
+  background: #0029ff;
+  border: 2px solid #c0c0c0;
+  padding: 4px 8px;
+  box-shadow: -1px -1px 0 1px #fff, 1px 1px 0 1px #000;
+  color: #fff;
+  position: absolute;
+  top: -90%;
+  left: -11%;
+  display: none;
+}
+
