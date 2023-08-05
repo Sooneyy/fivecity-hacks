@@ -84,7 +84,6 @@ body {
   height: 40px;
   left: -300px;
   top: 15px;
-  padding-top: 5px;
   box-sizing: border-box;
   border-bottom: 2px solid #000;
   border-left: 2px solid #fff;
@@ -100,6 +99,14 @@ body {
   animation-delay: .5s;
 }
 
+#back:hover{
+  background: #cecece;
+}
+
+#back:active{
+  background: #b5b5b5;
+}
+
 @keyframes show-home{
   0%{
     left: -300px;
@@ -107,14 +114,6 @@ body {
   100%{
     left: 15px;
   }
-}
-
-.hack-options {
-  margin-top: 20px;
-}
-
-.options > * {
-  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .options {
