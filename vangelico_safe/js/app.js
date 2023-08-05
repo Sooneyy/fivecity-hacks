@@ -61,7 +61,7 @@ function startHack() {
     stepsCount = 0;
     squares = [];
     hackOptions.style.display = 'none';
-    
+    buttons.style.display = 'none';
     createGrid();
     newGame();
     hackTitle.innerHTML = 'Odznacz wszystkie pola';
