@@ -230,12 +230,6 @@ input.addEventListener('keydown', (e) => {
     }
 })
 
-statisticsButton.addEventListener('click', () => {
-    statisticsButton.classList.toggle('opened');
-    statisticsButtonArrow.classList.toggle('open');
-    statisticsMenu.classList.toggle('collapsed');
-})
-
 $(document).ready(function () {
 
     $("#game-mode").on("change", function () {
