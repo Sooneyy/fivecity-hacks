@@ -5,11 +5,9 @@ const hackTitle = document.getElementById('hack-title-text');
 const hackInfoBox = document.querySelector('.hack-info');
 const hackInfo = document.getElementById('hack-info-text');
 const startButton = document.querySelector('.start-hack');
+const buttons = document.querySelector('.play-buttons');
 const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
-const statisticsButton = document.querySelector('.statistics-header');
-const statisticsMenu = document.querySelector('.statistics-menu');
-const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 const hackOptions = document.querySelector('.hack-options');
 const options = document.querySelector('.options');
 const inputSize = document.getElementById('input-size');
@@ -20,14 +18,6 @@ const timeText = document.getElementById('time');
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
-var attempts = localStorage.getItem('attempts');
-var wins = localStorage.getItem('wins');
-var loses = localStorage.getItem('loses');
-
-if (attempts === null) attempts = 0;
-if (wins === null) wins = 0;
-if (loses === null) loses = 0;
 
 var className = new Array();
     className[0] = 'empty';
@@ -56,13 +46,9 @@ var maxr;
 function hack() {
     sizeText.textContent = inputSize.value + 'x' + inputSize.value;
     timeText.textContent = String(dftPlayTime);
-    hackInfoBox.style.display = '';
-    hackInfo.innerHTML = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę' + '<br>' + 'Okno z zasadami / patternami można przesunąć sobie przytrzymując jego górną część jak w OS-ach' + '<br>' + 'Dla ułatwienia :>';
+    hackInfoBox.style.display = 'none';
     hackFunction.style.display = 'none';
     progressBarBox.style.display = 'none';
-    document.getElementById('number-a').textContent = String(attempts);
-    document.getElementById('number-w').textContent = String(wins);
-    document.getElementById('number-l').textContent = String(loses);
 }
 
 function startHack() {
@@ -74,10 +60,8 @@ function startHack() {
     }
     stepsCount = 0;
     squares = [];
-    attempts++;
-    document.getElementById('number-a').textContent = String(attempts);
-    localStorage.setItem('attempts', attempts);
     hackOptions.style.display = 'none';
+    
     createGrid();
     newGame();
     hackTitle.innerHTML = 'Odznacz wszystkie pola';
@@ -90,11 +74,9 @@ function startHack() {
 }
 
 function gameWin() {
-    wins++;
-    document.getElementById('number-w').textContent = String(wins);
-    localStorage.setItem('wins', wins);
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
+    buttons.style.display = 'none';
     hackInfoBox.style.display = '';
     hackInfo.textContent = `Hack udany w ${stepsCount} ruchach`;
     progressBarBox.style.display = 'block';
@@ -102,9 +84,6 @@ function gameWin() {
 }
 
 function gameOver() {
-    loses++;
-    document.getElementById('number-l').textContent = String(loses);
-    localStorage.setItem('loses', loses);
     hackFunction.style.display = 'none';
     hackTitleBox.style.display = 'none';
     hackInfoBox.style.display = '';
@@ -138,7 +117,8 @@ function progressBar(w, t) {
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
                 hackOptions.style.display = '';
-                hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
+                buttons.style.display = '';
+                hackInfoBox.style.display = 'none';
             }
         }
     }
