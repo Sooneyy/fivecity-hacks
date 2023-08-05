@@ -181,7 +181,6 @@ body {
 }
 
 .modal-container > * > *{
-  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 600;
 }
 
@@ -218,10 +217,6 @@ body {
   font-size: 10px;
   opacity: .7;
   margin-top: 5px;
-}
-
-.hack-options {
-  margin-top: 20px;
 }
 
 .options {
