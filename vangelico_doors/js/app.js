@@ -5,6 +5,7 @@ const hackTitle = document.getElementById('hack-title-text');
 const hackInfoBox = document.querySelector('.hack-info');
 const hackInfo = document.getElementById('hack-info-text');
 const startButton = document.querySelector('.start-hack');
+const buttons = document.querySelectgor('.play-buttons');
 const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
 const hackOptions = document.querySelector('.hack-options');
@@ -31,6 +32,7 @@ function startHack() {
     lastPosition = 0;
     wrong = 0;
     hackOptions.style.display = 'none';
+    buttons.style.display = 'none';
     createGrid();
     hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
     hackTitleBox.style.display = 'none';
@@ -101,6 +103,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 hackOptions.style.display = '';
+                buttons.style.display = '';
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
             }
