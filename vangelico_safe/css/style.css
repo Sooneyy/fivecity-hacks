@@ -12,7 +12,7 @@
 }
 
 body {
-  background: linear-gradient(145deg, #009bb0, #38937d);
+  background: #55aaaa;
   height: 100vh;
   display: grid;
   place-items: center;
