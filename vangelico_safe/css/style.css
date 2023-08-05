@@ -432,7 +432,7 @@ table tbody tr td{
 
 .hack-info {
   color: #000;
-  height: 260px;
+  height: 300px;
   width: 100%;
   text-align: center;
   translate: 0 100%;
@@ -484,29 +484,11 @@ table tbody tr td{
   height: 350px;
   width: 350px;
   display: grid;
-  transform: translateY(70px);
-}
-
-.hack-fn::after {
-  content: "";
-  position: absolute;
-  top: -5%;
-  right: -7%;
-  height: 112%;
-  width: 3px;
-  background: #818081;
-  border-radius: 50px 0 0 0;
-}
-
-.hack-fn::before {
-  content: "";
-  position: absolute;
-  bottom: -7%;
-  left: -5%;
-  height: 3px;
-  width: 112%;
-  background: #818081;
-  border-radius: 50px 0 0 0;
+  transform: translateY(30px);
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #818081;
+  border-right: 3px solid #818081;
 }
 
 .row {
