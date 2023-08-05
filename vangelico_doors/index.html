@@ -14,17 +14,6 @@
     <a id="back" href="../"> <!-- #podjebaned styl od kornika :\ -->
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
     </a>
-    <div class="statistics-container">
-        <div class="statistics-header">
-            <span>Statystyki</span>
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"/></svg></span>
-        </div>
-        <div class="statistics-menu">
-            <div id="attempts">Ilość prób: <b id="number-a"></b></div>
-            <div id="wins">Wygrane: <b id="number-w"></b></div>
-            <div id="loses">Przegrane: <b id="number-l"></b></div>
-        </div>
-    </div>
     <div class="container">
         <div class="hack-box">
             <div class="hack-header">
@@ -34,6 +23,10 @@
                     <img src="./imgs/resize.png">
                     <img src="./imgs/close.png">
                 </div>
+            </div>
+            <div class="play-buttons">
+                <button class="start-hack" onclick="startHack()">Hackuj</button>
+                <button class="how-to-play" onclick="howToPlay()">Zasady</button>
             </div>
             <div class="hack-title">
                 <h1 id="hack-title-text"></h1>
@@ -79,10 +72,6 @@
                     <p>By zamknąć naciśnij przycisk close</p>
                 </div>
             </div>
-        </div>
-        <div class="play-buttons">
-        <button class="start-hack" onclick="startHack()">Hackuj</button>
-        <button class="how-to-play" onclick="howToPlay()">Zasady</button>
         </div>
     </div>
 </body>
