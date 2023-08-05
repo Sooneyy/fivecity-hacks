@@ -227,6 +227,7 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
   margin-top: 20px;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .options:last-child{
@@ -293,6 +294,7 @@ body {
   align-items: center;
   background: #0400ff;
   color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .hack-header .buttons {
