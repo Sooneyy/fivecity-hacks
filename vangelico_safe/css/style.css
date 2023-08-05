@@ -282,19 +282,22 @@ table tbody tr td{
 
 #close-modal{
   padding: 8px 14px;
-  background: rgba(30, 0, 255, .4);
-  border: 1px solid rgba(30, 0, 255, .4);
+  background: #C0C0C0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #fff;
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
-  transition: all .2s linear;
-  cursor: pointer;
+  color: #000;
 }
 
 #close-modal:hover{
-  background: rgb(30, 0, 255);
-  border: 1px solid rgb(30, 0, 255);
-  color: #fff;
+  background: #CECECE;
+}
+
+#close-modal:active{
+  scale: .95;
 }
 
 .options {
