@@ -267,12 +267,6 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-statisticsButton.addEventListener('click', () => {
-    statisticsButton.classList.toggle('opened');
-    statisticsButtonArrow.classList.toggle('open');
-    statisticsMenu.classList.toggle('collapsed');
-})
-
 function howToPlay() {
     modal.classList.remove('modal-hidden');
     modal.classList.add('modal-revealed');
