@@ -481,6 +481,7 @@ table tbody tr td{
 .hack-fn {
   position: relative;
   margin: 0 auto;
+  padding: 30px;
   height: 350px;
   width: 350px;
   display: grid;
