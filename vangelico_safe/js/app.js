@@ -362,12 +362,6 @@ function doBasicSweep(pivoti, pivotj) {
     }
 }
 
-statisticsButton.addEventListener('click', () => {
-    statisticsButton.classList.toggle('opened');
-    statisticsButtonArrow.classList.toggle('open');
-    statisticsMenu.classList.toggle('collapsed');
-})
-
 inputSize.addEventListener('input', (e) => {
     height = Number(e.target.value)
     width = Number(e.target.value);
