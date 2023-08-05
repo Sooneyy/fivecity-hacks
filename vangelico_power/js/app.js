@@ -7,22 +7,11 @@ const hackInfo = document.getElementById('hack-info-text');
 const startButton = document.querySelector('.start-hack');
 const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
-const statisticsButton = document.querySelector('.statistics-header');
-const statisticsMenu = document.querySelector('.statistics-menu');
-const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 const hackOptions = document.querySelector('.hack-options');
 
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
-var attempts = localStorage.getItem('attempts');
-var wins = localStorage.getItem('wins');
-var loses = localStorage.getItem('loses');
-
-if (attempts === null) attempts = 0;
-if (wins === null) wins = 0;
-if (loses === null) loses = 0;
 
 var progressBarInterval;
 var playTime = 10;
@@ -35,21 +24,15 @@ var good = 0;
 var keyCodes = { left: 37, up: 38, right: 39, down: 40 }
 
 function hack() {
-    hackInfoBox.style.display = '';
-    hackInfo.textContent = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę';
+    hackInfoBox.style.display = 'none';
     hackFunction.style.display = 'none';
     progressBarBox.style.display = 'none';
-    document.getElementById('number-a').textContent = String(attempts);
-    document.getElementById('number-w').textContent = String(wins);
-    document.getElementById('number-l').textContent = String(loses);
 }
 
 function startHack() {
     wrong = 0;
-    attempts++;
     path = randomPath(width, height);
-    document.getElementById('number-a').textContent = String(attempts);
-    localStorage.setItem('attempts', attempts);
+    startButton.style.display = 'none';
     hackFunction.innerHTML = '';
     hackOptions.style.display = 'none';
     createGrid();
@@ -64,9 +47,6 @@ function startHack() {
 }
 
 function gameWin() {
-    wins++;
-    document.getElementById('number-w').textContent = String(wins);
-    localStorage.setItem('wins', wins);
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
     hackInfoBox.style.display = '';
@@ -76,9 +56,6 @@ function gameWin() {
 }
 
 function gameOver() {
-    loses++;
-    document.getElementById('number-l').textContent = String(loses);
-    localStorage.setItem('loses', loses);
     hackFunction.style.display = 'none';
     hackTitleBox.style.display = 'none';
     hackInfoBox.style.display = '';
@@ -111,7 +88,8 @@ function progressBar(w, t) {
                 hackTitleBox.style.display = 'none';
                 progressBarBox.style.display = 'none';
                 hackOptions.style.display = '';
-                hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
+                hackInfoBox.style.display = 'none';
+                startButton.style.display = '';
             }
         }
     }
