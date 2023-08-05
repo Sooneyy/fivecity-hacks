@@ -7,19 +7,8 @@ const hackInfo = document.getElementById('hack-info-text');
 const startButton = document.querySelector('.start-hack');
 const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
-const statisticsButton = document.querySelector('.statistics-header');
-const statisticsMenu = document.querySelector('.statistics-menu');
-const statisticsButtonArrow = document.querySelector('.statistics-header > span > svg');
 const hackOptions = document.querySelector('.hack-options');
 const modal = document.getElementById('modal');
-
-var attempts = localStorage.getItem('attempts');
-var wins = localStorage.getItem('wins');
-var loses = localStorage.getItem('loses');
-
-if (attempts === null) attempts = 0;
-if (wins === null) wins = 0;
-if (loses === null) loses = 0;
 
 var progressBarInterval;
 var playTime = 7;
@@ -32,22 +21,15 @@ var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
 
 function hack() {
-    hackInfoBox.style.display = '';
-    hackInfo.innerHTML = 'Naciśnij przycisk poniżej, aby rozpocząć minigrę' + '<br>' + '(Może być więcej poprawnych dróg niż ta, która się podświetla)' + '<br>' + 'Ta co się podświetla jest najszybsza';
+    hackInfoBox.style.display = 'none';
     hackFunction.style.display = 'none';
     progressBarBox.style.display = 'none';
-    document.getElementById('number-a').textContent = String(attempts);
-    document.getElementById('number-w').textContent = String(wins);
-    document.getElementById('number-l').textContent = String(loses);
 }
 
 function startHack() {
     isOver = false;
     lastPosition = 0;
     wrong = 0;
-    attempts++;
-    document.getElementById('number-a').textContent = String(attempts);
-    localStorage.setItem('attempts', attempts);
     hackOptions.style.display = 'none';
     createGrid();
     hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
@@ -60,9 +42,6 @@ function startHack() {
 }
 
 function gameWin() {
-    wins++;
-    document.getElementById('number-w').textContent = String(wins);
-    localStorage.setItem('wins', wins);
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
     hackInfoBox.style.display = '';
@@ -72,9 +51,6 @@ function gameWin() {
 }
 
 function gameOver() {
-    loses++;
-    document.getElementById('number-l').textContent = String(loses);
-    localStorage.setItem('loses', loses);
     hackFunction.style.display = 'none';
     hackTitleBox.style.display = 'none';
     progressBarBox.style.display = 'block';
@@ -126,8 +102,7 @@ function progressBar(w, t) {
                 hackTitleBox.style.display = 'none';
                 hackOptions.style.display = '';
                 progressBarBox.style.display = 'none';
-                hackInfoBox.style.display = '';
-                hackInfo.textContent = 'Naciśnij przycisk poniżej, aby ponownie rozpocząć minigrę';
+                hackInfoBox.style.display = 'none';
             }
         }
     }
