@@ -392,7 +392,7 @@ table tbody tr td{
   top: -1.95rem;
   left: -3px;
   height: 1.8rem;
-  width: 720px;
+  width: 760px;
   display: flex;
   padding: 3px 2px;
   box-sizing: border-box;
@@ -416,7 +416,7 @@ table tbody tr td{
   height: 100%;
   display: grid;
   place-content: center;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   padding-right: 2px;
   border-radius: 2px;
   border-top: 1px solid #fff;
@@ -426,7 +426,7 @@ table tbody tr td{
   width: 18px;
   background: #C0C0C0;
   color: #000;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   box-sizing: border-box;
   cursor: pointer;
