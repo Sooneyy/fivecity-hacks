@@ -378,7 +378,7 @@ body {
 .hack-footer {
   position: absolute;
   bottom: 15px;
-  width: 670px;
+  width: 660px;
 }
 
 .progress-bar {
@@ -432,7 +432,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 40px rgba(225, 212, 137, .8));
+  filter: drop-shadow(0 50px 35px rgba(225, 212, 137, .8));
 }
 
 .square:last-child{
@@ -443,7 +443,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 40px rgba(225, 212, 137, .8))
+  filter: drop-shadow(0 50px 35px rgba(225, 212, 137, .8))
 }
 
 .breathing{
@@ -452,7 +452,7 @@ body {
   background: #A09CB8;
   border: 1px solid #50487B;
   opacity: 1;
-  filter: drop-shadow(0 50px 40px rgba(160, 156, 184, .8));
+  filter: drop-shadow(0 50px 35px rgba(160, 156, 184, .8));
   animation: breathing 2s ease infinite;
 }
 
@@ -471,7 +471,7 @@ body {
   opacity: 1;
   border: 1px solid #579362;
   background: #AED1B2;
-  filter: drop-shadow(0 50px 40px rgba(87, 147, 98, .8))
+  filter: drop-shadow(0 50px 35px rgba(87, 147, 98, .8))
 }
 
 .bad{
@@ -480,7 +480,7 @@ body {
   opacity: 1;
   border: 1px solid #AD434C;
   background: #E18E92;
-  filter: drop-shadow(0 50px 40px rgba(225, 142, 146, .8))
+  filter: drop-shadow(0 50px 35px rgba(225, 142, 146, .8))
 }
 
 .hidden{
@@ -493,6 +493,6 @@ body {
   opacity: 1;
   background: #B0A289;
   border: 1px solid #8A7D6A;
-  filter: drop-shadow(0 50px 40px rgba(176, 162, 137, .8));
+  filter: drop-shadow(0 50px 35px rgba(176, 162, 137, .8));
 }
 
