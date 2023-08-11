@@ -280,7 +280,6 @@ body {
 .hack-header {
   position: absolute;
   top: -1.95rem;
-  z-index: -1;
   left: -3px;
   height: 1.8rem;
   width: 720px;
