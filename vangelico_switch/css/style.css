@@ -177,17 +177,16 @@ body {
 .hack-header {
   position: absolute;
   top: -1.95rem;
-  z-index: -1;
   left: -3px;
   height: 1.8rem;
-  width: 850px;
+  width: 720px;
   display: flex;
   padding: 3px 2px;
   box-sizing: border-box;
   font-size: 14px;
   border: 3px solid #abb0b0;
   justify-content: space-between;
-  box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff;
+  box-shadow: 1px 0 0 0.1px #000, -1px -1px 2px 0.1px #fff;
   align-items: center;
   background: #0400ff;
   color: #fff;
