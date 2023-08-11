@@ -289,7 +289,7 @@ body {
   font-size: 14px;
   border: 3px solid #abb0b0;
   justify-content: space-between;
-  box-shadow: 1px 1px 0 0.1px #000, -1px -1px 2px 0.1px #fff;
+  box-shadow: 1px 0 0 0.1px #000, -1px -1px 2px 0.1px #fff;
   align-items: center;
   background: #0400ff;
   color: #fff;
