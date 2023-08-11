@@ -203,7 +203,7 @@ body {
   height: 100%;
   display: grid;
   place-content: center;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   padding-right: 2px;
   border-radius: 2px;
   border-top: 1px solid #fff;
@@ -213,7 +213,7 @@ body {
   width: 18px;
   background: #C0C0C0;
   color: #000;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   box-sizing: border-box;
   cursor: pointer;
