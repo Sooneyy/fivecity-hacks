@@ -298,9 +298,60 @@ body {
 }
 
 .hack-header .buttons {
-  height: 18px;
+  height: 16px;
   display: flex;
   gap: 3px;
+}
+
+.button{
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding-bottom: 10px;
+  padding-right: 2px;
+  border-radius: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 18px;
+  background: #C0C0C0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button:hover{
+  background: #4000FF;
+  color: #fff;
+}
+
+#close{
+  padding-bottom: 0;
+  padding-right: 0;
+  font-size: 16px;
+}
+
+#resize{
+  position: relative;
+}
+
+#resize::before{
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  left: 2px;
+  top: 2px;
+  border-radius: 2px;
+  border: 1px solid #000;
+  border-top: 2px solid #000;
+}
+
+#resize:hover::before{
+  border-color: #fff;
 }
 
 .hack-info {
