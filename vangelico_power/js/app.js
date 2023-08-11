@@ -42,7 +42,7 @@ function startHack() {
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Przygotuj się...';
     progressBarBox.style.display = 'block';
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener('keyup', handleKeyPress);
     progressBar('start', 8);
 }
 
