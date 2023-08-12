@@ -308,7 +308,7 @@ function handleKeyPress(e) {
         gameWin();
     }
 
-    if (wrong > 3) {
+    if (wrong > 4) {
         gameOver();
     }
 }
