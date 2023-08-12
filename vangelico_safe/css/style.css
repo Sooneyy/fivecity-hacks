@@ -514,9 +514,9 @@ table tbody tr td{
 .hack-fn {
   position: relative;
   margin: 0 auto;
-  padding: 30px;
-  height: 350px;
-  width: 350px;
+  padding: 25px;
+  height: 300px;
+  width: 300px;
   display: grid;
   transform: translateY(30px);
   border-top: 3px solid #fff;
