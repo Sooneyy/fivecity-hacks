@@ -148,7 +148,7 @@ function progressBar(w, t) {
 function createGrid() {
     hackFunction.innerHTML = '';
 
-    randomColors(3, Math.floor(Math.random() * (12 - 6 + 1) + 6));
+    randomColors(3, 15);
 
     for (let i = 0; i < height * width; i++) {
         const el = document.createElement('div');
@@ -190,7 +190,7 @@ function randomColors(a, n) {
     let array = new Array(a);
 
     for (let i = 0; i < array.length; i++) {
-        array[i] = 2;
+        array[i] = 0;
     }
 
     for (let i = 0; i < n; i++) {
