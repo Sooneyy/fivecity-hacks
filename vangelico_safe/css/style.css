@@ -540,8 +540,8 @@ table tbody tr td{
 }
 
 .active {
-  background: #5c5e80;
-  border: 1px solid #5d6082;
+  background: var(--bg-color);
+  border: 1px solid var(--brd-color);
 }
 
 .row:nth-child(1) .active:nth-child(1) {

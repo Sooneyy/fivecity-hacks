@@ -19,6 +19,7 @@ const random = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+var rndColor;
 var className = new Array();
     className[0] = 'empty';
     className[1] = 'active';
@@ -52,6 +53,7 @@ function hack() {
 }
 
 function startHack() {
+    rndColor = generateRandomHex();
     cells = new Array();
     for (row = 0; row < width; row++) {
         cells[row] = new Array();
@@ -64,6 +66,10 @@ function startHack() {
     buttons.style.display = 'none';
     createGrid();
     newGame();
+    document.querySelectorAll('.active').forEach((el) => {
+        el.style.setProperty('--bg-color', rndColor + 'f5');
+        el.style.setProperty('--brd-color', rndColor);
+    })
     hackTitle.innerHTML = 'Odznacz wszystkie pola';
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
@@ -156,6 +162,11 @@ function createGrid() {
                 toggleLight(row, column - 1);
                 toggleLight(row, column + 1);
 
+                document.querySelectorAll('.active').forEach((el) => {
+                    el.style.setProperty('--bg-color', rndColor + 'f5');
+                    el.style.setProperty('--brd-color', rndColor);
+                })
+
                 const every = squares.every(sqr => !sqr.classList.contains('active'))
 
                 if (every) {
@@ -173,7 +184,19 @@ function toggleLight(row, col) {
     if (row >= 0 && row < width && col >= 0 && col < width) {
         const square = squares.find((sqr) => parseInt(sqr.dataset.row) === row && parseInt(sqr.dataset.column) === col);
         square.classList.toggle('active');
+        square.classList.toggle('empty');
     }
+}
+
+function generateRandomHex(){
+    let hexLetters = '0123456789ABCDEF';
+    let hex = '#';
+
+    for (let i = 0; i < 6; i++) {
+        hex += hexLetters.charAt(Math.floor(Math.random() * hexLetters.length));
+    }
+
+    return hex;
 }
 
 function newGame() {
