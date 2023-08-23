@@ -184,7 +184,6 @@ function toggleLight(row, col) {
     if (row >= 0 && row < width && col >= 0 && col < width) {
         const square = squares.find((sqr) => parseInt(sqr.dataset.row) === row && parseInt(sqr.dataset.column) === col);
         square.classList.toggle('active');
-        square.classList.toggle('empty');
     }
 }
 
