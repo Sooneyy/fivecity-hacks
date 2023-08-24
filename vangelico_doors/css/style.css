@@ -413,7 +413,7 @@ body {
   place-items: center;
   border: 1px solid #494949;
   font-size: 3.5rem;
-  opacity: .7;
+  opacity: .8;
   font-weight: 600;
   cursor: pointer;
   transition: all .2s linear;
@@ -421,7 +421,7 @@ body {
 }
 
 .square:hover{
-  opacity: .8;
+  opacity: .6;
 }
 
 .square:first-child{
