@@ -52,6 +52,7 @@ for (let i = 0; i < heistsList.length; i++) {
 
     if(heistsList[i].isNew){
         $hsName.text(`new: Heist - ${heistsList[i].heist}`);
+        $hsName.addClass("new");
     }else{
         $hsName.text(`Heist - ${heistsList[i].heist}`);
     }
