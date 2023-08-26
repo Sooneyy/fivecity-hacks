@@ -292,7 +292,7 @@ table tbody tr td{
 }
 
 .options div:first-child {
-  width: 210px;
+  width: 240px;
   text-align: left;
 }
 
@@ -332,16 +332,6 @@ table tbody tr td{
 
 .checkbox:checked::before{
   transform: scale(1);
-}
-
-.options div:first-child {
-  width: 210px;
-  text-align: left;
-}
-
-.options div:last-child {
-  width: 30px;
-  text-align: right;
 }
 
 .input {
