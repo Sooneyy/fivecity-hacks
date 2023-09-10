@@ -3,6 +3,10 @@ const $hacksSection = $(".heists-list");
 const heistsList = [
     {
         heist: 'Vangelico',
+        isNew: 0,
+    },
+    {
+        heist: 'Willa',
         isNew: 1,
     },
 ]
@@ -27,6 +31,11 @@ const hacksList = [
         name: 'Włamywanie do sejfu',
         heist: 'Vangelico',
         link: './vangelico_safe'
+    },
+    {
+        name: 'Wyłączanie zabezpieczenia',
+        heist: 'Willa',
+        link: './willa_serv'
     },
 ]
 
@@ -54,7 +63,7 @@ for (let i = 0; i < heistsList.length; i++) {
         $hsName.text(`new: [ ${heistsList[i].heist} ]`);
         $hsName.addClass("new");
     }else{
-        $hsName.text(`Heist - ${heistsList[i].heist}`);
+        $hsName.text(`[ ${heistsList[i].heist} ]`);
     }
     $hsName.addClass("heist-title");
     $heist.append($hsName);
