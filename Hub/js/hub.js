@@ -51,7 +51,7 @@ for (let i = 0; i < heistsList.length; i++) {
     $hacksSection.append($heist);
 
     if(heistsList[i].isNew){
-        $hsName.text(`new: Heist - ${heistsList[i].heist}`);
+        $hsName.text(`new: [ ${heistsList[i].heist} ]`);
         $hsName.addClass("new");
     }else{
         $hsName.text(`Heist - ${heistsList[i].heist}`);
