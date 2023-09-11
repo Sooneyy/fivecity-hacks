@@ -49,6 +49,7 @@ function startHack() {
     isOver = false;
     lastPosition = 0;
     wrong = 0;
+    good = 0;
     buttons.style.display = 'none';
     hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
     hackTitleBox.style.display = 'none';
