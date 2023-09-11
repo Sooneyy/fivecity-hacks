@@ -1,10 +1,15 @@
+@font-face {
+  font-family: Tahoma;
+  src: url('../../font/Tahoma_Regular.ttf');
+}
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Tahoma", sans-serif;
 }
 
 body {

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: defaultFont;
-  src: url('../../font/Windows_Regular.ttf');
+  font-family: Tahoma;
+  src: url('../../font/Tahoma_Regular.ttf');
 }
 
 *,
@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: 'Tahoma', sans-serif;
 }
 
 body {
@@ -173,7 +174,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background: #1324D1;
-  color: rgba(255, 255, 255, .6);
+  color: rgb(255, 255, 255);
   font-family: "IBM Plex Sans", sans-serif;
   isolation: isolate;
 }
@@ -204,10 +205,6 @@ body {
   height: 22px;
   display: flex;
   gap: 1px;
-}
-
-.hack-header .name{
-  text-shadow: 0 0 2px rgba(255, 255, 255, .8)
 }
 
 .bg{
@@ -308,7 +305,7 @@ body {
 
 #hack-info-text {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hack-footer {
