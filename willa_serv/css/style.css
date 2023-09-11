@@ -358,6 +358,7 @@ body {
 }
 
 .square > img{
+  -webkit-user-drag: none;
   transition: opacity .2s linear;
 }
 
