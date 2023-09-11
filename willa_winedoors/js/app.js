@@ -82,7 +82,7 @@ function progressBar(w, t) {
     let width = 1000;
     function updateProgress() {
         if (width > 0) {
-            if (w === 'start' || w === 'end' || w === 'game') width -= 3;
+            if (w === 'start' || w === 'end') width -= 3;
             else width--;
             progressBarFn.style.width = (width * 100) / 1000 + '%';
         } else {
