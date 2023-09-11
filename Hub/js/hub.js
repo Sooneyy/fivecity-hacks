@@ -37,6 +37,11 @@ const hacksList = [
         heist: 'Willa',
         link: './willa_serv'
     },
+    {
+        name: 'Otwieranie drzwi do winiarni',
+        heist: 'Willa',
+        link: './willa_winedoors'
+    },
 ]
 
 for (let i = 0; i < heistsList.length; i++) {

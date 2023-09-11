@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hack - Włamywanie do drzwi</title>
+</head>
+
+<body onload="hack()">
+    <a id="back" href="../"> <!-- #podjebaned styl od kornika :\ -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
+    </a>
+    <div class="container">
+        <div class="hack-box">
+            <div class="hack-header">
+                <div class="camera-screen"></div>
+                <div class="utils">
+                    <div class="time">
+                        <div id="hour">22</div>
+                        <div>:</div>
+                        <div id="minutes">22</div>
+                    </div>
+                    <div class="assets">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M3 21h3v-3H3m5 3h3v-7H8m5 7h3V9h-3m5 12h3V3h-3v18Z"/></svg>
+                        <img src="./imgs/wifi.png" alt="wifi" width="16" height="16"/>
+                        <img src="./imgs/battery.png" alt="battery" width="24" height="22"/>
+                    </div>
+                </div>
+            </div>
+            <div class="play-buttons">
+                <button class="start-hack" onclick="startHack()">Zacznij Hackować</button>
+            </div>
+            <div class="hack-title">
+                <h1 id="hack-title-text"></h1>
+            </div>
+            <div class="hack-info">
+                <h1 id="hack-info-text"></h1>
+            </div>
+            <div class="hack-fn-box">
+                <div class="hack-fn"></div>
+            </div>
+            <div class="hack-footer">
+                <div class="hack-progress">
+                    <div class="progress-bar">
+                        <div id="progress-bar-fn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
