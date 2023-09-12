@@ -350,6 +350,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all .2s linear;
+  isolation: isolate;
   user-select: none;
 }
 
@@ -358,6 +359,7 @@ body {
 }
 
 .square > img{
+  -webkit-user-drag: none;
   transition: opacity .2s linear;
 }
 
@@ -369,7 +371,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 35px rgba(225, 212, 137, .8));
+  filter: drop-shadow(0 40px 35px rgba(225, 212, 137, .7))
 }
 
 .square:last-child{
@@ -380,7 +382,7 @@ body {
   font-size: 1.5rem;
   opacity: 1;
   color: #fff;
-  filter: drop-shadow(0 50px 35px rgba(225, 212, 137, .8))
+  filter: drop-shadow(0 40px 35px rgba(225, 212, 137, .7))
 }
 
 .breathing{
@@ -388,7 +390,7 @@ body {
   position: relative;
   background: #A09CB8;
   border: 1px solid #50487B;
-  filter: drop-shadow(0 50px 35px rgba(160, 156, 184, .8));
+  filter: drop-shadow(0 40px 35px rgba(112, 105, 149, .9));
   animation: breathing 2s linear infinite;
 }
 
@@ -407,7 +409,7 @@ body {
   opacity: 1;
   border: 1px solid #579362;
   background: #AED1B2;
-  filter: drop-shadow(0 50px 35px rgba(87, 147, 98, .8))
+  filter: drop-shadow(0 40px 40px rgba(87, 147, 98, .8))
 }
 
 .bad{
@@ -416,7 +418,7 @@ body {
   opacity: 1;
   border: 1px solid #AD434C;
   background: #E18E92;
-  filter: drop-shadow(0 50px 35px rgba(225, 142, 146, .8))
+  filter: drop-shadow(0 40px 40px rgba(195, 103, 108, .7))
 }
 
 .hidden > img{
