@@ -141,6 +141,9 @@ function createGrid(){
 
             if(this.hasChildNodes()){
                 this.firstChild.classList.add('good');
+                
+                if(this.firstChild.classList.contains('good')) return;
+
                 good++;
             }else{
                 const wrongEl = document.createElement('div');
