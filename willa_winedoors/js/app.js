@@ -31,7 +31,6 @@ var rememberTime = 4;
 var gameStarted = false;
 var height = 7;
 var width = 7;
-var isOver = false;
 var wrong = 0;
 var good = 0;
 
@@ -46,12 +45,12 @@ function hack() {
 }
 
 function startHack() {
-    isOver = false;
+    gameStarted = false;
     lastPosition = 0;
     wrong = 0;
     good = 0;
     buttons.style.display = 'none';
-    hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
+    hackTitle.innerHTML = '';
     hackTitleBox.style.display = 'none';
     hackFunctionBox.style.display = 'none';
     hackInfoBox.style.display = '';
