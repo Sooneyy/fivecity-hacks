@@ -47,31 +47,22 @@ const hacksList = [
 for (let i = 0; i < heistsList.length; i++) {
 
     const $heist = $("<div>");
-    const $hsName = $("<div>");
+    const $hsNameSec = $("<div>");
+    const $hsName = $("<p>");
     const $hsItems = $("<div>");
-
-    if (i >= 4) {
-        $hacksSection.css({
-            "justify-content": "flex-start",
-            "overflow-x": "auto"
-        });
-
-        $hacksSection.on("wheel", function (e) {
-            horizontalScroll(e);
-        });
-    }
 
     $heist.addClass("heist");
     $hacksSection.append($heist);
 
     if(heistsList[i].isNew){
-        $hsName.text(`new: [ ${heistsList[i].heist} ]`);
-        $hsName.addClass("new");
-    }else{
-        $hsName.text(`[ ${heistsList[i].heist} ]`);
+        $hsNameSec.addClass("new");
     }
-    $hsName.addClass("heist-title");
-    $heist.append($hsName);
+
+    $hsNameSec.addClass("heist-title");
+    $heist.append($hsNameSec);
+
+    $hsName.text(`${heistsList[i].heist}`);
+    $hsNameSec.append($hsName);
 
     $hsItems.addClass("heist-items");
     $heist.append($hsItems);
@@ -100,29 +91,26 @@ for (let i = 0; i < heistsList.length; i++) {
     }
 }
 
-function horizontalScroll(x) {
-    hacksSection.scrollLeft += (x.deltaY);
-}
-
-function copyCode() {
-    var $temp = $("<input>");
+function copyCode(){
+    let $temp = $("<input>");
     $("body").append($temp);
 
     $temp.val("sooney").select();
-
     document.execCommand("copy");
+
     $temp.remove();
 }
 
-$(document).ready(function () {
+$("#discord").on("click", function(){
+    $("#copied").animate({
+        opacity: "1",
+    }, 300);
 
-    $("#discord").on("click", function () {
-        $("#copy").show();
+    setTimeout(() => {
+        $("#copied").animate({
+            opacity: "0",
+        }, 300);
+    }, 1000);
 
-        setTimeout(() => {
-            $("#copy").hide();
-        }, 500)
-
-        copyCode();
-    })
+    copyCode();
 })
