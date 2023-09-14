@@ -16,7 +16,7 @@ body {
   box-sizing: border-box;
   filter: blur(50px);
   color: rgba(255, 255, 255, 0.8);
-  animation: appear 1s forwards ease; 
+  animation: appear 1s forwards linear; 
   overflow: hidden;
 }
 
