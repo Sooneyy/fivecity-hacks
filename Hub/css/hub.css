@@ -16,8 +16,7 @@ body {
   box-sizing: border-box;
   filter: blur(50px);
   color: rgba(255, 255, 255, 0.8);
-  animation: appear 1s forwards linear; 
-  animation-delay: .85s;
+  animation: appear 1s forwards ease; 
   overflow: hidden;
 }
 
@@ -135,7 +134,7 @@ body {
   color: rgba(255, 255, 255, .5);
   border-radius: 5px;
   cursor: pointer;
-  transition: all .15s ease;
+  transition: all .3s ease;
 }
 
 .heist-items a button:hover{
