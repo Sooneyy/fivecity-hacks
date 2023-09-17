@@ -15,7 +15,7 @@ const input = document.getElementById("input");
 const switchMode = document.querySelector(".switch-mode");
 
 var progressBarInterval;
-var playTime = 10645;
+var playTime = 60;
 var randomChar = true;
 var antiSolverMode = false;
 var newRiddles;
@@ -41,7 +41,7 @@ var randomNumber = random(5, 15);
 var elements = [
   {
     name: "Hel",
-    symbol: "H",
+    symbol: "He",
     pos: "18",
   },
   {
@@ -61,17 +61,17 @@ var elements = [
   },
   {
     name: "Fosfor",
-    symbol: "S",
+    symbol: "P",
     pos: "15",
   },
   {
     name: "Wapń",
-    symbol: "S",
+    symbol: "Ca",
     pos: "2",
   },
   {
     name: "Żelazo",
-    symbol: "S",
+    symbol: "Fe",
     pos: "8",
   },
 ];
@@ -147,7 +147,8 @@ function startHack() {
   hackOptions.style.display = "none";
   buttons.style.display = "none";
   hackTitle.innerHTML = "Wpisz Hasło";
-  hackTitleHint.innerHTML = "Emotki mogą być rozwiązaniem!";
+  hackTitleHint.innerHTML = "Emotki mogą być rozwiązaniem! (ze strony getemoji)";
+  input.value = '';
   createGame();
   input.addEventListener("keyup", (e) => {
     onKeyup(e);
@@ -303,7 +304,7 @@ function onKeyup(evt) {
         let sum = 0;
 
         for (let i = 0; i < evt.target.value.length; i++) {
-          if (!isNaN(evt.target.value[i].trim()))
+          if (!isNaN(evt.target.value[i]))
             inputNumbers.push(parseInt(evt.target.value[i]));
         }
 
