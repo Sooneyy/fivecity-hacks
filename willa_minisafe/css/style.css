@@ -409,7 +409,7 @@ body {
 
 .switch-mode{
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 5px;
 }
 
@@ -421,9 +421,9 @@ body {
   border-bottom: 1px solid #c1c1c1;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 10px;
+  padding: 5px;
 }
 
 #letter-switch:hover{
