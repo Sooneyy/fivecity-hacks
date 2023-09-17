@@ -124,3 +124,24 @@ $("#discord").on("click", function(){
 
     copyCode();
 })
+
+$("#in-progress").on("click", function(){
+    $(".modal-container").css({
+        display: "block"
+    });
+
+    $(".modal-container").animate({
+        opacity: "1"
+    }, 200)
+})
+$("#close").on("click", function(){
+    $(".modal-container").animate({
+        opacity: "0"
+    }, 300)
+
+    setTimeout(() => {
+        $(".modal-container").css({
+            display: "none"
+        });
+    }, 300)
+})
