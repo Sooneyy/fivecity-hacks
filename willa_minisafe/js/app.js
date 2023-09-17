@@ -303,7 +303,7 @@ function onKeyup(evt) {
         let sum = 0;
 
         for (let i = 0; i < evt.target.value.length; i++) {
-          if (!isNaN(evt.target.value[i].trim()))
+          if (!isNaN(evt.target.value[i]))
             inputNumbers.push(parseInt(evt.target.value[i]));
         }
 
