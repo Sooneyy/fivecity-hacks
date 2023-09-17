@@ -15,7 +15,7 @@ const input = document.getElementById("input");
 const switchMode = document.querySelector(".switch-mode");
 
 var progressBarInterval;
-var playTime = 10645;
+var playTime = 60;
 var randomChar = true;
 var antiSolverMode = false;
 var newRiddles;
