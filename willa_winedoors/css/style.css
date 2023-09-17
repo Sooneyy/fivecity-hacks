@@ -235,17 +235,36 @@ body {
 .good{
   background: #B78DEF;
   scale: 0 .5;
-  animation: appear .75s forwards linear;
+  animation: appear-good .65s forwards linear;
 }
 
 .wrong{
   border-radius: 3px;
   background: #FF003D;
   scale: 0 .5;
-  animation: appear .75s forwards linear;
+  animation: appear-bad .65s forwards linear;
 }
 
-@keyframes appear{
+@keyframes appear-good{
+  0%{
+    scale: 0 .5;
+    background: #914FDA;
+  }
+  35%{
+    scale: .3 .5;
+    background: #914FDA;
+  }
+  70%{
+    scale: .2 .2;
+    background: #914FDA;
+  }
+  100%{
+    scale: 1;
+    background: #B78DEF;
+  }
+}
+
+@keyframes appear-bad{
   0%{
     scale: 0 .5;
   }
