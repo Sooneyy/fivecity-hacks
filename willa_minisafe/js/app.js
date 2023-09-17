@@ -61,17 +61,17 @@ var elements = [
   },
   {
     name: "Fosfor",
-    symbol: "S",
+    symbol: "P",
     pos: "15",
   },
   {
     name: "Wapń",
-    symbol: "S",
+    symbol: "Ca",
     pos: "2",
   },
   {
     name: "Żelazo",
-    symbol: "S",
+    symbol: "Fe",
     pos: "8",
   },
 ];
