@@ -42,6 +42,15 @@ const hacksList = [
         heist: 'Willa',
         link: './willa_winedoors'
     },
+    {
+        name: 'Włamywanie do małego sejfu',
+        heist: 'Willa',
+    },
+    {
+        name: 'Włamywanie do głównego sejfu',
+        heist: 'Willa',
+        link: './willa_safe'
+    },
 ]
 
 for (let i = 0; i < heistsList.length; i++) {
@@ -88,6 +97,11 @@ for (let i = 0; i < heistsList.length; i++) {
         $hcName.text(hacksList[j].name);
         $hcName.addClass("hack-name");
         $button.append($hcName);
+
+        if(j === 6){
+            $link.attr("id", "in-progress");
+            $hsItems.append($link);
+        }
     }
 }
 
@@ -113,4 +127,25 @@ $("#discord").on("click", function(){
     }, 1000);
 
     copyCode();
+})
+
+$("#in-progress").on("click", function(){
+    $(".modal-container").css({
+        display: "block"
+    });
+
+    $(".modal-container").animate({
+        opacity: "1"
+    }, 200)
+})
+$("#close").on("click", function(){
+    $(".modal-container").animate({
+        opacity: "0"
+    }, 300)
+
+    setTimeout(() => {
+        $(".modal-container").css({
+            display: "none"
+        });
+    }, 300)
 })
