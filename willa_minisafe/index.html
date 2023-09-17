@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/app.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Hack - Włamywanie do dużego sejfu</title>
+    <title>Hack - Włamywanie do małego sejfu</title>
 </head>
 
 <body onload="hack()">
@@ -29,11 +29,15 @@
                 <button class="start-hack" onclick="startHack()">Zacznij Hackować</button>
             </div>
             <div class="hack-title">
-                <h1 id="hack-title-text">Rozplącz linie</h1>
+                <h1 id="hack-title-text"></h1>
+                <h2 id="hack-title-hint">Emotki mogą być rozwiązaniem!</h2>
+            </div>
+            <div class="switch-mode">
+                <button id="letter-switch" onclick="switchCharMode()">Przełącz tryb zamiany liter</button>
             </div>
             <div class="hack-options">
                 <div class="options">
-                    <div>Przekręcony ekran::</div>
+                    <div>Przekręcony ekran:</div>
                     <input type="checkbox" class="checkbox" id="game-mode" />
                     <div id="mode">Wyłączony</div>
                 </div>
@@ -41,8 +45,13 @@
             <div class="hack-info">
                 <h1 id="hack-info-text"></h1>
             </div>
-            <div class="hack-fn">
-                <canvas id="canvas"></canvas>
+            <div class="hack-fn"></div>
+            <div class="hack-fn2">
+                <input id="input">
+                <button class="enter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="m7.825 16l2.875 2.875q.3.3.313.7t-.288.7q-.3.3-.712.3t-.713-.3L4.7 15.7q-.15-.15-.213-.325T4.425 15q0-.2.063-.375T4.7 14.3l4.625-4.625q.3-.3.7-.287t.7.312q.275.3.287.7t-.287.7l-2.9 2.9H17V5q0-.425.288-.713T18 4q.425 0 .713.288T19 5v9q0 .825-.588 1.413T17 16H7.825Z"/></svg>
+                    enter
+                </button>
             </div>
             <div class="hack-footer">
                 <div class="hack-progress">
