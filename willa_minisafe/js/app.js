@@ -148,6 +148,7 @@ function startHack() {
   buttons.style.display = "none";
   hackTitle.innerHTML = "Wpisz Hasło";
   hackTitleHint.innerHTML = "Emotki mogą być rozwiązaniem!";
+  input.value = '';
   createGame();
   input.addEventListener("keyup", (e) => {
     onKeyup(e);
