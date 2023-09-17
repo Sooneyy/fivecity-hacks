@@ -149,6 +149,7 @@ function startHack() {
   hackTitle.innerHTML = "Wpisz Hasło";
   hackTitleHint.innerHTML = "Emotki mogą być rozwiązaniem! (ze strony getemoji)";
   input.value = '';
+  randomChar = true;
   createGame();
   input.addEventListener("keyup", (e) => {
     onKeyup(e);
