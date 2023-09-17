@@ -26,7 +26,7 @@ const range = (start, end, length = end - start + 1) => {
 }
 
 var progressBarInterval;
-var playTime = 10;
+var playTime = 106;
 var rememberTime = 4;
 var gameStarted = false;
 var height = 7;
@@ -138,13 +138,15 @@ function createGrid(){
 
         el.onclick = function(){
             if(!gameStarted) return;
+            console.log(good)
 
             if(this.hasChildNodes()){
-                this.firstChild.classList.add('good');
-                
-                if(this.firstChild.classList.contains('good')) return;
-
-                good++;
+                if(this.firstChild.classList.contains('good')){
+                    return;
+                }else{
+                    this.firstChild.classList.add('good');
+                    good++;
+                }
             }else{
                 const wrongEl = document.createElement('div');
                 wrongEl.classList.add('square2', 'wrong');
