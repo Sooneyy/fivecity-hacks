@@ -41,7 +41,7 @@ var randomNumber = random(5, 15);
 var elements = [
   {
     name: "Hel",
-    symbol: "H",
+    symbol: "He",
     pos: "18",
   },
   {
