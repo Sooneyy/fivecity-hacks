@@ -136,7 +136,7 @@ $("#in-progress").on("click", function(){
 
     $(".modal-container").animate({
         opacity: "1"
-    }, 200)
+    }, 300)
 })
 $("#close").on("click", function(){
     $(".modal-container").animate({
