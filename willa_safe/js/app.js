@@ -192,6 +192,9 @@ function detectIntersects(){
             }
         }
     }
+    if(intersections.length === 0){
+        gameWin();
+    }
 }
 
 function drawLines(){
