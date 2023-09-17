@@ -26,7 +26,7 @@ const range = (start, end, length = end - start + 1) => {
 }
 
 var progressBarInterval;
-var playTime = 106;
+var playTime = 10;
 var rememberTime = 4;
 var gameStarted = false;
 var height = 7;
