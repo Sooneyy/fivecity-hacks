@@ -266,13 +266,13 @@ body {
   background: #DE4801;
 }
 
-#resize::before{
-  content: '';
+#resize::before {
+  content: "";
   position: absolute;
-  width: 13px;
-  height: 11px;
-  left: 2px;
-  top: 2px;
+  width: 12px;
+  height: 8px;
+  left: 15%;
+  top: 3px;
   border-radius: 2px;
   border: 1px solid #ffffff;
   border-top: 4px solid #ffffff;
