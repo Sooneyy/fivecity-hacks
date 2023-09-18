@@ -209,7 +209,7 @@ function drawLines(){
         ctx.moveTo(getLineDot(start).x, getLineDot(start).y);
         ctx.lineTo(getLineDot(end).x, getLineDot(end).y);
         if(line.intersecting){
-            ctx.strokeStyle = "#F7E9F6";
+            ctx.strokeStyle = "#F0ACE9";
             ctx.shadowBlur = 0;
             ctx.shadowColor = "rgba(0, 0, 0, 0)";
         }else{
