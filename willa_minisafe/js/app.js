@@ -147,8 +147,9 @@ function startHack() {
   hackOptions.style.display = "none";
   buttons.style.display = "none";
   hackTitle.innerHTML = "Wpisz Hasło";
-  hackTitleHint.innerHTML = "Emotki mogą być rozwiązaniem! (ze strony getemoji)";
-  input.value = '';
+  hackTitleHint.innerHTML =
+    "Emotki mogą być rozwiązaniem! (ze strony getemoji)";
+  input.value = "";
   randomChar = true;
   createGame();
   input.addEventListener("keyup", (e) => {
@@ -503,6 +504,15 @@ $(document).ready(function () {
 
   $(".enter").on("click", function () {
     check();
+  });
+
+  $("#input").on("input", function (e) {
+    let inputValue = $(this).val();
+
+    if (inputValue.length > 20) {
+      inputValue = inputValue.slice(0, 24);
+      $(this).val(inputValue);
+    }
   });
 
   $(document).on("keyup", function (e) {
