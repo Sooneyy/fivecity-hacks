@@ -26,22 +26,22 @@ body {
 }
 
 .heists-box{
-  width: 650px;
+  width: 700px;
   height: 800px;
   border-radius: 10px 75px 10px 75px;
-  padding: 25px;
-  background: rgba(43, 0, 64, .15);
-  border: 2px solid #220032;
-  box-shadow: 0 0 10px #20002F, inset 0 0 15px rgba(32, 0, 47, .4), inset 0 0 30px rgba(32, 0, 47, .2);
+  padding: 20px;
+  background: rgba(21, 24, 39, .25);
+  border: 2px solid rgb(21, 24, 39);
+  box-shadow: 0 0 15px rgb(21, 24, 39), inset 0 0 0 3px rgb(21, 24, 39, .5), inset 4px 4px 15px rgba(21, 24, 39, .8), inset -4px -4px 15px rgba(21, 24, 39, .8);
   filter: saturate(2);
 }
 
 .header{
   width: 100%;
-  padding: 15px 0;
+  padding-bottom: 15px;
   text-align: center;
   border-radius: 5px;
-  border-bottom: 1px solid #2B004080;
+  border-bottom: 1px solid rgb(36, 41, 66);
 }
 
 .heists-list{
@@ -61,17 +61,18 @@ body {
 }
 
 .heists-list::-webkit-scrollbar-thumb{
-  background: rgba(255, 255, 255, .1);
+  background: rgba(255, 255, 255, .07);
   border-radius: 15px;
 }
 
 .heists-list::-webkit-scrollbar-thumb:hover{
-  background: rgba(255, 255, 255, .15);
+  background: rgba(255, 255, 255, .1);
 }
 
 .title{
   font-weight: 600;
-  font-size: 23px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, .7);
 }
 
 .title span{
@@ -91,7 +92,7 @@ body {
 .heist-title{
   width: 175px;
   border-radius: 10px;
-  background: #1B0031;
+  background: rgb(31, 36, 57);
   padding: 7px;
   text-align: center;
 }
@@ -113,27 +114,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border: none;
-  background: rgba(65, 0, 131, .1);
+  padding: 22px;
+  background: rgba(28, 31, 46, .2);
+  border: 1px solid rgb(28, 31, 46);
   width: 100%;
   text-transform: uppercase;
   font-size: 10px;
   font-weight: 600;
   color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   transition: all .3s ease;
 }
 
 .heist-items a button:hover{
-  background: rgb(65, 0, 131);
+  background: rgb(28, 31, 46);
   color: rgb(255, 255, 255);
 }
 
 .new{
-  background: rgb(89, 0, 130);
-  box-shadow: 0 0 5px rgb(89, 0, 130);
+  background: rgb(0, 88, 96);
 }
 
 .author-container{
@@ -143,9 +143,9 @@ body {
   width: 200px;
   border-radius: 5px 40px 5px 40px;
   padding: 15px;
-  background: rgba(43, 0, 64, .15);
-  border: 2px solid #220032;
-  box-shadow: 0 0 10px #20002F, inset 0 0 15px rgba(32, 0, 47, .4), inset 0 0 30px rgba(32, 0, 47, .2);
+  background: rgba(21, 24, 39, .25);
+  border: 2px solid rgb(21, 24, 39);
+  box-shadow: 0 0 15px rgb(21, 24, 39), inset 0 0 0 3px rgb(21, 24, 39, .5), inset 4px 4px 15px rgba(21, 24, 39, .8), inset -4px -4px 15px rgba(21, 24, 39, .8);
   filter: saturate(2);
   animation: slideIn .85s forwards ease;
   font-size: 14px;
@@ -167,7 +167,7 @@ body {
 
 .author{
   padding-bottom: 10px;
-  border-bottom: 1px solid #2B004080;
+  border-bottom: 1px solid rgb(36, 41, 66);
   border-radius: 5px;
 }
 
@@ -183,7 +183,7 @@ body {
   letter-spacing: .075em;
   line-height: 1.5em;
   padding-bottom: 10px;
-  border-bottom: 1px solid #2B004080;
+  border-bottom: 1px solid rgb(36, 41, 66);
 }
 
 .socials{
@@ -193,83 +193,24 @@ body {
   position: relative;
 }
 
-.socials a img{
-  width: 22px;
-  height: 22px;
-}
-
 .socials a{
   cursor: pointer;
-  transition: filter .15s ease-in-out;
+  color: #fff;
+  transition: color .2s ease-in-out;
 }
 
 .socials a:hover{
-  filter: invert(4%) sepia(43%) saturate(1781%) hue-rotate(255deg) brightness(104%) contrast(109%);
+  color: rgb(55, 63, 104);
 }
 
 #copied{
   opacity: 0;
   position: absolute;
-  background: #6a00cd;
+  background: rgb(35, 40, 67);
   border-radius: 5px;
   padding: 5px 10px;
   bottom: 30px;
   left: -20px;
 }
 
-.cover{
-  position: absolute;
-  inset: 0;
-  
-  
-}
-
-.modal-container{
-  display: none;
-  opacity: 0;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .5 );
-  z-index: 999;
-  top: 0;
-}
-
-.modal{
-  position: relative;
-  width: 575px;
-  height: 300px;
-  padding: 25px;
-  margin: 311.5px auto;
-  background: rgb(5, 0, 9);
-  border: 2px solid #220032;
-  box-shadow: 0 0 10px #20002F, inset 0 0 15px rgba(32, 0, 47, .4), inset 0 0 30px rgba(32, 0, 47, .2);
-  filter: saturate(2);
-  border-radius: 20px;
-  color: rgba(255, 255, 255, .7);
-  font-size: 32px;
-  text-align: center;
-  letter-spacing: .1em;
-  font-weight: 900;
-}
-
-.modal #close{
-  height: 26px;
-  display: flex;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  opacity: .7;
-  cursor: pointer;
-}
-
-.modal #close:hover{
-  opacity: 1;
-}
-
-.modal #content{
-  display: inline-block;
-  margin-block: 95px;
-  user-select: none;
-}
 
