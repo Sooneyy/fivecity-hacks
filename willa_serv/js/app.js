@@ -12,7 +12,7 @@ const hackOptions = document.querySelector('.hack-options');
 const modal = document.getElementById('modal');
 
 var progressBarInterval;
-var playTime = 788;
+var playTime = 7;
 var height = 6;
 var width = 6;
 var antiSolverMode = false;
