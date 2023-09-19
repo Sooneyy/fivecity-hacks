@@ -21,6 +21,37 @@ var offset = {x: 0, y: 0};
 var dots = [];
 var lines = [];
 var intersections = [];
+var randomColor;
+var colors = [
+    {
+        primary: "#7A47B2",
+        secondary: "#ffd6fc"
+    },
+    {
+        primary: "#f21505",
+        secondary: "#ffb300"
+    },
+    {
+        primary: "#09ff00",
+        secondary: "#d6fad4"
+    },
+    {
+        primary: "#0015ff",
+        secondary: "#00d5ff"
+    },
+    {
+        primary: "#3c2652",
+        secondary: "#9181a1"
+    },
+    {
+        primary: "#ff7300",
+        secondary: "#ffe2c9"
+    },
+    {
+        primary: "#009476",
+        secondary: "#c8ded9"
+    },
+]
 
 function hack() {
     hackInfoBox.style.display = 'none';
@@ -33,6 +64,7 @@ function startHack() {
     intersections = [];
     hackOptions.style.display = 'none';
     buttons.style.display = 'none';
+    randomColor = colors[Math.floor(Math.random() * colors.length)];
     hackTitleBox.style.display = 'none';
     hackFunction.style.display = 'none';
     hackInfoBox.style.display = '';
@@ -118,7 +150,7 @@ function createDots(){
 }
 
 function drawDots(){
-    ctx.fillStyle = "#7A47B2";
+    ctx.fillStyle = randomColor.primary;
     ctx.strokeStyle = "#DFD3DE";
     ctx.lineWidth = 6;
 
@@ -200,7 +232,7 @@ function detectIntersects(){
 function drawLines(){
     detectIntersects();
 
-    ctx.strokeStyle = "#7D52B1";
+    ctx.strokeStyle = randomColor.primary;
     ctx.lineWidth = 3;
 
     lines.forEach((line) => {
@@ -209,11 +241,11 @@ function drawLines(){
         ctx.moveTo(getLineDot(start).x, getLineDot(start).y);
         ctx.lineTo(getLineDot(end).x, getLineDot(end).y);
         if(line.intersecting){
-            ctx.strokeStyle = "#F7E9F6";
+            ctx.strokeStyle = randomColor.secondary;
             ctx.shadowBlur = 0;
             ctx.shadowColor = "rgba(0, 0, 0, 0)";
         }else{
-            ctx.strokeStyle = "#7D52B1";
+            ctx.strokeStyle = randomColor.primary;
         }
 
         ctx.stroke();
