@@ -252,9 +252,6 @@ function detectIntersects(){
             }
         }
     }
-    if(intersections.length === 0){
-        gameWin();
-    }
 }
 
 function drawLines(){
@@ -354,5 +351,8 @@ $(document).ready(function () {
 
     $("#canvas").on("mouseup", function(){
         selectedDot = null;        
+        if(intersections.length === 0){
+            gameWin();
+        }
     })
 })
