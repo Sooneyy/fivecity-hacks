@@ -48,8 +48,36 @@ var colors = [
         secondary: "#ffe2c9"
     },
     {
-        primary: "#009476",
-        secondary: "#c8ded9"
+        primary: "#242500",
+        secondary: "#D1D3AF"
+    },
+    {
+        primary: "#03539E",
+        secondary: "#EEA47F"
+    },
+    {
+        primary: "#E2D2F9",
+        secondary: "#317873"
+    },
+    {
+        primary: "#FE69B3",
+        secondary: "#00FFFF"
+    },
+    {
+        primary: "#89ABE3",
+        secondary: "#EA738D"
+    },
+    {
+        primary: "#2C5E2D",
+        secondary: "#98BC61"
+    },
+    {
+        primary: "#2F2E30",
+        secondary: "#11A2D8"
+    },
+    {
+        primary: "#0C1138",
+        secondary: "#697A82"
     },
 ]
 
