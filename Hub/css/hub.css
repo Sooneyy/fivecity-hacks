@@ -52,21 +52,17 @@ body {
 }
 
 .heists-list::-webkit-scrollbar{
-  width: 5px;
+  width: 6px;
 }
 
 .heists-list::-webkit-scrollbar-track{
-  background: rgba(255, 255, 255, .05);
+  background: transparent;
   border-radius: 15px;
 }
 
 .heists-list::-webkit-scrollbar-thumb{
-  background: rgba(255, 255, 255, .07);
+  background: rgb(52 57 82);
   border-radius: 15px;
-}
-
-.heists-list::-webkit-scrollbar-thumb:hover{
-  background: rgba(255, 255, 255, .1);
 }
 
 .title{
