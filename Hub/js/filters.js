@@ -47,7 +47,7 @@ for(let i = 0; i < heistFilters.length; i++) {
         diff.setTime(new Date() - ago)
 
         document.querySelector(".last-heist > b").textContent = heistFilters[i].text;
-        document.querySelector("#timestamp").textContent =  `${diff.getMonth().toString().padStart(2, '0')}m ${diff.getDay().toString().padStart(2, '0')}d ${diff.getHours().toString().padStart(2, '0')}h ${diff.getMinutes().toString().padStart(2, '0')}min ${diff.getSeconds().toString().padStart(2, '0')}s temu`;
+        document.querySelector("#timestamp").textContent =  `${diff.getMonth().toString().padStart(2, '0')}m ${diff.getDate().toString().padStart(2, '0')}d ${diff.getHours().toString().padStart(2, '0')}h ${diff.getMinutes().toString().padStart(2, '0')}min ${diff.getSeconds().toString().padStart(2, '0')}s temu`;
     }
 }
 
