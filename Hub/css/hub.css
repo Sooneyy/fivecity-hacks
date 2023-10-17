@@ -151,29 +151,15 @@ body {
 }
 
 .heists-list::-webkit-scrollbar{
-<<<<<<< HEAD
   width: 7px;
-=======
-  width: 6px;
->>>>>>> 603800679675a19a70c3ddfcf769f05f5a8d31c1
 }
 
 .heists-list::-webkit-scrollbar-track{
   background: transparent;
-<<<<<<< HEAD
 }
 
 .heists-list::-webkit-scrollbar-thumb{
   background: #313eb4;
-  border-radius: 15px;
-}
-
-=======
-  border-radius: 15px;
-}
-
-.heists-list::-webkit-scrollbar-thumb{
-  background: rgb(52 57 82);
   border-radius: 15px;
 }
 
@@ -187,7 +173,6 @@ body {
   color: #4c006f;
 }
 
->>>>>>> 603800679675a19a70c3ddfcf769f05f5a8d31c1
 .heist{
   display: flex;
   flex-direction: column;
@@ -220,12 +205,8 @@ body {
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
-<<<<<<< HEAD
   color: #fff;
   transition: background .2s ease;
-=======
-  transition: all .3s linear;
->>>>>>> 603800679675a19a70c3ddfcf769f05f5a8d31c1
 }
 
 .heist button:hover{
