@@ -6,16 +6,15 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   box-sizing: border-box;
 }
 
 body {
   height: 100vh;
-  background: #000000;
+  background: #000210;
   box-sizing: border-box;
-  color: rgba(255, 255, 255, 0.8);
-  overflow: hidden;
+  color: rgba(255, 255, 255);
 }
 
 .container {
@@ -23,194 +22,249 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title{
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .heists-box{
-  width: 700px;
-  height: 800px;
-  border-radius: 10px 75px 10px 75px;
-  padding: 20px;
-  background: rgba(21, 24, 39, .25);
-  border: 2px solid rgb(21, 24, 39);
-  box-shadow: 0 0 15px rgb(21, 24, 39), inset 0 0 0 3px rgb(21, 24, 39, .5), inset 4px 4px 15px rgba(21, 24, 39, .8), inset -4px -4px 15px rgba(21, 24, 39, .8);
-  filter: saturate(2);
+  width: 1000px;
+  height: 600px;
+  padding: 25px;
 }
 
-.header{
+.row{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-inline: 1.5rem;
   width: 100%;
-  padding-bottom: 15px;
-  text-align: center;
+  color: rgba(255, 255, 255, .7);
+}
+
+.search{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.focus{
+  border-bottom: 1px solid rgba(255, 255, 255, .7);
+}
+
+.search input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .7);
+}
+
+.search svg{
+  margin-right: 15px;
+}
+
+.dropdown{
+  flex: 1;
+  max-width: 225px;
+  position: relative;
+}
+
+.dropdown-header{
+  background: #000320;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  align-items: center;
+  transition: all .075s ease;
+}
+
+.dropdown-header.open{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.dropdown-header svg{
+  transition: transform .075s ease;
+}
+
+.dropdown-header svg.open{
+  transform: rotate(180deg);
+}
+
+.dropdown-menu.closed{
+  transform: scaleY(0);
+}
+
+.dropdown-menu{
+  position: absolute;
+  background: #000320;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 5px 15px;
+  z-index: 99;
+  transform-origin: top center;
+  transition: transform .075s ease;
+}
+
+.heist-option{
+  padding: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  user-select: none;
   border-radius: 5px;
-  border-bottom: 1px solid rgb(36, 41, 66);
+  transition: background .125s linear;
+}
+
+.heist-option:hover{
+  background: rgba(255, 255, 255, .15);
 }
 
 .heists-list{
-  margin-top: 15px;
-  padding: 10px;
-  max-height: 635px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #000214;
+  border-radius: 15px;
+  margin-top: 3.25rem;
+  padding: 35px 30px;
+  height: 100%;
+  max-height: 90%;
   overflow: auto;
 }
 
 .heists-list::-webkit-scrollbar{
-  width: 5px;
+  width: 7px;
 }
 
 .heists-list::-webkit-scrollbar-track{
-  background: rgba(255, 255, 255, .05);
-  border-radius: 15px;
+  background: transparent;
 }
 
 .heists-list::-webkit-scrollbar-thumb{
-  background: rgba(255, 255, 255, .07);
+  background: #313eb4;
   border-radius: 15px;
-}
-
-.heists-list::-webkit-scrollbar-thumb:hover{
-  background: rgba(255, 255, 255, .1);
-}
-
-.title{
-  font-weight: 600;
-  font-size: 24px;
-  color: rgba(255, 255, 255, .7);
-}
-
-.title span{
-  color: #4c006f;
 }
 
 .heist{
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 10px 15px;
-}
-
-.heist-title{
-  width: 175px;
+  align-items: flex-start;
+  width: 422.5px;
+  height: 250px;
+  background: #030018;
   border-radius: 10px;
-  background: rgb(31, 36, 57);
-  padding: 7px;
-  text-align: center;
+  margin-bottom: 35px;
+  padding: 25px 20px;
+  font-size: 17px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .25);
 }
 
-.heist-title p{
-  font-size: 18px;
-  font-weight: 600;
+.heist div{
+  margin-bottom: 25px;
 }
 
-.heist-items{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  padding: 10px;
-}
-
-.heist-items a button{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px;
-  background: rgba(28, 31, 46, .2);
-  border: 1px solid rgb(28, 31, 46);
-  width: 100%;
+.heist-name b{
+  color: #3787FF;
   text-transform: uppercase;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, .5);
-  border-radius: 15px;
+}
+
+.heist button{
+  margin-top: auto;
+  padding: 10px 45px;
+  border-radius: 3px;
+  background: #006EEF;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
   cursor: pointer;
-  transition: all .3s ease;
+  color: #fff;
+  transition: background .2s ease;
 }
 
-.heist-items a button:hover{
-  background: rgb(28, 31, 46);
-  color: rgb(255, 255, 255);
+.heist button:hover{
+  background: #8ac0ff;
 }
 
-.new{
-  background: rgb(0, 88, 96);
+.footer{
+  display: flex;
+  gap: 3rem;
+  margin-top: 15px;
 }
 
-.author-container{
-  position: fixed;
-  right: -400px;
-  bottom: 60px;
-  width: 200px;
-  border-radius: 5px 40px 5px 40px;
-  padding: 15px;
-  background: rgba(21, 24, 39, .25);
-  border: 2px solid rgb(21, 24, 39);
-  box-shadow: 0 0 15px rgb(21, 24, 39), inset 0 0 0 3px rgb(21, 24, 39, .5), inset 4px 4px 15px rgba(21, 24, 39, .8), inset -4px -4px 15px rgba(21, 24, 39, .8);
-  filter: saturate(2);
-  animation: slideIn .85s forwards ease;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-}
-
-@media only screen and (max-width: 1250px){
-  .author-container{
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes slideIn{
-  from{right: -400px}
-  to{right: 175px}
-}
-
-.author{
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(36, 41, 66);
-  border-radius: 5px;
-}
-
-.author span{
-  background: linear-gradient(145deg, #6a00cd 40%, #110019);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 6px #a100cd50;
+.contact{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 15px 25px;
+  background: #000214;
 }
 
 .content{
-  margin-top: 10px;
-  letter-spacing: .075em;
-  line-height: 1.5em;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(36, 41, 66);
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, .3);
 }
 
 .socials{
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
   position: relative;
 }
 
 .socials a{
-  cursor: pointer;
   color: #fff;
-  transition: color .2s ease-in-out;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: color .15s ease;
+}
+
+.socials a:last-child{
+  margin-right: 0;
 }
 
 .socials a:hover{
-  color: rgb(55, 63, 104);
+  color: #006EEF;
 }
 
 #copied{
-  opacity: 0;
   position: absolute;
-  background: rgb(35, 40, 67);
+  bottom: 100%;
+  left: -35%;
+  background: #000320;
+  text-align: center;
+  padding: 8px;
   border-radius: 5px;
-  padding: 5px 10px;
-  bottom: 30px;
-  left: -20px;
 }
+
+.last-heist {
+  text-align: right;
+}
+
+.last-heist b{
+  color: #3787FF;
+}
+
+#timestamp{
+  margin-top: 10px;
+}
+
+
 
 

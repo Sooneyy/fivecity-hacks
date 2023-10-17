@@ -1,147 +1,123 @@
-const $hacksSection = $(".heists-list");
+const heistsList = document.querySelector(".heists-list");
 
-const heistsList = [
+export const hacksList = [
     {
         heist: 'Vangelico',
-        isNew: 0,
-    },
-    {
-        heist: 'Willa',
-        isNew: 1,
-    },
-]
-
-const hacksList = [
-    {
         name: 'Przełączanie zasilania',
-        heist: 'Vangelico',
+        minigame: "Zapamiętywanie ilości kwadratów",
         link: './vangelico_switch'
     },
     {
-        name: 'Wyłączanie zasilania',
         heist: 'Vangelico',
+        name: 'Wyłączanie zasilania',
+        minigame: "Maze game",
         link: './vangelico_power'
     },
     {
-        name: 'Włamywanie do drzwi',
         heist: 'Vangelico',
+        name: 'Włamywanie do drzwi',
+        minigame: "Szachownica (cyfry)",
         link: './vangelico_doors'
     },
     {
-        name: 'Włamywanie do sejfu',
         heist: 'Vangelico',
+        name: 'Włamywanie do sejfu',
+        minigame: "Lights out",
         link: './vangelico_safe'
     },
     {
-        name: 'Wyłączanie zabezpieczenia',
         heist: 'Willa',
+        name: 'Wyłączanie zabezpieczenia',
+        minigame: "Szachownica (pionki)",
         link: './willa_serv'
     },
     {
-        name: 'Otwieranie drzwi do winiarni',
         heist: 'Willa',
+        name: 'Otwieranie drzwi do winiarni',
+        minigame: "Zapamiętywanie miejsca kwadratów",
         link: './willa_winedoors'
     },
     {
-        name: 'Włamywanie do małego sejfu',
         heist: 'Willa',
+        name: 'Włamywanie do małego sejfu',
+        minigame: "Password game",
         link: './willa_minisafe'
     },
     {
-        name: 'Włamywanie do głównego sejfu',
         heist: 'Willa',
+        name: 'Włamywanie do głównego sejfu',
+        minigame: "Rozplątywanie liny",
         link: './willa_safe'
     },
 ]
 
-for (let i = 0; i < heistsList.length; i++) {
+export function createList(array){
+    clearList();
 
-    const $heist = $("<div>");
-    const $hsNameSec = $("<div>");
-    const $hsName = $("<p>");
-    const $hsItems = $("<div>");
+    for(let i = 0; i < array.length; i++) {
+        const heist = document.createElement("div");
+        const heistName = document.createElement("div");
+        const hackName = document.createElement("div");
+        const minigameName = document.createElement("div");
+        const linkButton = document.createElement("button");
+        const favouriteButton = document.createElement("button");
+    
+        heist.classList.add("heist");
+        heistsList.appendChild(heist);
+    
+        heistName.innerHTML = `Heist: <b>${array[i].heist}</b>`;
+        heistName.classList.add("heist-name");
+        heist.appendChild(heistName);
+    
+        hackName.innerHTML = `Hack: <b>${array[i].name}</b>`;
+        hackName.classList.add("hack-name");
+        heist.appendChild(hackName);
+    
+        minigameName.innerHTML = `Minigame: <b>${array[i].minigame}</b>`;
+        minigameName.classList.add("minigame-name");
+        heist.appendChild(minigameName);
+    
+        linkButton.textContent = "Przejdź";
+        linkButton.dataset.link = array[i].link;
+        heist.appendChild(linkButton);
 
-    $heist.addClass("heist");
-    $hacksSection.append($heist);
-
-    if(heistsList[i].isNew){
-        $hsNameSec.addClass("new");
+        linkButton.textContent = "Przejdź";
+        linkButton.dataset.link = array[i].link;
+        heist.appendChild(linkButton);
     }
 
-    $hsNameSec.addClass("heist-title");
-    $heist.append($hsNameSec);
+    const button = document.querySelectorAll(".heist > button");
 
-    $hsName.text(`${heistsList[i].heist}`);
-    $hsNameSec.append($hsName);
+    button.forEach((button) => {
+        const link = button.dataset.link;
 
-    $hsItems.addClass("heist-items");
-    $heist.append($hsItems);
+        button.addEventListener("click", () => {
+            window.open(link, "_self");
+        })
+    })
+}
+createList(hacksList);
 
-    for (let j = 0; j < hacksList.length; j++) {
-
-        if (hacksList[j].heist !== heistsList[i].heist) continue;
-
-        const $link = $("<a>")
-        const $button = $("<button>");
-        const $hcCat = $("<div>");
-        const $hcName = $("<div>");
-
-        $link.attr("href", hacksList[j].link);
-        $hsItems.append($link)
-
-        $link.append($button);
-
-        $hcCat.text(hacksList[j].heist);
-        $hcCat.addClass("heist-name");
-        $button.append($hcCat);
-
-        $hcName.text(hacksList[j].name);
-        $hcName.addClass("hack-name");
-        $button.append($hcName);
-    }
+function clearList(){
+    heistsList.querySelectorAll(".heist").forEach((item) => item.remove());
 }
 
-function copyCode(){
-    let $temp = $("<input>");
-    $("body").append($temp);
+const copyToClipboard = () => {
+    document.getElementById("copied").style.display = "block";
 
-    $temp.val("sooney").select();
-    document.execCommand("copy");
+    setTimeout(() => {
+        document.getElementById("copied").style.display = "none";
+    }, 500);
 
-    $temp.remove();
+    navigator.clipboard.writeText("sooney");
 }
 
-$("#discord").on("click", function(){
-    $("#copied").animate({
-        opacity: "1",
-    }, 300);
+document.getElementById("discord").addEventListener("click", copyToClipboard)
 
-    setTimeout(() => {
-        $("#copied").animate({
-            opacity: "0",
-        }, 300);
-    }, 1000);
-
-    copyCode();
+document.querySelector(".search > input[type='text']").addEventListener("focus", () => {
+    document.querySelector(".search").classList.add("focus");
 })
 
-$("#in-progress").on("click", function(){
-    $(".modal-container").css({
-        display: "block"
-    });
-
-    $(".modal-container").animate({
-        opacity: "1"
-    }, 200)
-})
-$("#close").on("click", function(){
-    $(".modal-container").animate({
-        opacity: "0"
-    }, 300)
-
-    setTimeout(() => {
-        $(".modal-container").css({
-            display: "none"
-        });
-    }, 300)
+document.querySelector(".search > input[type='text']").addEventListener("blur", () => {
+    document.querySelector(".search").classList.remove("focus");
 })
