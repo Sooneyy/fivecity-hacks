@@ -42,7 +42,7 @@ var elements = [
   {
     name: "Hel",
     symbol: "He",
-    pos: "18",
+    pos: "2",
   },
   {
     name: "Siarka",
@@ -52,12 +52,12 @@ var elements = [
   {
     name: "Węgiel",
     symbol: "C",
-    pos: "14",
+    pos: "6",
   },
   {
     name: "Ksenon",
     symbol: "Xe",
-    pos: "18",
+    pos: "54",
   },
   {
     name: "Fosfor",
@@ -67,7 +67,7 @@ var elements = [
   {
     name: "Wapń",
     symbol: "Ca",
-    pos: "2",
+    pos: "20",
   },
   {
     name: "Żelazo",
@@ -327,7 +327,8 @@ function onKeyup(evt) {
         break;
       }
       case "weak": {
-        if (evt.target.value.includes("💪🏼")) {
+        let muscle = /[💪🏼💪🏻💪💪🏽💪🏾💪🏿]/
+        if (muscle.test(evt.target.value)) {
           el.classList.add("good");
         } else {
           el.classList.remove("good");
