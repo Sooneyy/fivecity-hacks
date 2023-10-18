@@ -82,9 +82,9 @@ function searchFilter(){
 
     if(input.value.trim().length > 0){
         listArr = listArr.filter((hack) => 
-            hack.name.toLowerCase().includes(input.value.trim()) || 
-            hack.minigame.toLowerCase().includes(input.value.trim()) || 
-            hack.heist.toLowerCase().includes(input.value.trim())
+            hack.name.toLowerCase().includes(input.value.trim().toLowerCase()) || 
+            hack.minigame.toLowerCase().includes(input.value.trim().toLowerCase()) || 
+            hack.heist.toLowerCase().includes(input.value.trim().toLowerCase())
         );
     }
 
