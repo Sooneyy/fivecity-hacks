@@ -13,6 +13,7 @@ body {
   background: #000210;
   box-sizing: border-box;
   color: rgba(255, 255, 255);
+  overflow: hidden;
 }
 
 .container {
@@ -74,13 +75,14 @@ body {
 
 .dropdown{
   flex: 1;
-  max-width: 225px;
+  max-width: 175px;
   position: relative;
 }
 
 .dropdown-header{
-  background: #000320;
-  border-radius: 10px;
+  background: #000215;
+  border: 2px solid #1f2231;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
   padding: 15px 25px;
@@ -88,51 +90,48 @@ body {
   justify-content: space-between;
   user-select: none;
   align-items: center;
-  transition: all .075s ease;
+  transition: all .075s ease, border-color .125s linear;
 }
 
-.dropdown-header.open{
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.dropdown-header svg{
-  transition: transform .075s ease;
-}
-
-.dropdown-header svg.open{
-  transform: rotate(180deg);
-}
-
-.dropdown-menu.closed{
-  transform: scaleY(0);
+.dropdown-header:hover{
+  border-color: #292d41;
 }
 
 .dropdown-menu{
   position: absolute;
-  background: #000320;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  top: 100%;
-  left: 0;
+  background: #000215;
+  border: 1px solid #1f2231;
+  border-radius: 5px;
+  top: calc(100% + 4px);
+  left: 4px;
   width: 100%;
-  padding: 5px 15px;
+  padding: 15px 10px;
   z-index: 99;
-  transform-origin: top center;
-  transition: transform .075s ease;
+  transition: all .075s linear;
+  opacity: 0;
+  transform-origin: top left;
+  transform: scale(.9);
+  visibility: hidden;
+}
+
+.dropdown-menu.opened{
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 .heist-option{
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
   user-select: none;
   border-radius: 5px;
-  transition: background .125s linear;
+  cursor: pointer;
+  transition: background .075s ease;
 }
 
 .heist-option:hover{
-  background: rgba(255, 255, 255, .15);
+  background: #000422;
 }
 
 .heists-list{
@@ -182,7 +181,16 @@ body {
   margin-bottom: 35px;
   padding: 25px 20px;
   font-size: 17px;
-  box-shadow: 0 8px 10px rgba(0, 0, 0, .25);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, .2);
+  transition: transform .125s linear, box-shadow .085s ease;
+}
+
+.heist:hover{
+  transform: translateX(5px);
+}
+
+.heist:nth-child(2n-1):hover{
+  transform: translateX(-5px);
 }
 
 .heist div{
@@ -204,11 +212,16 @@ body {
   font-size: 18px;
   cursor: pointer;
   color: #fff;
-  transition: background .2s ease;
+  transition: background .2s ease, transform .15s ease, border-radius .15s ease;
 }
 
 .heist button:hover{
-  background: #8ac0ff;
+  background: rgb(0, 43, 92)
+}
+
+.heist button:active{
+  transform: scale(.95);
+  border-radius: 6px;
 }
 
 .footer{
@@ -273,6 +286,65 @@ body {
   margin-top: 10px;
 }
 
+.circle-blur{
+  position: absolute;
+  background: radial-gradient(50% 50% at 50% 50%, rgb(0, 22, 58) 0, rgba(18, 18, 18, 0) 100%), transparent;
+  width: 55rem;
+  height: 55rem;
+  border-radius: 50%;
+  z-index: -1;
+  animation-duration: 1200s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 
+#circle-1{
+  top: -316px;
+  left: -482px;
+  animation-name: move1;
+}
 
+@keyframes move1{
+  0%, 100%{
+    top: -316px;
+    left: -482px;
+  }
+  25%{
+    top: 286px;
+    left: 428px;
+  }
+  50%{
+    top: 526px;
+    left: 791px;
+  }
+  75%{
+    top: 846px;
+    left: 1261px;
+  }
+}
+
+#circle-2{
+  bottom: -364px;
+  right: -522px;
+  animation-name: move2;
+}
+
+@keyframes move2{
+  0%, 100%{
+    bottom: -364px;
+    right: -522px;
+  }
+  25%{
+    bottom: 226px;
+    right: 394px;
+  }
+  50%{
+    bottom: 612px;
+    right: 678px;
+  }
+  75%{
+    bottom: 876px;
+    right: 1357px;
+  }
+}
 

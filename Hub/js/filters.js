@@ -5,16 +5,11 @@ const dropdownHeader = document.querySelector(".dropdown-header");
 const dropdownArrow = document.querySelector(".dropdown-header > svg");
 const dropdownMenu = document.querySelector(".dropdown-menu");
 
-dropdownHeader.addEventListener("click", dropdownEffect);
+dropdownHeader.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("opened");
+});
 
 input.addEventListener("keyup", searchFilter);
-
-function dropdownEffect(){
-    dropdownHeader.classList.toggle("open");
-    dropdownArrow.classList.toggle("open");
-    dropdownMenu.classList.toggle("closed");
-    dropdownMenu.classList.toggle("opened");
-}
 
 const heistFilters = [
     {
@@ -57,8 +52,8 @@ const filterOption = document.querySelector(".filter-heist-name");
 filterOptions.forEach((item) => {
     item.addEventListener("click", () => {
         filterOption.textContent = item.textContent === "Wszystkie" ? "Heist" : item.textContent;
-        dropdownFilter()
-        dropdownEffect();
+        dropdownMenu.classList.toggle("opened");
+        dropdownFilter();
     })
 })
 
