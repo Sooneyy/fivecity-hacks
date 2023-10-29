@@ -121,3 +121,19 @@ document.querySelector(".search > input[type='text']").addEventListener("focus",
 document.querySelector(".search > input[type='text']").addEventListener("blur", () => {
     document.querySelector(".search").classList.remove("focus");
 })
+
+const items = document.querySelectorAll(".heist");
+
+const appear = new IntersectionObserver((entries) => {
+    for(const entry of entries){
+        if(entry.isIntersecting){
+            entry.target.classList.add("appear");
+        }else{
+            entry.target.classList.remove("appear");
+        }
+    }
+})
+
+items.forEach((item) => {
+    appear.observe(item);
+})
