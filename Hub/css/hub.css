@@ -22,7 +22,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: .5rem;
 }
 
 .title{
@@ -31,17 +31,21 @@ body {
 }
 
 .heists-box{
-  width: 1000px;
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 1100px;
+  height: 700px;
   padding: 25px;
 }
 
 .row{
+  margin-inline: auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 2rem;
   padding-inline: 1.5rem;
-  width: 100%;
+  width: 90%;
   color: rgba(255, 255, 255, .7);
 }
 
@@ -90,11 +94,11 @@ body {
   justify-content: space-between;
   user-select: none;
   align-items: center;
-  transition: all .075s ease, border-color .125s linear;
+  transition: all .1s ease, border-color .2s linear;
 }
 
 .dropdown-header:hover{
-  border-color: #292d41;
+  border-color: #32374f;
 }
 
 .dropdown-menu{
@@ -136,11 +140,11 @@ body {
 
 .heists-list{
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  flex-wrap: wrap;
   background: #000214;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-top: 3.25rem;
   padding: 35px 30px;
   height: 100%;
@@ -176,10 +180,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 422.5px;
-  height: 250px;
+  width: 450px;
+  height: 260px;
   background: #030018;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 35px;
   padding: 25px 20px;
   font-size: 17px;
@@ -218,18 +222,19 @@ body {
 .heist button{
   margin-top: auto;
   padding: 10px 50px;
-  border-radius: 2px;
-  background: rgb(0, 112, 239);
+  border-radius: 1vw;
+  background: rgb(40, 139, 252);
   border: none;
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
   color: #fff;
-  transition: background .25s ease;
+  transition: background .25s ease, box-shadow .15s linear;
 }
 
 .heist button:hover{
-  background: rgb(0, 112, 239, .7);
+  background: rgb(97, 171, 255);
+  box-shadow: 0 0 5px rgb(97, 171, 255);
 }
 
 .footer{
