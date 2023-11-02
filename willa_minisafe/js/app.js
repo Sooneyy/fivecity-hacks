@@ -290,7 +290,7 @@ function onKeyup(evt) {
       case "leapyear": {
         let afterSpace = evt.target.value.split(" ");
         if (afterSpace.length) {
-          afterSpace.forEach((ws, index) => {
+          afterSpace.forEach((ws) => {
             let year;
 
             if(!isNaN(parseInt(ws.match(/\d+/)))){
