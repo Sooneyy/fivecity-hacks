@@ -289,9 +289,13 @@ function onKeyup(evt) {
     switch (el.dataset.value) {
       case "leapyear": {
         let afterSpace = evt.target.value.split(" ");
-        if (afterSpace.length > 1) {
+        if (afterSpace.length) {
           afterSpace.forEach((ws, index) => {
-            let year = parseInt(afterSpace[index].match(/\d+/));
+            let year;
+
+            if(!isNaN(parseInt(ws.match(/\d+/)))){
+              year = parseInt(ws.match(/\d+/));
+            }
 
             if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
               el.classList.add("good");
