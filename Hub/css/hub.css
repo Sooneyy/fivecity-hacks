@@ -221,20 +221,19 @@ body {
 
 .heist button{
   margin-top: auto;
-  padding: 10px 50px;
-  border-radius: 1vw;
-  background: rgb(40, 139, 252);
+  padding: 15px 55px;
+  border-radius: .5vw;
+  background: rgb(51, 81, 178);
   border: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   color: #fff;
-  transition: background .25s ease, box-shadow .15s linear;
+  transition: background .3s ease;
 }
 
 .heist button:hover{
-  background: rgb(97, 171, 255);
-  box-shadow: 0 0 5px rgb(97, 171, 255);
+  background: rgb(148, 172, 253);
 }
 
 .footer{
