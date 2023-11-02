@@ -290,13 +290,15 @@ function onKeyup(evt) {
       case "leapyear": {
         let afterSpace = evt.target.value.split(" ");
         if (afterSpace.length > 1) {
-          let year = parseInt(afterSpace[1].match(/\d+/));
+          afterSpace.forEach((ws, index) => {
+            let year = parseInt(afterSpace[index].match(/\d+/));
 
-          if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-            el.classList.add("good");
-          } else {
-            el.classList.remove("good");
-          }
+            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+              el.classList.add("good");
+            } else {
+              el.classList.remove("good");
+            }
+          })
         }
 
         break;
