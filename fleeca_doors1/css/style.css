@@ -321,25 +321,27 @@ body {
   background: #00FF7F;
   border-radius: inherit;
   scale: 0 0;
-  animation: appear-good .4s forwards ease;
+  animation: appear-good .65s forwards ease;
 }
 
 .wrong{
   background: #ff0000;
   border-radius: inherit;
   scale: 0 0;
-  animation: appear-bad .4s forwards ease;
+  animation: appear-bad .65s forwards ease;
 }
 
 @keyframes appear-good{
   0%{
     border-radius: inherit;
-    scale: .15 .3;
+    scale: .1 .2;
   }
   35%{
+    border-radius: inherit;
     scale: .3 .5;
   }
   70%{
+    border-radius: inherit;
     scale: .2 .2;
   }
   100%{
@@ -350,7 +352,7 @@ body {
 
 @keyframes appear-bad{
   0%{
-    scale: .15 .3;
+    scale: .1 .2;
   }
   35%{
     scale: .3 .5;
