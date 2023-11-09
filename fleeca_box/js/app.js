@@ -13,7 +13,7 @@ const hackOptions = document.querySelector(".hack-options");
 const colorButtons = document.querySelectorAll(".hack-fn2 > div > .el-button");
 
 var progressBarInterval;
-var playTime = 1240;
+var playTime = 60;
 var width = 4;
 var height = 2;
 var currentSquare = 0;
