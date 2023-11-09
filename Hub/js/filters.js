@@ -20,6 +20,11 @@ const heistFilters = [
     {
         text: "Willa",
         date: new Date("2023-09-09T19:00:00"),
+        latest: 0
+    },
+    {
+        text: "Fleeca",
+        date: new Date("2023-11-06T19:00:00"),
         latest: 1
     },
     {

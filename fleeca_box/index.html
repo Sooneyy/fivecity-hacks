@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hack - Wyłączanie zabezpieczeń</title>
+</head>
+
+<body onload="hack()">
+    <a id="back" href="../">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
+    </a>
+    <div class="container">
+        <div class="hack-box">
+            <div class="hack-header">
+                <div class="name">hacking.exe</div>
+                <div class="buttons">
+                    <button class="button"><span id="mini"></span></button>
+                    <button class="button"><span id="resize"></span></button>
+                    <button class="button" id="close"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg></button>
+                </div>
+            </div>
+            <div class="play-buttons">
+                <button class="start-hack" onclick="startHack()">Zacznij Hackować</button>
+            </div>
+            <div class="hack-title">
+                <h1 id="hack-title-text">Powtórz Kolory</h1>
+            </div>
+            <div class="hack-options">
+                <div class="options">
+                    <div>Przekręcony ekran:</div>
+                    <input type="checkbox" class="checkbox" id="game-mode" />
+                    <div id="mode">Wyłączony</div>
+                </div>
+            </div>
+            <div class="hack-info">
+                <h1 id="hack-info-text"></h1>
+            </div>
+            <div class="hack-fn">
+            </div>
+            <div class="hack-fn2">
+                <h1>Wybierz kolor</h1>
+                <div>
+                    <div class="el-button pink" id="col1">
+                        <div>1</div>
+                    </div>
+                    <div class="el-button blue" id="col2">
+                        <div>2</div>
+                    </div>
+                    <div class="el-button green" id="col3">
+                        <div>3</div>
+                    </div>
+                    <div class="el-button yellow" id="col4">
+                        <div>4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hack-footer">
+                <div class="hack-progress">
+                    <div class="progress-bar">
+                        <div id="progress-bar-fn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

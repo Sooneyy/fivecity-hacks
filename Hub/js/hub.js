@@ -49,6 +49,12 @@ export const hacksList = [
         minigame: "Rozplątywanie liny",
         link: './willa_safe'
     },
+    {
+        heist: 'Fleeca',
+        name: 'Wyłączanie zabezpieczeń',
+        minigame: "Zapamiętywanie liczb/kolorków",
+        link: './fleeca_box'
+    },
 ]
 
 export function createList(array){
