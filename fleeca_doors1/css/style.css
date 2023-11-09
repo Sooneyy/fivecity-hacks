@@ -141,8 +141,8 @@ body {
 }
 
 .hack-box {
-  width: 720px;
-  height: 730px;
+  width: 700px;
+  height: 625px;
   background: #22222C;
   box-shadow: 0 -10px 48px rgba(0, 0, 0, .8);
   border-bottom-left-radius: 10px;
@@ -157,7 +157,7 @@ body {
   position: absolute;
   top: -1.25rem;
   left: 0px;
-  width: 720px;
+  width: 700px;
   display: flex;
   padding: 5px 10px;
   box-sizing: border-box;
@@ -237,12 +237,12 @@ body {
   height: 300px;
   width: 100%;
   text-align: center;
-  translate: 0 110%;
+  translate: 0 100%;
 }
 
 .hack-title {
   color: #fff;
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   margin-bottom: 30px;
   text-align: center;
@@ -259,7 +259,7 @@ body {
 .hack-footer {
   position: absolute;
   bottom: 15px;
-  width: 660px;
+  width: 650px;
 }
 
 .progress-bar {
@@ -280,105 +280,85 @@ body {
   border-radius: 15px;
 }
 
-.hack-fn {
-  position: relative;
+.hack-fn-box{
   margin: 0 auto;
-  height: 155px;
+  padding: 15px;
   width: 325px;
+  height: 325px;
+  background: #1F1F29;
+  border: 2px solid #3c3c48;
+  border-radius: 10px;
+  translate: 0 60px;
+  box-sizing: border-box;
+  transition: transform 2s ease;
+}
+
+.rotated{
+  transform: rotate(90deg);
+}
+
+.hack-fn{
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  translate: 0 -15px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
 }
 
-.el-button {
-  background: #15171F;
-}
-
-.hack-fn2{
-  margin: 0 auto;
-  width: 165px;
-  translate: 0 125px;
-}
-
-.hack-fn2 > h1{
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-}
-
-.hack-fn2 > div{
-  display: grid;
-  width: inherit;
-  height: 135px;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
-  margin-top: 15px;
-}
-
-.el-button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  isolation: isolate;
+.square{
+  background: #204137;
+  border-radius: 5px;
   cursor: pointer;
-
 }
 
-.el-button > div{
-  position: absolute;
-  font-size: 30px;
-  font-weight: 600;
-  color: #fff;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  user-select: none;
+.square2{
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
 }
 
-.hidden > div{
-  color: transparent;
-  text-shadow: 0 0 0;
+.good{
+  background: #00FF7F;
+  border-radius: inherit;
+  scale: 0 0;
+  animation: appear-good .4s forwards ease;
 }
 
-.hack-fn > .el-button:not(.hidden).el-button::before{
-  content: "";
-  position: absolute;
-  width: 55px;
-  height: 50px;
-  background: rgba(0, 0, 0, .9);
-  border-radius: 15px;
-  z-index: -1;
-  filter: blur(10px);
+.wrong{
+  background: #ff0000;
+  border-radius: inherit;
+  scale: 0 0;
+  animation: appear-bad .4s forwards ease;
 }
 
-.hack-fn2 > div > .el-button::before{
-  content: "";
-  position: absolute;
-  width: 55px;
-  height: 40px;
-  background: #00000070;
-  border-radius: 50%;
-  z-index: -1;
-  filter: blur(6px);
-  transition: all .2s linear;
+@keyframes appear-good{
+  0%{
+    border-radius: inherit;
+    scale: .15 .3;
+  }
+  35%{
+    scale: .3 .5;
+  }
+  70%{
+    scale: .2 .2;
+  }
+  100%{
+    border-radius: 0;
+    scale: 1;
+  }
 }
 
-.hack-fn2 > div > .el-button:hover::before{
-  transform: scale(1.2);
-}
-
-.pink{
-  background: #BC0065 ;
-}
-
-.blue{
-  background: #0095B8;
-}
-
-.green{
-  background: #3EA955;
-}
-
-.yellow{
-  background: #CECA00;;
+@keyframes appear-bad{
+  0%{
+    scale: .15 .3;
+  }
+  35%{
+    scale: .3 .5;
+  }
+  70%{
+    scale: .2 .2;
+  }
+  100%{
+    scale: 1;
+  }
 }
