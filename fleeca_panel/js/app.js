@@ -89,7 +89,7 @@ function progressBar(w, t) {
                 hackFunction.style.display = '';
                 hackFunction2.style.display = 'none';
                 document.getElementById("close").addEventListener("click", gameOver);
-                const squares = document.querySelectorAll('.square > div');
+                const squares = document.querySelectorAll('.square');
                 setTimeout(() => {
                     squares.forEach((sqr) => {
                         if (!sqr.classList.contains('hidden') && !isOver) {
