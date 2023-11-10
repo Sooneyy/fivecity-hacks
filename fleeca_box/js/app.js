@@ -83,6 +83,7 @@ function progressBar(w, t) {
         hackFunction.style.display = "";
         hackFunction2.style.display = "";
         createSquares();
+        document.getElementById("close").addEventListener("click", gameOver);
         progressBar("game", playTime);
         return;
       }
@@ -103,6 +104,7 @@ function progressBar(w, t) {
         buttons.style.display = "";
         progressBarBox.style.display = "none";
         hackInfoBox.style.display = "none";
+        document.getElementById("close").removeEventListener("click", gameOver);
       }
     }
   }
@@ -140,7 +142,7 @@ function buttonClick() {
     if (selectedColor === "col2") color = "blue";
     if (selectedColor === "col3") color = "green";
     if (selectedColor === "col4") color = "yellow";
-    console.log(selectedColor, currentSquare);
+
     el1.textContent = this.textContent;
     squares[currentSquare].classList.add(color);
     squares[currentSquare].classList.remove("hidden");
@@ -174,7 +176,6 @@ function buttonClick() {
 }
 
 function squareShow() {
-  console.log("w");
   currentSquare = 0;
   squaresShowInterval = true;
 

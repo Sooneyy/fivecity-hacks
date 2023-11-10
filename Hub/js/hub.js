@@ -52,7 +52,7 @@ export const hacksList = [
     {
         heist: 'Fleeca',
         name: 'Wyłączanie zabezpieczeń',
-        minigame: "Zapamiętywanie liczb/kolorków",
+        minigame: "Zapamiętywanie liczb/kolorów",
         link: './fleeca_box'
     },
     {
@@ -61,7 +61,12 @@ export const hacksList = [
         minigame: "Zapamiętywanie miejsca kwadratów po obróceniu",
         link: './fleeca_doors1'
     },
-
+    {
+        heist: 'Fleeca',
+        name: 'Otwieranie sejfu',
+        minigame: "Szachownica (kolory)",
+        link: './fleeca_panel'
+    },
 ]
 
 export function createList(array){

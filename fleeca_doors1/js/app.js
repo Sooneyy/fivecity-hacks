@@ -97,6 +97,7 @@ function progressBar(w, t) {
                 const active = document.querySelectorAll('.good');
                 setTimeout(() => {
                     gameStarted = true;
+                    document.getElementById("close").addEventListener("click", gameOver);
                 }, 2000);
 
                 hackFunctionBox.classList.add("rotated");
@@ -118,6 +119,7 @@ function progressBar(w, t) {
                 hackOptions.style.display = "none";
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
+                document.getElementById("close").removeEventListener("click", gameOver);
             }
         }
     }
