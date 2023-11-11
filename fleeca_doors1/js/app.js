@@ -11,14 +11,7 @@ const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
 const hackOptions = document.querySelector('.hack-options');
 
-const shuffleArray = (array) => {
-    for(let i = array.length - 1; i > 0; i--){
-        let r = Math.floor(Math.random() * i + 1);
-        let temp = array[i];
-        array[i] = array[r];
-        array[r] = temp;
-    }
-}
+const shuffleArray = (array) => array.map((a) => ({random: Math.random(), value: a})).sort((a, b) => a.random - b.random).map((a) => a.value);
 
 const range = (start, end, length = end - start + 1) => {
     return Array.from({length}, (_, i) => start + i);
@@ -116,7 +109,7 @@ function progressBar(w, t) {
                 hackFunctionBox.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 buttons.style.display = '';
-                hackOptions.style.display = "none";
+                hackOptions.style.display = "";
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
                 document.getElementById("close").removeEventListener("click", gameOver);
