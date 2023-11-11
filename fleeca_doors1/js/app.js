@@ -11,14 +11,7 @@ const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
 const hackOptions = document.querySelector('.hack-options');
 
-const shuffleArray = (array) => {
-    for(let i = array.length - 1; i > 0; i--){
-        let r = Math.floor(Math.random() * i + 1);
-        let temp = array[i];
-        array[i] = array[r];
-        array[r] = temp;
-    }
-}
+const shuffleArray = (array) => array.map((a) => ({random: Math.random(), value: a})).sort((a, b) => a.random - b.random).map((a) => a.value);
 
 const range = (start, end, length = end - start + 1) => {
     return Array.from({length}, (_, i) => start + i);
@@ -132,8 +125,8 @@ function createGrid(){
     hackFunction.innerHTML = '';
 
     let array = range(0, height * width - 1);
-    shuffleArray(array);
-    let positions = array.slice(0, 8);
+    let shuffledArr = shuffleArray(array);
+    let positions = shuffledArr.slice(0, 8);
 
     for(let i = 0; i < height * width; i++){
         const el = document.createElement('div');
