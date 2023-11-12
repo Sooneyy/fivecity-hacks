@@ -93,6 +93,29 @@ body {
   }
 }
 
+.timer{
+  padding: 7px 10px;
+  background: #22222C;
+  position: absolute;
+  display: none;
+  top: -100px;
+  right: 400px;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #00000080;
+  border-bottom: 2px solid #313C43;
+  animation: show-timer 1.5s ease forwards;
+}
+
+@keyframes show-timer {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 60px;
+  }
+}
+
 .options {
   font-size: 14px;
   display: flex;

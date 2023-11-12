@@ -11,10 +11,11 @@ const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
 const hackOptions = document.querySelector('.hack-options');
 const modal = document.getElementById('modal');
+const timer = document.querySelector(".timer");
 
 const shuffleArray = (array) => array.map((a) => ({random: Math.random(), value: a})).sort((a, b) => a.random - b.random).map((a) => a.value);
 
-var progressBarInterval;
+var progressBarInterval, timerInterval;
 var playTime = 10;
 var rememberTime = 3;
 var height = 5;
@@ -38,6 +39,17 @@ function startHack() {
     isOver = false;
     lastPosition = 0;
     wrong = 0;
+    let start = new Date();
+    let updateTime = () => {
+        timer.style.display = "block";
+        let now = new Date();
+        let diff = new Date();
+
+        diff.setTime(now - start);
+        timer.textContent = diff.getMinutes().toString().padStart("2", 0) + ":" + diff.getSeconds().toString().padStart("2", 0);
+    }
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTime, 1000);
     hackOptions.style.display = 'none';
     buttons.style.display = 'none';
     generateColors();
@@ -111,6 +123,7 @@ function progressBar(w, t) {
                 buttons.style.display = '';
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
+                timer.style.display = "none";
                 document.getElementById("close").removeEventListener("click", gameOver);
             }
         }
