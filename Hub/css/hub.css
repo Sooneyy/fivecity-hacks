@@ -201,7 +201,7 @@ body {
 .heist:nth-child(2n-1):last-child{
   margin-inline: auto;
   grid-column: span 2;
-  transform: translateY(90%);
+  transform: translateY(50%);
 }
 
 .appear{

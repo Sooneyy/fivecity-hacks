@@ -121,7 +121,7 @@ function progressBar(w, t) {
                 hackFunctionBox.style.display = 'none';
                 hackTitleBox.style.display = 'none';
                 buttons.style.display = '';
-                hackOptions.style.display = "none";
+                hackOptions.style.display = "";
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
                 timer.style.display = "none";
