@@ -24,7 +24,7 @@ var antiSolverMode = false;
 var isOver = false;
 var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
-var colors = ["green", "red", "blue", "lightblue", "purple", "yellow"];
+var colors = ["green", "red", "blue", "lightblue", "purple", "yellow", "gray", "orange", "black", "pink"];
 var shuffledNumbers;
 var shuffledColors;
 

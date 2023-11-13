@@ -362,8 +362,28 @@ body {
 
 .purple{
   background: #6D00AF;
-  border: 1px solid #530087;
+  border: 2px solid #530087;
 }
+.gray{
+  background: #5e5e5e;
+  border: 2px solid #2b2b2b;
+}
+
+.orange{
+  background: #ff8228;
+  border: 2px solid #d45f00;
+}
+
+.black{
+  background: #000000;
+  border: 2px solid #363636;
+}
+
+.pink{
+  background: rgb(157, 0, 255);
+  border: 2px solid #43004c;
+}
+
 
 .square{
   display: grid;
