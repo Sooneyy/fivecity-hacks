@@ -480,6 +480,7 @@ body {
 .inner-shape.kolo{
   height: 60px;
   width: 60px;
+  background-color: black;
   clip-path: circle(29px);
   margin: 70px auto auto 70px;
 }

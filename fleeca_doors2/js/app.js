@@ -237,6 +237,9 @@ function generateSquares(){
         let textColor = colors[Math.floor(Math.random() * colors.length)];
         let innerShape = shapes[Math.floor(Math.random() * shapes.length)];
 
+        if(background === shapeColor) shapeColor = colors[colors.indexOf(shapeColor) + 1];
+        if(shapeColor === innerShapeColor) innerShapeColor = colors[colors.indexOf(innerShapeColor) + 1];
+
         el1.classList.add("bg-" + background);
 
         el2.textContent = realNumbers[i];
