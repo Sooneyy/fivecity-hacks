@@ -142,7 +142,7 @@ body {
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   background: #000214;
   border-radius: 10px;
   margin-top: 3.25rem;
@@ -180,8 +180,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 450px;
-  height: 260px;
+  min-width: 450px;
+  max-width: 450px;
+  height: 100%;
   background: #030018;
   border-radius: 20px;
   margin-bottom: 35px;

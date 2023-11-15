@@ -63,9 +63,15 @@ export const hacksList = [
     },
     {
         heist: 'Fleeca',
-        name: 'Otwieranie sejfu',
+        name: 'Otwieranie głównych drzwi sejfu',
         minigame: "Szachownica (kolory)",
         link: './fleeca_panel'
+    },
+    {
+        heist: 'Fleeca',
+        name: 'Otwieranie drugich drzwi do sejfu',
+        minigame: "Zapamiętywanie numerów",
+        link: './fleeca_doors2'
     },
 ]
 
