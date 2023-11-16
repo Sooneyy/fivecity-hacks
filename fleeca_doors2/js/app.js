@@ -259,9 +259,7 @@ function generateSquares(){
         el7.textContent = randomNumbers[i];
         el7.classList.add(numberColor);
 
-        items.push(
-            realNumbers[i],
-            {
+        items.push(realNumbers[i], {
             backgroundColor: background,
             textColorColor: textColorColor,
             numberColor: numberColor,
