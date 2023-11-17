@@ -170,7 +170,7 @@ function buttonClick() {
     squares[currentSquare].appendChild(el1);
 
     if (squares[currentSquare].id === color) {
-      if (currentSquare < 8) {
+      if (currentSquare < blocks) {
         if (!squares[currentSquare].classList.contains("good")) {
           squares[currentSquare].classList.add("good");
           currentSquare++;
@@ -178,7 +178,7 @@ function buttonClick() {
           currentSquare++;
           return;
         }
-        if (currentSquare === elementsToShow - 1 && currentSquare !== 8) {
+        if (currentSquare === elementsToShow - 1 && currentSquare !== blocks) {
           squareShow();
         }
       }
