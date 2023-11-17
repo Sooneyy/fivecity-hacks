@@ -15,8 +15,7 @@ const timer = document.querySelector(".timer");
 
 var progressBarInterval, timerInterval;
 var playTime = 50;
-var width = 4;
-var height = 2;
+var blocks = 8;
 var currentSquare = 0;
 var elementsToShow = 2;
 var selectedColor = 0;
@@ -30,6 +29,15 @@ function hack() {
   hackFunction2.style.display = "none";
   progressBarBox.style.display = "none";
   hackTitleBox.style.display = "none";
+  document.querySelectorAll(".blocks-count").forEach((item) => {
+    item.addEventListener("click", function() {
+        document.querySelectorAll(".blocks-count").forEach((el) => el.classList.remove("active"));
+        this.classList.add("active");
+
+        blocks = Number(this.textContent);
+        playTime = this.textContent == 8 ? 50 : this.textContent == 12 ? 100 : 50;
+    })
+  })
 }
 
 function startHack() {
@@ -129,7 +137,7 @@ function progressBar(w, t) {
 function createSquares() {
   hackFunction.innerHTML = "";
 
-  for (let i = 0; i < width * height; i++) {
+  for (let i = 0; i < blocks; i++) {
     let random = Math.floor(Math.random() * colors.length);
     let randomColor = colors[random];
     const el = document.createElement("div");

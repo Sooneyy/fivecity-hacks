@@ -134,6 +134,38 @@ body {
   justify-content: flex-start;
 }
 
+.options:last-child{
+  margin-top: 80px;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.options:last-child button{
+  width: 50px;
+  height: 50px;
+  background: #15151b;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #2b2b3c;
+  box-shadow: 0 0 10px rgba(42, 42, 60, .7);
+  cursor: pointer;
+}
+
+.options:last-child button:hover{
+  background: #19191f;
+}
+
+.options:last-child button:active{
+  background: #1c1c23;
+}
+
+.options:last-child button.active{
+  transform: scale(.8);
+  box-shadow: 0 0 18px rgb(47, 47, 67);
+  border-color: #4b4b68;
+}
+
 .checkbox {
   display: grid;
   appearance: none;
@@ -308,8 +340,8 @@ body {
   margin: 0 auto;
   height: 155px;
   width: 325px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   grid-gap: 15px;
   translate: 0 -15px;
 }
@@ -342,6 +374,8 @@ body {
 .el-button{
   display: flex;
   align-items: center;
+  width: 70px;
+  height: 70px;
   justify-content: center;
   position: relative;
   isolation: isolate;
