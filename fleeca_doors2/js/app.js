@@ -237,8 +237,8 @@ function generateSquares(){
         let textColor = colors[Math.floor(Math.random() * colors.length)];
         let innerShape = shapes[Math.floor(Math.random() * shapes.length)];
 
-        if(background === shapeColor) shapeColor = colors[colors.indexOf(shapeColor) + 1];
-        if(shapeColor === innerShapeColor) innerShapeColor = colors[colors.indexOf(innerShapeColor) + 1];
+        if(background === shapeColor) shapeColor = colors[colors.indexOf(shapeColor) + 1 < colors.length ? colors.indexOf(shapeColor) + 1 : colors.indexOf(shapeColor) - 1];
+        if(shapeColor === innerShapeColor) innerShapeColor = colors[colors.indexOf(shapeColor) + 1 < colors.length ? colors.indexOf(shapeColor) + 1 : colors.indexOf(shapeColor) - 1];
 
         el1.classList.add("bg-" + background);
 
