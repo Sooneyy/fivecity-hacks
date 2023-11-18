@@ -153,16 +153,12 @@ body {
 }
 
 .options:last-child button:hover{
-  background: #19191f;
-}
-
-.options:last-child button:active{
-  background: #1c1c23;
+  background: #1a1a22;
 }
 
 .options:last-child button.active{
   transform: scale(.8);
-  box-shadow: 0 0 18px rgb(47, 47, 67);
+  box-shadow: 0 0 22px rgb(57, 57, 83);
   border-color: #4b4b68;
 }
 
