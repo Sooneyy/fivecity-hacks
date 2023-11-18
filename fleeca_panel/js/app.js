@@ -24,7 +24,7 @@ var antiSolverMode = false;
 var isOver = false;
 var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
-var colors = ["green", "red", "blue", "lightblue", "purple", "yellow", "gray", "orange", "black", "pink"];
+var colors = ["green", "red", "blue", "lightblue", "purple", "yellow", "orange", "pink"];
 var shuffledNumbers;
 var shuffledColors;
 
@@ -33,6 +33,18 @@ function hack() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
+    document.querySelectorAll(".blocks-count").forEach((item) => {
+        item.addEventListener("click", function() {
+            document.querySelectorAll(".blocks-count").forEach((el) => el.classList.remove("active"));
+            this.classList.add("active");
+    
+            height = Number(this.textContent);
+            width = Number(this.textContent);
+            playTime = this.textContent == 5 ? 10 : this.textContent == 7 ? 15545 : 10;
+            hackFunction.style.gridTemplateColumns = `repeat(${height}, 1fr)`;
+            hackFunction.style.gridTemplateRows = `repeat(${width}, 1fr)`;
+        })
+      })
 }
 
 function startHack() {
@@ -153,7 +165,7 @@ function createGrid() {
                 text = 'START'
                 break;
             }
-            case 24: {
+            case width * height - 1: {
                 text = 'EXIT';
                 break;
             }
@@ -200,7 +212,7 @@ function createGrid() {
                     el.classList.remove('breathing');
                 })
 
-                if (pos === breathingPosition || pos === breathingPosition * 5) {
+                if (pos === breathingPosition || pos === breathingPosition * height) {
                     lastPosition = pos;
                     this.classList.add('good');
                 } else {
@@ -215,7 +227,7 @@ function createGrid() {
                 if (jump <= maxH && pos === lastPosition + jump) {
                     lastPosition = pos;
                     this.classList.add('good');
-                } else if (jump <= maxV && pos === lastPosition + (jump * 5)) {
+                } else if (jump <= maxV && pos === lastPosition + (jump * height)) {
                     lastPosition = pos;
                     this.classList.add('good');
                 } else {
@@ -235,7 +247,7 @@ function createGrid() {
                 progressBar('end', 9)
             }
 
-            if (lastPosition === 24 && document.querySelectorAll('.square')[lastPosition].classList.contains('good')) {
+            if (lastPosition === (height * width - 1) && document.querySelectorAll('.square')[lastPosition].classList.contains('good')) {
                 gameWin();
             }
         }
@@ -260,42 +272,42 @@ function generateColors(){
 }
 
 function maxVertical(pos) {
-    return Math.floor((24 - pos) / 5);
+    return Math.floor(((height * width - 1) - pos) / height);
 }
 
 function maxHorizontal(pos) {
-    let max = (pos + 1) % 5;
-    if (max > 0) return 5 - max;
+    let max = (pos + 1) % width;
+    if (max > 0) return width - max;
     else return 0;
 }
 
 function generateNextPosition(pos) {
     let maxV = maxVertical(pos);
     let maxH = maxHorizontal(pos);
-
     if (maxV === 0) {
         let newPosition = random(random(1, maxH), maxH);
         return [newPosition, pos + newPosition];
     }
     if (maxH === 0) {
         let newPosition = random(random(1, maxV), maxV);
-        return [newPosition, pos + (newPosition * 5)];
+        return [newPosition, pos + (newPosition * height)];
     }
     if (random(1, 1000) % 2 === 0) {
         let newPosition = random(random(1, maxH), maxH);
         return [newPosition, pos + newPosition];
     } else {
         let newPosition = random(random(1, maxV), maxV);
-        return [newPosition, pos + (newPosition * 5)];
+        return [newPosition, pos + (newPosition * height)];
     }
 }
 
 function generateRoute(startPos) {
     let route = [];
+
     if (random(1, 1000) % 2 === 0) {
-        startPos *= 5;
+        startPos *= width;
     }
-    while (startPos < 24) {
+    while (startPos < (height * width - 1)) {
         let newPos = generateNextPosition(startPos);
         route[startPos] = newPos[0];
         startPos = newPos[1];
@@ -305,7 +317,9 @@ function generateRoute(startPos) {
 }
 
 function random(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    let result = Math.floor(Math.random() * (max - min)) + min;
+    if(result > 4) result = result - 1;
+    return result;
 }
 
 $(document).ready(function () {

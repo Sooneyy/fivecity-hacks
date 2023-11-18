@@ -134,6 +134,38 @@ body {
   justify-content: flex-start;
 }
 
+.options:last-child{
+  margin-top: 80px;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.options:last-child button{
+  width: 50px;
+  height: 50px;
+  background: #15151b;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #2b2b3c;
+  box-shadow: 0 0 10px rgba(42, 42, 60, .7);
+  cursor: pointer;
+}
+
+.options:last-child button:hover{
+  background: #19191f;
+}
+
+.options:last-child button:active{
+  background: #1c1c23;
+}
+
+.options:last-child button.active{
+  transform: scale(.8);
+  box-shadow: 0 0 18px rgb(47, 47, 67);
+  border-color: #4b4b68;
+}
+
 .checkbox {
   display: grid;
   appearance: none;
@@ -311,8 +343,7 @@ body {
   display: grid;
   gap: 2px;
   translate: 0 10px;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  flex-wrap: wrap;
 }
 
 .hack-fn2{
@@ -361,12 +392,8 @@ body {
 }
 
 .purple{
-  background: #6D00AF;
-  border: 2px solid #530087;
-}
-.gray{
-  background: #5e5e5e;
-  border: 2px solid #2b2b2b;
+  background: #62009f;
+  border: 2px solid #470073;
 }
 
 .orange{
@@ -374,21 +401,14 @@ body {
   border: 2px solid #d45f00;
 }
 
-.black{
-  background: #000000;
-  border: 2px solid #363636;
-}
-
 .pink{
-  background: rgb(255, 0, 118);
-  border: 2px solid rgb(55, 0, 25);
+  background: rgb(255, 0, 157);
+  border: 2px solid rgb(159, 0, 88);
 }
-
 
 .square{
   display: grid;
   place-items: center;
-  padding: 20px;
   border-radius: 2px;
   border: 1px solid #18181f;
   opacity: .8;
@@ -397,11 +417,12 @@ body {
   isolation: isolate;
   user-select: none;
   position: relative;
+  box-sizing: border-box;
 }
 
 .square > div{
-  width: 100%;
-  height: 100%;
+  width: 55px;
+  height: 55px;
   border-radius: 5px;
   transition: all .15s linear;
 }
