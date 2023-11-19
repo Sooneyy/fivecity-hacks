@@ -178,6 +178,7 @@ function buttonClick() {
           currentSquare++;
           return;
         }
+
         if (currentSquare === elementsToShow - 1 && currentSquare !== blocks) {
           squareShow();
         }
@@ -201,7 +202,7 @@ function squareShow() {
   squaresShowInterval = true;
 
   for (let i = 0; i < elementsToShow; i++) {
-    if (i === 8) break;
+    if (i === blocks) break;
 
     const squares = document.querySelectorAll(".hack-fn > .el-button");
     squares[i].classList.remove(squares[i].id);
