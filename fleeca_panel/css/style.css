@@ -397,11 +397,6 @@ body {
   border: 2px solid #d45f00;
 }
 
-.pink{
-  background: rgb(239, 0, 255);
-  border: 2px solid rgb(53, 0, 49);
-}
-
 .square{
   display: grid;
   place-items: center;

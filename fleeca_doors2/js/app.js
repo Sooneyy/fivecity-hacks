@@ -19,7 +19,8 @@ var progressBarInterval, timerInterval;
 var playTime = 10;
 var rememberTime = 5;
 var squaresCount = 4;
-var numOfLevels = 2;
+var defaultLevels = 2;
+var levels = document.querySelector(".level-input");
 var level = 0;
 var antiSolverMode = false;
 var colors = ["czarny","bialy","czerwony","zolty","niebieski","pomaranczowy","fioletowy","zielony"];
@@ -47,6 +48,7 @@ function hack() {
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
     rightAnswer.style.display = 'none';
+    document.getElementById("level").textContent = String(defaultLevels);
 }
 
 function startHack() {
@@ -297,7 +299,7 @@ function checkAnswer(){
 
     if(answer[0] === answers[0] && answer[1] === answers[1]){
         level++;
-        if(level < numOfLevels){
+        if(level < levels.value){
             hackFunction2.style.display = 'none';
             input.value = "";
             generateElements();
@@ -347,24 +349,6 @@ document.addEventListener("keyup", (e) => {
     }
 })
 
-$(document).ready(function () {
-
-    $("#game-mode").on("change", function () {
-        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
-        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
-    })
-    
-    $(".start-hack").on("click", function() {
-        let randomOperator = Math.random() < 0.5 ? "" : "-";
-
-        if(antiSolverMode){
-            $(".hack-box").css({
-                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(80, 105)}px, ${randomOperator}${random(30,45)}px)`,
-            });
-        }else {
-            $(".hack-box").css({
-                "transform": `rotate(0deg) translate(0, 0)`,
-            });
-        }
-    })
-})
+function levelChangeFunction(){
+    document.getElementById("level").textContent = document.querySelector(".level-input").value;
+}
