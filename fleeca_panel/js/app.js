@@ -40,7 +40,7 @@ function hack() {
     
             height = Number(this.textContent);
             width = Number(this.textContent);
-            playTime = this.textContent == 5 ? 10 : this.textContent == 7 ? 15545 : 10;
+            playTime = this.textContent == 5 ? 10 : this.textContent == 7 ? 15 : 10;
             hackFunction.style.gridTemplateColumns = `repeat(${height}, 1fr)`;
             hackFunction.style.gridTemplateRows = `repeat(${width}, 1fr)`;
         })
