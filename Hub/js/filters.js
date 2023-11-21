@@ -25,6 +25,11 @@ const heistFilters = [
     {
         text: "Fleeca",
         date: new Date("2023-11-06T19:00:00"),
+        latest: 0
+    },
+    {
+        text: "Car Dealer",
+        date: new Date("2023-11-19T19:00:00"),
         latest: 1
     },
     {

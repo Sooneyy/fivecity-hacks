@@ -73,6 +73,12 @@ export const hacksList = [
         minigame: "Zapamiętywanie numerów",
         link: './fleeca_doors2'
     },
+    {
+        heist: 'Car Dealer',
+        name: 'Zdejmowanie nadajnika',
+        minigame: "Coś typu aim lab",
+        link: './cardealer_gps'
+    },
 ]
 
 export function createList(array){

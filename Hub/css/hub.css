@@ -183,6 +183,7 @@ body {
   min-width: 450px;
   max-width: 450px;
   height: 100%;
+  max-height: 260px;
   background: #030018;
   border-radius: 20px;
   margin-bottom: 35px;
