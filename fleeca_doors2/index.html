@@ -36,18 +36,16 @@
                     <input type="range" class="level-input" min="1" value="2" max="10" step="1" oninput="levelChangeFunction()"/>
                     <div id="level"></div>
                 </div>
+                <div class="options">
+                    <div>Ilość kafelków</div>
+                    <input type="range" class="tile-input" min="2" value="4" max="8" step="1" oninput="tileChangeFunction()"/>
+                    <div id="tile"></div>
+                </div>
             </div>
             <div class="hack-info">
                 <h1 id="hack-info-text"></h1>
             </div>
-            <div class="hack-fn">
-                <div class="g1"></div>
-                <div class="g2"></div>
-                <div class="g3"></div>
-                <div class="g4"></div>
-            </div>
-            <div class="right-answer">
-            </div>
+            <div class="hack-fn"></div>
             <div class="hack-fn2">
                 <div class="questions">
                     <div class="question q1"></div>
@@ -63,6 +61,12 @@
                         <div id="progress-bar-fn"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="modal-mask">
+            <div class="answer-modal">
+                <div class="right-answer"></div>
+                <div class="modal-button" onclick="modalClose()">OK</div>
             </div>
         </div>
     </div>

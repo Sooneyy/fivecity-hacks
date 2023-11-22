@@ -8,8 +8,8 @@ const buttons = document.querySelector('.play-buttons');
 const progressBarBox = document.querySelector('.hack-progress')
 const progressBarFn = document.getElementById('progress-bar-fn');
 const hackOptions = document.querySelector('.hack-options');
+const modal = document.querySelector('.modal-mask');
 const rightAnswer = document.querySelector('.right-answer');
-const modal = document.getElementById('modal');
 const timer = document.querySelector(".timer");
 const input = document.getElementById("input");
 
@@ -18,7 +18,8 @@ const shuffleArray = (array) => array.map((a) => ({random: Math.random(), value:
 var progressBarInterval, timerInterval;
 var playTime = 10;
 var rememberTime = 5;
-var squaresCount = 4;
+var defaultSquaresCount = 4;
+var squaresCount = document.querySelector(".tile-input");
 var defaultLevels = 2;
 var levels = document.querySelector(".level-input");
 var level = 0;
@@ -47,8 +48,9 @@ function hack() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
-    rightAnswer.style.display = 'none';
+    modal.style.display = 'none';
     document.getElementById("level").textContent = String(defaultLevels);
+    document.getElementById("tile").textContent = String(defaultSquaresCount);
 }
 
 function startHack() {
@@ -90,7 +92,6 @@ function gameOver() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'block';
-    rightAnswer.style.display = "none";
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Hack nieudany'
     progressBar('end', 9);
@@ -109,7 +110,7 @@ function progressBar(w, t) {
                 hackInfoBox.style.display = 'none';
                 generateSquares();
                 generateQuestions();
-                for(let i = 1; i <= 4; i++){
+                for(let i = 1; i <= squaresCount.value; i++){
                     const group = document.querySelector(".g" + i);
                     const el1 = group.querySelector(".real-number");
                     const el2 = group.querySelector(".text-color");
@@ -135,7 +136,7 @@ function progressBar(w, t) {
                 return;
             }
             if(w === 'remember'){
-                for(let i = 1; i <= 4; i++){
+                for(let i = 1; i <= squaresCount.value; i++){
                     const group = document.querySelector(".g" + i);
                     const el1 = group.querySelector(".real-number");
                     const el2 = group.querySelector(".text-color");
@@ -163,7 +164,6 @@ function progressBar(w, t) {
             }
             if (w === 'end') {
                 hackFunction.style.display = 'none';
-                rightAnswer.style.display = "none";
                 hackFunction2.style.display = 'none';
                 hackOptions.style.display = '';
                 buttons.style.display = '';
@@ -180,11 +180,13 @@ function progressBar(w, t) {
 }
 
 function generateElements(){
-    for(let i = 0; i < squaresCount; i++) {
-        const group = document.querySelector(".g" + (i + 1));
-        
-        if(group.classList[1]) group.classList.remove(group.classList[1]);
-        group.innerHTML = "";
+    hackFunction.innerHTML = '';
+
+    for(let i = 0; i < squaresCount.value; i++) {
+        const group = document.createElement("div");
+
+        group.classList.add("g" + (i + 1));
+        hackFunction.appendChild(group);
 
         const el1 = document.createElement("div");
         const el2 = document.createElement("div");
@@ -214,12 +216,14 @@ function generateElements(){
 }
 
 function generateSquares(){
-    let numbers = [1, 2, 3, 4];
+    let numbers = [];
+    for(let i = 1; i <= squaresCount.value; i++) numbers.push(i);
+
     realNumbers = shuffleArray(numbers);
     let randomNumbers = shuffleArray(numbers);
     items = [];
 
-    for(let i = 0; i < squaresCount; i++){
+    for(let i = 0; i < squaresCount.value; i++){
         const el1 = document.querySelector(".g" + (i + 1));
         const el2 = document.querySelectorAll(".real-number")[i];
         const el3 = document.querySelectorAll(".text-color")[i];
@@ -291,7 +295,7 @@ function generateQuestions(){
         answers.push(items[items.indexOf(random) + 1][questions[i].type]);  
     }
 
-    rightAnswer.innerHTML = `<span>Poprawne rozwiązanie:</span> </br> ${answers[0]} ${answers[1]}`
+    rightAnswer.innerHTML = `<div>Poprawne rozwiązanie:</div> <div>${answers[0]} ${answers[1]}</div>`
 }
 
 function checkAnswer(){
@@ -332,7 +336,7 @@ function checkAnswer(){
             gameWin();
         }
     }else{
-        rightAnswer.style.display = "";
+        modal.style.display = '';
         progressBar("game", 3);
     }
 }
@@ -349,6 +353,14 @@ document.addEventListener("keyup", (e) => {
     }
 })
 
+function modalClose(){
+    modal.style.display = "none";
+}
+
 function levelChangeFunction(){
     document.getElementById("level").textContent = document.querySelector(".level-input").value;
+}
+
+function tileChangeFunction(){
+    document.getElementById("tile").textContent = document.querySelector(".tile-input").value;
 }
