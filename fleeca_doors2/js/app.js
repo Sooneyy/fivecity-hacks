@@ -48,7 +48,7 @@ function hack() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
-    
+    modal.style.display = "none";
     document.getElementById("level").textContent = String(defaultLevels);
     document.getElementById("tile").textContent = String(defaultSquaresCount);
 }
