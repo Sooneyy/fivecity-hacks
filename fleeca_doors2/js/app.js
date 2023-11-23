@@ -288,7 +288,7 @@ function generateQuestions(){
 
     for(let i = 0; i < questions.length; i++){
         const question = document.querySelector(".q" + (i + 1));
-        let random = realNumbers[Math.floor(Math.random() * 4)];
+        let random = realNumbers[Math.floor(Math.random() * squaresCount.value)];
         question.textContent = "";
         question.textContent = questions[i].text + " " + "(" + random + ")";
         
@@ -309,7 +309,7 @@ function checkAnswer(){
             generateElements();
             generateSquares();
             generateQuestions();
-            for(let i = 1; i <= 4; i++){
+            for(let i = 1; i <= squaresCount.value; i++){
                 const group = document.querySelector(".g" + i);
                 const el1 = group.querySelector(".real-number");
                 const el2 = group.querySelector(".text-color");
