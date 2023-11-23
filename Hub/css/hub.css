@@ -94,11 +94,11 @@ body {
   justify-content: space-between;
   user-select: none;
   align-items: center;
-  transition: all .1s ease, border-color .2s linear;
+  transition: border-color .15s linear;
 }
 
 .dropdown-header:hover{
-  border-color: #32374f;
+  border-color: #43496a;
 }
 
 .dropdown-menu{
@@ -131,11 +131,11 @@ body {
   user-select: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background .075s ease;
+  transition: background .2s ease;
 }
 
 .heist-option:hover{
-  background: #000422;
+  background: rgb(0, 8, 66);
 }
 
 .heists-list{
@@ -217,7 +217,7 @@ body {
 }
 
 .heist-name b{
-  color: #3787FF;
+  color: #69bcff;
   text-transform: uppercase;
 }
 
@@ -225,17 +225,17 @@ body {
   margin-top: auto;
   padding: 15px 55px;
   border-radius: .5vw;
-  background: rgb(51, 81, 178);
+  background: rgb(72, 106, 219);
   border: none;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   color: #fff;
-  transition: background .1s ease;
+  transition: background .2s linear;
 }
 
 .heist button:hover{
-  background: rgb(148, 172, 253);
+  background: rgb(131, 160, 255);
 }
 
 .footer{
