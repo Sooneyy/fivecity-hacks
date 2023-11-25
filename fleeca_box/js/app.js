@@ -29,13 +29,14 @@ function hack() {
   hackFunction2.style.display = "none";
   progressBarBox.style.display = "none";
   hackTitleBox.style.display = "none";
-  document.querySelectorAll(".blocks-count").forEach((item) => {
+  document.getElementById('active-type').textContent = document.querySelector(".fleeca-type.active").textContent;
+  document.querySelectorAll(".fleeca-type").forEach((item) => {
     item.addEventListener("click", function() {
-        document.querySelectorAll(".blocks-count").forEach((el) => el.classList.remove("active"));
+        document.querySelectorAll(".fleeca-type").forEach((el) => el.classList.remove("active"));
         this.classList.add("active");
 
-        blocks = Number(this.textContent);
-        playTime = this.textContent == 8 ? 50 : this.textContent == 12 ? 100 : 50;
+        blocks = this.dataset.type === "normal" ? 8 : this.dataset.type === "red" ? 12 : 8;
+        playTime = this.dataset.type === "normal" ? 50 : this.dataset.type === "red" ? 100 : 50;
     })
   })
 }

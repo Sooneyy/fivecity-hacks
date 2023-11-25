@@ -60,6 +60,7 @@ body {
   box-sizing: border-box;
   border-radius: 0 8px 8px 0;
   box-shadow: 0 0 10px #15151B;
+  border-left: 1px solid rgba(0, 230, 111, .3);
   color: #fff;
   cursor: pointer;
   user-select: none;
@@ -72,11 +73,11 @@ body {
 #back::before {
   content: "";
   position: absolute;
-  background: rgba(0, 230, 111, .3);
+  background: rgba(0, 230, 111, .6);
   width: 2px;
   height: 100%;
   top: 0;
-  left: -2px;
+  left: -3px;
   filter: blur(3px);
 }
 
@@ -135,60 +136,47 @@ body {
 }
 
 .options:last-child{
-  margin-top: 80px;
-  justify-content: center;
-  gap: 6rem;
+  margin-top: 50px;
+  flex-direction: column;
+  gap: 1rem !important;
 }
 
-.options:last-child button{
-  width: 50px;
-  height: 50px;
-  background: #15151b;
-  font-size: 18px;
+.options:last-child div{
+  font-size: 22px;
+  background: #191921;
+  padding: 6px 24px;
+  border-radius: 5px;
+}
+
+.options:last-child .types{
+  display: flex;
+  gap: 1rem;
+  width: 300px;
+  height: 40px;
+  padding: 1rem;
+}
+
+.options:last-child .types .fleeca-type{
+  flex: 1;
+  background: #0f0f14;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
-  border: 2px solid #2b2b3c;
-  box-shadow: 0 0 10px rgba(42, 42, 60, .7);
+  border: 1px solid #2b2b39;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background .2s linear, border-color .2s linear .1s;
 }
 
-.options:last-child button:hover{
-  background: #1a1a22;
+.options:last-child .types .fleeca-type:hover{
+  background: #383849;
+  border-color: #383849;
 }
 
-.options:last-child button.active{
-  transform: scale(.8);
-  box-shadow: 0 0 22px rgb(57, 57, 83);
-  border-color: #4b4b68;
-}
-
-.checkbox {
-  display: grid;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  height: 1.35em;
-  width: 1.35em;
-  color: currentColor;
-  border-radius: 3px;
-  border: 1px solid currentColor;
-  place-content: center;
-  translate: 0 1px;
-}
-
-.checkbox::before {
-  content: "";
-  box-shadow: inset 1em 1em currentColor;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
-  transform: scale(0);
-  transform-origin: center center;
-  transition: transform 0.1s ease-in-out;
-  width: 0.85em;
-  height: 0.85em;
-}
-
-.checkbox:checked::before {
-  transform: scale(1);
+.options:last-child .types .fleeca-type.active{
+  background: #5d5d7a;
+  border-color: #5d5d7a;
+  box-shadow: 0 0 8px #5d5d7a;
 }
 
 .hack-box {

@@ -43,8 +43,12 @@
                     <div style="color: rgba(255, 255, 255, .6); text-decoration: underline; font-weight: 400">By szybciej zakończyć minigrę naciśnij " x "</div>
                 </div>
                 <div class="options">
-                    <button class="blocks-count active">5</button>
-                    <button class="blocks-count">7</button>
+                    <div>Wybierz typ</div>
+                    <div class="types">
+                        <button class="fleeca-type active" data-type="normal">Zwykła</button>
+                        <button class="fleeca-type" data-type="red">Czerwona</button>
+                    </div>
+                    <div>Aktualny typ: <b id="active-type"></b></div>
                 </div>
             </div>
             <div class="hack-info">

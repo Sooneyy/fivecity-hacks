@@ -60,6 +60,7 @@ body {
   box-sizing: border-box;
   border-radius: 0 8px 8px 0;
   box-shadow: 0 0 10px #15151B;
+  border-left: 1px solid rgba(0, 230, 111, .3);
   color: #fff;
   cursor: pointer;
   user-select: none;
@@ -72,11 +73,11 @@ body {
 #back::before {
   content: "";
   position: absolute;
-  background: rgba(0, 230, 111, .3);
+  background: rgba(0, 230, 111, .6);
   width: 2px;
   height: 100%;
   top: 0;
-  left: -2px;
+  left: -3px;
   filter: blur(3px);
 }
 

@@ -33,14 +33,16 @@ function hack() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
-    document.querySelectorAll(".blocks-count").forEach((item) => {
+    document.getElementById('active-type').textContent = document.querySelector(".fleeca-type.active").textContent;
+    document.querySelectorAll(".fleeca-type").forEach((item) => {
         item.addEventListener("click", function() {
-            document.querySelectorAll(".blocks-count").forEach((el) => el.classList.remove("active"));
+            document.querySelectorAll(".fleeca-type").forEach((el) => el.classList.remove("active"));
             this.classList.add("active");
-    
-            height = Number(this.textContent);
-            width = Number(this.textContent);
-            playTime = this.textContent == 5 ? 10 : this.textContent == 7 ? 15 : 10;
+            document.getElementById('active-type').textContent = this.textContent;
+
+            height = this.dataset.type === "normal" ? 5 : this.dataset.type === "red" ? 7 : 5;
+            width = this.dataset.type === "normal" ? 5 : this.dataset.type === "red" ? 7 : 5;
+            playTime = this.dataset.type === "normal" ? 10 : this.dataset.type === "red" ? 15 : 10;
             hackFunction.style.gridTemplateColumns = `repeat(${height}, 1fr)`;
             hackFunction.style.gridTemplateRows = `repeat(${width}, 1fr)`;
         })
