@@ -26,7 +26,6 @@ var height = 5;
 var width = 5;
 var wrong = 0;
 var good = 0;
-var antiSolverMode = false;
 
 function hack() {
     hackInfoBox.style.display = 'none';
@@ -185,33 +184,4 @@ function createGrid(){
     })
 }
 
-$(document).ready(function () {
-    $("#game-mode").on("change", function () {
-      $(this).prop("checked")
-        ? $("#mode").text("Włączony")
-        : $("#mode").text("Wyłączony");
-      $(this).prop("checked")
-        ? (antiSolverMode = true)
-        : (antiSolverMode = false);
-    });
-  
-    $(".start-hack").on("click", function () {
-      let randomOperator = Math.random() < 0.5 ? "" : "-";
-  
-      if (antiSolverMode) {
-        $(".hack-box").css({
-          transform: `rotate(${randomOperator}${random(
-            1,
-            5
-          )}deg) translate(${randomOperator}${random(
-            80,
-            105
-          )}px, ${randomOperator}${random(30, 45)}px)`,
-        });
-      } else {
-        $(".hack-box").css({
-          transform: `rotate(0deg) translate(0, 0)`,
-        });
-      }
-    });
-  });
+

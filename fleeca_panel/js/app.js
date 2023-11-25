@@ -20,7 +20,6 @@ var playTime = 10;
 var rememberTime = 3;
 var height = 5;
 var width = 5;
-var antiSolverMode = false;
 var isOver = false;
 var wrong = 0;
 var lastPosition, bestRoute, goodPositions;
@@ -324,24 +323,3 @@ function random(min, max) {
     return result;
 }
 
-$(document).ready(function () {
-
-    $("#game-mode").on("change", function () {
-        $(this).prop("checked") ? $("#mode").text("Włączony") : $("#mode").text("Wyłączony");
-        $(this).prop("checked") ? antiSolverMode = true : antiSolverMode = false;
-    })
-    
-    $(".start-hack").on("click", function() {
-        let randomOperator = Math.random() < 0.5 ? "" : "-";
-
-        if(antiSolverMode){
-            $(".hack-box").css({
-                "transform": `rotate(${randomOperator}${random(1,5)}deg) translate(${randomOperator}${random(80, 105)}px, ${randomOperator}${random(30,45)}px)`,
-            });
-        }else {
-            $(".hack-box").css({
-                "transform": `rotate(0deg) translate(0, 0)`,
-            });
-        }
-    })
-})

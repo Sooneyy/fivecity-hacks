@@ -165,47 +165,13 @@ body {
   border: 1px solid #2b2b39;
   border-radius: 5px;
   cursor: pointer;
-  transition: background .2s linear, border-color .2s linear .1s;
-}
-
-.options:last-child .types .fleeca-type:hover{
-  background: #383849;
-  border-color: #383849;
+  transition: all .25s ease;
 }
 
 .options:last-child .types .fleeca-type.active{
   background: #5d5d7a;
   border-color: #5d5d7a;
   box-shadow: 0 0 8px #5d5d7a;
-}
-
-.checkbox {
-  display: grid;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  height: 1.35em;
-  width: 1.35em;
-  color: currentColor;
-  border-radius: 3px;
-  border: 1px solid currentColor;
-  place-content: center;
-  translate: 0 1px;
-}
-
-.checkbox::before {
-  content: "";
-  box-shadow: inset 1em 1em currentColor;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
-  transform: scale(0);
-  transform-origin: center center;
-  transition: transform 0.1s ease-in-out;
-  width: 0.85em;
-  height: 0.85em;
-}
-
-.checkbox:checked::before {
-  transform: scale(1);
 }
 
 .hack-box {

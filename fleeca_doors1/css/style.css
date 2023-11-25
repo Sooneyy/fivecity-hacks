@@ -131,39 +131,6 @@ body {
   font-weight: 600;
 }
 
-.options:first-child {
-  justify-content: flex-start;
-}
-
-.checkbox {
-  display: grid;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  height: 1.35em;
-  width: 1.35em;
-  color: currentColor;
-  border-radius: 3px;
-  border: 1px solid currentColor;
-  place-content: center;
-  translate: 0 1px;
-}
-
-.checkbox::before {
-  content: "";
-  box-shadow: inset 1em 1em currentColor;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
-  transform: scale(0);
-  transform-origin: center center;
-  transition: transform 0.1s ease-in-out;
-  width: 0.85em;
-  height: 0.85em;
-}
-
-.checkbox:checked::before {
-  transform: scale(1);
-}
-
 .hack-box {
   width: 700px;
   height: 625px;
