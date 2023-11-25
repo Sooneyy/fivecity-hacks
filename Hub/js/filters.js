@@ -38,6 +38,8 @@ const heistFilters = [
     }
 ]
 
+document.getElementById("count").textContent = `${heistFilters.length - 1} / ${hacksList.length}`;
+
 for(let i = 0; i < heistFilters.length; i++) {
     const heistOption = document.createElement("div");
 

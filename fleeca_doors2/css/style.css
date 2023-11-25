@@ -385,7 +385,7 @@ body {
 .bg-czerwony{ background: #ff0000; outline: 1px solid #290000;}
 .bg-zolty{ background: #ffff00; outline: 1px solid #525200;}
 .bg-niebieski{ background: #0099ff; outline: 1px solid #003d65;}
-.bg-pomaranczowy{ background: #ff8800; outline: 1px solid rgb(146, 0, 0);}
+.bg-pomaranczowy{ background: #ff8800; outline: 1px solid #ffae52;}
 .bg-fioletowy{ background: #7300ff; outline: 1px solid #22004d;}
 .bg-zielony{ background: #1eff00; outline: 1px solid #063300;}
 
@@ -522,7 +522,7 @@ body {
 .czerwony { color: #ff0000; -webkit-text-stroke: 1px white !important; }
 .zolty { color: #ffff00; }
 .niebieski { color: #0099ff; }
-.pomaranczowy { color: #ff8800;}
+.pomaranczowy { color: #ff8800; -webkit-text-stroke: 1px white !important;}
 .fioletowy { color: #7300ff; }
 .zielony { color: #1eff00; }
 

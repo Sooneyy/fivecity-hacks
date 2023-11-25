@@ -30,18 +30,16 @@ var questionTypes = [
     { 'type': "backgroundColor", 'text': "kolor tla" },
     { 'type': "textColorColor", 'text': "kolor napisanego koloru" },
     { 'type': "numberColor", 'text': "kolor numeru" },
-    { 'type': "shapeColor", 'text': "kolor ksztaltu" },
-    { 'type': "innerShape", 'text': "ksztalt pod tekstem" },
-    { 'type': "innerShapeColor", 'text': "kolor ksztaltu pod tekstem" },
+    { 'type': "shape", 'text': "ksztalt pod tekstem" },
+    { 'type': "shapeColor", 'text': "kolor ksztaltu pod tekstem" },
     { 'type': "textShape", 'text': "napisany ksztalt" },
     { 'type': "textShapeColor", 'text': "kolor tekstu napisanego ksztaltu" },
     { 'type': "textColor", 'text': "napisany kolor" },
-    { 'type': "shape", 'text': "ksztalt" },
 ];
 var realNumbers;
 var items = [];
 var questions;
-var answers;
+var answersArr;
 
 function hack() {
     hackInfoBox.style.display = 'none';
@@ -116,15 +114,13 @@ function progressBar(w, t) {
                     const el2 = group.querySelector(".text-color");
                     const el3 = group.querySelector(".shape");
                     const el4 = group.querySelector(".text-shape");
-                    const el5 = group.querySelector(".inner-shape");
-                    const el6 = group.querySelector(".number");
+                    const el5 = group.querySelector(".number");
 
                     el1.classList.remove("hidden");
                     el2.classList.add("hidden");
                     el3.classList.add("hidden");
                     el4.classList.add("hidden");
                     el5.classList.add("hidden");
-                    el6.classList.add("hidden");
                 }
                 const number = document.querySelectorAll(".real-number");
                 setTimeout(() => {
@@ -142,15 +138,13 @@ function progressBar(w, t) {
                     const el2 = group.querySelector(".text-color");
                     const el3 = group.querySelector(".shape");
                     const el4 = group.querySelector(".text-shape");
-                    const el5 = group.querySelector(".inner-shape");
-                    const el6 = group.querySelector(".number");
+                    const el5 = group.querySelector(".number");
 
                     el1.classList.add("hidden");
                     el2.classList.remove("hidden");
                     el3.classList.remove("hidden");
                     el4.classList.remove("hidden");
                     el5.classList.remove("hidden");
-                    el6.classList.remove("hidden");
                 }
                 hackInfoBox.style.display = 'none';
                 hackFunction2.style.display = '';
@@ -193,7 +187,6 @@ function generateElements(){
         const el3 = document.createElement("div"); 
         const el4 = document.createElement("div");
         const el5 = document.createElement("div");
-        const el6 = document.createElement("div");
 
         el1.classList.add("real-number");
         group.appendChild(el1);
@@ -207,11 +200,8 @@ function generateElements(){
         el4.classList.add("text-shape");
         group.appendChild(el4);
 
-        el5.classList.add("inner-shape");
+        el5.classList.add("number");
         group.appendChild(el5);
-
-        el6.classList.add("number");
-        group.appendChild(el6);
     }
 }
 
@@ -229,8 +219,7 @@ function generateSquares(){
         const el3 = document.querySelectorAll(".text-color")[i];
         const el4 = document.querySelectorAll(".shape")[i];
         const el5 = document.querySelectorAll(".text-shape")[i];
-        const el6 = document.querySelectorAll(".inner-shape")[i];
-        const el7 = document.querySelectorAll(".number")[i];
+        const el6 = document.querySelectorAll(".number")[i];
 
         let background = colors[Math.floor(Math.random() * colors.length)];
         let textColorColor = colors[Math.floor(Math.random() * colors.length)];
@@ -238,13 +227,12 @@ function generateSquares(){
         let shape = shapes[Math.floor(Math.random() * shapes.length)];
         let shapeColor = colors[Math.floor(Math.random() * colors.length)];
         let textShape = shapes[Math.floor(Math.random() * shapes.length)];
-        let innerShapeColor = colors[Math.floor(Math.random() * colors.length)];
         let textShapeColor = colors[Math.floor(Math.random() * colors.length)];
         let textColor = colors[Math.floor(Math.random() * colors.length)];
-        let innerShape = shapes[Math.floor(Math.random() * shapes.length)];
 
-        if(background === shapeColor) shapeColor = colors[colors.indexOf(shapeColor) + 1 < colors.length ? colors.indexOf(shapeColor) + 1 : colors.indexOf(shapeColor) - 1];
-        if(shapeColor === innerShapeColor) innerShapeColor = colors[colors.indexOf(shapeColor) + 1 < colors.length ? colors.indexOf(shapeColor) + 1 : colors.indexOf(shapeColor) - 1];
+        if(background === shapeColor) shapes.indexOf(shapeColor) < shapes.length ? shapeColor[shapes.indexOf(shapeColor) + 1] : shapeColor[shapes.indexOf(shapeColor) - 1]; 
+        if(textColorColor === "czerwony") textColorColor = "pomaranczowy";
+        if(textShapeColor === "czerwony") textShapeColor = "pomaranczowy";
 
         el1.classList.add("bg-" + background);
 
@@ -259,11 +247,8 @@ function generateSquares(){
         el5.textContent = textShape;
         el5.classList.add(textShapeColor);
 
-        el6.classList.add(innerShape);
-        el6.classList.add("bg-" + innerShapeColor);
-
-        el7.textContent = randomNumbers[i];
-        el7.classList.add(numberColor);
+        el6.textContent = randomNumbers[i];
+        el6.classList.add(numberColor);
 
         items.push(realNumbers[i], {
             backgroundColor: background,
@@ -272,10 +257,8 @@ function generateSquares(){
             shape: shape,
             shapeColor: shapeColor,
             textShape: textShape,
-            innerShapeColor: innerShapeColor,
             textShapeColor: textShapeColor,
             textColor: textColor,
-            innerShape: innerShape,
             number: randomNumbers[i]
         });
     }
@@ -283,61 +266,68 @@ function generateSquares(){
 
 function generateQuestions(){
     let questionType = shuffleArray(questionTypes);
-    questions = questionType.slice(0, 2);
-    answers = [];
+    let answer = "";
+    questions = questionType.slice(0, squaresCount.value <= 4 ? 2 : 3);
+    answersArr = [];
 
     for(let i = 0; i < questions.length; i++){
-        const question = document.querySelector(".q" + (i + 1));
+        const question = document.createElement("div");
         let random = realNumbers[Math.floor(Math.random() * squaresCount.value)];
-        question.textContent = "";
+
         question.textContent = questions[i].text + " " + "(" + random + ")";
+        question.classList.add("question", "q" + (i + 1));
+        document.querySelector(".questions").appendChild(question);
         
-        answers.push(items[items.indexOf(random) + 1][questions[i].type]);  
+        answersArr.push(items[items.indexOf(random) + 1][questions[i].type]);  
     }
 
-    rightAnswer.innerHTML = `<div>Poprawne rozwiązanie:</div> <div>${answers[0]} ${answers[1]}</div>`
+    for(let i = 0; i < answersArr.length; i++) answer += answersArr[i] + " ";
+
+    rightAnswer.innerHTML = `<div>Poprawne rozwiązanie:</div> <div>${answer}</div>`
 }
 
 function checkAnswer(){
     let answer = input.value.split(" ");
 
-    if(answer[0] === answers[0] && answer[1] === answers[1]){
-        level++;
-        if(level < levels.value){
-            hackFunction2.style.display = 'none';
-            input.value = "";
-            generateElements();
-            generateSquares();
-            generateQuestions();
-            for(let i = 1; i <= squaresCount.value; i++){
-                const group = document.querySelector(".g" + i);
-                const el1 = group.querySelector(".real-number");
-                const el2 = group.querySelector(".text-color");
-                const el3 = group.querySelector(".shape");
-                const el4 = group.querySelector(".text-shape");
-                const el5 = group.querySelector(".inner-shape");
-                const el6 = group.querySelector(".number");
-
-                el1.classList.remove("hidden");
-                el2.classList.add("hidden");
-                el3.classList.add("hidden");
-                el4.classList.add("hidden");
-                el5.classList.add("hidden");
-                el6.classList.add("hidden");
-            }
-            const number = document.querySelectorAll(".real-number");
-            setTimeout(() => {
-                for(let el of number){
-                    el.style.fontSize = "0";
+    for(let i = 0; i < answersArr.length; i++){
+        if(answer[i] === answersArr[i]){
+            level++;
+            if(level < levels.value){
+                hackFunction2.style.display = 'none';
+                input.value = "";
+                generateElements();
+                generateSquares();
+                generateQuestions();
+                for(let i = 1; i <= squaresCount.value; i++){
+                    const group = document.querySelector(".g" + i);
+                    const el1 = group.querySelector(".real-number");
+                    const el2 = group.querySelector(".text-color");
+                    const el3 = group.querySelector(".shape");
+                    const el4 = group.querySelector(".text-shape");
+                    const el5 = group.querySelector(".inner-shape");
+                    const el6 = group.querySelector(".number");
+    
+                    el1.classList.remove("hidden");
+                    el2.classList.add("hidden");
+                    el3.classList.add("hidden");
+                    el4.classList.add("hidden");
+                    el5.classList.add("hidden");
+                    el6.classList.add("hidden");
                 }
-            }, (rememberTime * 1000) - (rememberTime * 1000 / 3));
-            progressBar('remember', rememberTime);
+                const number = document.querySelectorAll(".real-number");
+                setTimeout(() => {
+                    for(let el of number){
+                        el.style.fontSize = "0";
+                    }
+                }, (rememberTime * 1000) - (rememberTime * 1000 / 3));
+                progressBar('remember', rememberTime);
+            }else{
+                gameWin();
+            }
         }else{
-            gameWin();
+            modal.style.display = '';
+            progressBar("game", 3);
         }
-    }else{
-        modal.style.display = '';
-        progressBar("game", 3);
     }
 }
 

@@ -240,8 +240,8 @@ body {
 
 .footer{
   display: flex;
-  gap: 3rem;
-  margin-top: 15px;
+  gap: 2rem;
+  margin-top: 5px;
 }
 
 .contact{
@@ -252,6 +252,7 @@ body {
   font-size: 16px;
   padding: 15px 25px;
   background: #000214;
+  border: 1px solid #000423;
 }
 
 .content{
@@ -289,15 +290,32 @@ body {
 }
 
 .last-heist {
+  background: #000214;
+  border: 1px solid #000423;
+  border-radius: 10px;
+  padding: 8px 14px;
   text-align: right;
 }
 
-.last-heist b{
+.last-heist b, #count{
   color: #3787FF;
 }
 
-#timestamp{
+#timestamp, #count{
   margin-top: 10px;
+}
+
+.hacks-count{
+  border-radius: 10px;
+  border: 1px solid #000423;
+  padding: 8px 14px;
+  background: #000214;
+}
+
+#count{
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .flare{
