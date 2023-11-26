@@ -230,7 +230,7 @@ function generateSquares(){
         let textShape = shapes[Math.floor(Math.random() * shapes.length)];
         let textShapeColor = colors[Math.floor(Math.random() * colors.length)];
 
-        if(background === shapeColor) colors.indexOf(shapeColor) < colors.length ? colors[colors.indexOf(shapeColor) + 1] : colors[colors.indexOf(shapeColor) - 1]; 
+        if(background === shapeColor) colors.indexOf(shapeColor) < colors.length ? shapeColor = colors[colors.indexOf(shapeColor) + 1] : shapeColor = colors[colors.indexOf(shapeColor) - 1]; 
         if(textColorColor === "czerwony") textColorColor = "pomaranczowy";
         if(textShapeColor === "czerwony") textShapeColor = "pomaranczowy";
 
