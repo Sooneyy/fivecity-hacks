@@ -67,12 +67,12 @@ export const hacksList = [
         minigame: "Szachownica (kolory)",
         link: './fleeca_panel'
     },
-    // {
-    //     heist: 'Fleeca',
-    //     name: 'Otwieranie drugich drzwi do sejfu',
-    //     minigame: "Zapamiętywanie numerów",
-    //     link: './fleeca_doors2'
-    // },
+    {
+        heist: 'Fleeca',
+        name: 'Otwieranie drugich drzwi do sejfu',
+        minigame: "Zapamiętywanie numerów",
+        link: './fleeca_doors2'
+    },
     {
         heist: 'Car Dealer',
         name: 'Zdejmowanie nadajnika',

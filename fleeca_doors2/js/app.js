@@ -222,15 +222,15 @@ function generateSquares(){
         const el6 = document.querySelectorAll(".number")[i];
 
         let background = colors[Math.floor(Math.random() * colors.length)];
+        let textColor = colors[Math.floor(Math.random() * colors.length)];
         let textColorColor = colors[Math.floor(Math.random() * colors.length)];
         let numberColor = colors[Math.floor(Math.random() * colors.length)];
         let shape = shapes[Math.floor(Math.random() * shapes.length)];
         let shapeColor = colors[Math.floor(Math.random() * colors.length)];
         let textShape = shapes[Math.floor(Math.random() * shapes.length)];
         let textShapeColor = colors[Math.floor(Math.random() * colors.length)];
-        let textColor = colors[Math.floor(Math.random() * colors.length)];
 
-        if(background === shapeColor) shapes.indexOf(shapeColor) < shapes.length ? shapeColor[shapes.indexOf(shapeColor) + 1] : shapeColor[shapes.indexOf(shapeColor) - 1]; 
+        if(background === shapeColor) colors.indexOf(shapeColor) < colors.length ? colors[colors.indexOf(shapeColor) + 1] : colors[colors.indexOf(shapeColor) - 1]; 
         if(textColorColor === "czerwony") textColorColor = "pomaranczowy";
         if(textShapeColor === "czerwony") textShapeColor = "pomaranczowy";
 
@@ -266,9 +266,10 @@ function generateSquares(){
 
 function generateQuestions(){
     let questionType = shuffleArray(questionTypes);
-    let answer = "";
     questions = questionType.slice(0, squaresCount.value <= 4 ? 2 : 3);
-    answersArr = [];
+    answers = [];
+
+    document.querySelector(".questions").innerHTML = "";
 
     for(let i = 0; i < questions.length; i++){
         const question = document.createElement("div");
@@ -278,58 +279,53 @@ function generateQuestions(){
         question.classList.add("question", "q" + (i + 1));
         document.querySelector(".questions").appendChild(question);
         
-        answersArr.push(items[items.indexOf(random) + 1][questions[i].type]);  
+        answers.push(items[items.indexOf(random) + 1][questions[i].type]);  
     }
 
-    for(let i = 0; i < answersArr.length; i++) answer += answersArr[i] + " ";
-
-    rightAnswer.innerHTML = `<div>Poprawne rozwiązanie:</div> <div>${answer}</div>`
+    rightAnswer.innerHTML = `<div>Poprawne rozwiązanie:</div> <div>${answers.join(" ")}</div>`
 }
 
 function checkAnswer(){
-    let answer = input.value.split(" ");
+    let typedAnswer = input.value;
 
-    for(let i = 0; i < answersArr.length; i++){
-        if(answer[i] === answersArr[i]){
-            level++;
-            if(level < levels.value){
-                hackFunction2.style.display = 'none';
-                input.value = "";
-                generateElements();
-                generateSquares();
-                generateQuestions();
-                for(let i = 1; i <= squaresCount.value; i++){
-                    const group = document.querySelector(".g" + i);
-                    const el1 = group.querySelector(".real-number");
-                    const el2 = group.querySelector(".text-color");
-                    const el3 = group.querySelector(".shape");
-                    const el4 = group.querySelector(".text-shape");
-                    const el5 = group.querySelector(".inner-shape");
-                    const el6 = group.querySelector(".number");
-    
-                    el1.classList.remove("hidden");
-                    el2.classList.add("hidden");
-                    el3.classList.add("hidden");
-                    el4.classList.add("hidden");
-                    el5.classList.add("hidden");
-                    el6.classList.add("hidden");
-                }
-                const number = document.querySelectorAll(".real-number");
-                setTimeout(() => {
-                    for(let el of number){
-                        el.style.fontSize = "0";
-                    }
-                }, (rememberTime * 1000) - (rememberTime * 1000 / 3));
-                progressBar('remember', rememberTime);
-            }else{
-                gameWin();
+    if(typedAnswer === answers.join(" ")){
+        level++;
+        if(level < levels.value){
+            hackFunction2.style.display = 'none';
+            input.value = "";
+            generateElements();
+            generateSquares();
+            generateQuestions();
+            for(let i = 1; i <= squaresCount.value; i++){
+                const group = document.querySelector(".g" + i);
+                const el1 = group.querySelector(".real-number");
+                const el2 = group.querySelector(".text-color");
+                const el3 = group.querySelector(".shape");
+                const el4 = group.querySelector(".text-shape");
+                const el5 = group.querySelector(".number");
+
+                el1.classList.remove("hidden");
+                el2.classList.add("hidden");
+                el3.classList.add("hidden");
+                el4.classList.add("hidden");
+                el5.classList.add("hidden");
             }
+            const number = document.querySelectorAll(".real-number");
+            setTimeout(() => {
+                for(let el of number){
+                     el.style.fontSize = "0";
+                }
+            }, (rememberTime * 1000) - (rememberTime * 1000 / 3));
+            progressBar('remember', rememberTime);
         }else{
-            modal.style.display = '';
-            progressBar("game", 3);
+            gameWin();
         }
+    }else{
+        modal.style.display = '';
+        progressBar("game", 3);
     }
 }
+
 
 function random(max, min) {
     return Math.floor(Math.random() * (max - min)) + min;
