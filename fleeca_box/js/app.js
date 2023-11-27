@@ -28,7 +28,6 @@ function hack() {
   hackFunction2.style.display = "none";
   progressBarBox.style.display = "none";
   hackTitleBox.style.display = "none";
-  document.getElementById('active-type').textContent = document.querySelector(".fleeca-type.active").textContent;
   document.querySelectorAll(".fleeca-type").forEach((item) => {
     item.addEventListener("click", function() {
         document.querySelectorAll(".fleeca-type").forEach((el) => el.classList.remove("active"));
@@ -180,7 +179,9 @@ function buttonClick() {
         }
 
         if (currentSquare === elementsToShow - 1 && currentSquare !== blocks) {
-          squareShow();
+          setTimeout(() => {
+            squareShow();
+          }, 150)
         }
       }
     } else {

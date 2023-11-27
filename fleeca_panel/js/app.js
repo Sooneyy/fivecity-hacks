@@ -32,12 +32,10 @@ function hack() {
     hackFunction.style.display = 'none';
     hackFunction2.style.display = 'none';
     progressBarBox.style.display = 'none';
-    document.getElementById('active-type').textContent = document.querySelector(".fleeca-type.active").textContent;
     document.querySelectorAll(".fleeca-type").forEach((item) => {
         item.addEventListener("click", function() {
             document.querySelectorAll(".fleeca-type").forEach((el) => el.classList.remove("active"));
             this.classList.add("active");
-            document.getElementById('active-type').textContent = this.textContent;
 
             height = this.dataset.type === "normal" ? 5 : this.dataset.type === "red" ? 7 : 5;
             width = this.dataset.type === "normal" ? 5 : this.dataset.type === "red" ? 7 : 5;
