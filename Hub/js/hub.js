@@ -70,7 +70,7 @@ export const hacksList = [
     {
         heist: 'Fleeca',
         name: 'Otwieranie drugich drzwi do sejfu',
-        minigame: "Zapamiętywanie numerów",
+        minigame: "Kwadraty pacyfik 1.0",
         link: './fleeca_doors2'
     },
     {
