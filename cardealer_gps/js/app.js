@@ -146,6 +146,7 @@ class Minigame {
             if(el.classList.contains("active")){
                 let newEl = document.getElementById(random + 1);
                 newEl.classList.add("active");
+                this.squaresCount++;
             }else{
                 el.classList.add("active");
                 this.squaresCount++;
