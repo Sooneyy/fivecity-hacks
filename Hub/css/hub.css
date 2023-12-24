@@ -77,7 +77,7 @@ body {
   margin-right: 15px;
 }
 
-.dropdown{
+.dropdown, .boosting-button{
   flex: 1;
   max-width: 175px;
   position: relative;
@@ -85,7 +85,7 @@ body {
 
 .dropdown-header{
   background: #000215;
-  border: 2px solid #1f2231;
+  border: 1px solid #1f2231;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
@@ -99,6 +99,24 @@ body {
 
 .dropdown-header:hover{
   border-color: #43496a;
+}
+
+.boosting-header{
+  background: #0f3c90;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  align-items: center;
+  transition: background .2s ease;
+}
+
+.boosting-header:hover{
+  background: #061f4f;
 }
 
 .dropdown-menu{
@@ -331,5 +349,114 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.boosting-container{
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+  background: hsla(0, 100%, 0%, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boosting-modal{ 
+  display: flex;
+  flex-direction: column;
+  width: 850px;
+  height: 500px;
+  background: #000214;
+  border-radius: 10px;
+  padding: 0 20px 25px 20px;
+  box-shadow: 0 12px 24px #000318;
+  transform: scale(.7);
+  animation: pop-up .3s linear forwards;
+}
+
+@keyframes pop-up{
+  0%{ transform: scale(.7) }
+  40%{ transform: scale(.9) }
+  70%{ transform: scale(.8) }
+  100%{ transform: scale(1) }
+}
+
+.modal-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 15px;
+}
+
+#close-icon{
+  transition: color .2s ease;
+  cursor: pointer;
+}
+
+#close-icon:hover{
+  color: rgb(125, 156, 255);
+}
+
+.boosting-list{
+  flex: 1;
+  background: #000219;
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 95%;
+  overflow-y: auto;
+}
+
+.boosting-list::-webkit-scrollbar{
+  width: 7px;
+}
+
+.boosting-list::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.boosting-list::-webkit-scrollbar-thumb{
+  background: #313eb4;
+  border-radius: 15px;
+}
+
+.boosting{
+  width: 100%;
+  background: hsla(0, 0%, 100%, .1);
+  border-radius: inherit;
+  padding: 16px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: background .2s ease;
+}
+
+.boosting:hover{
+  background: hsla(0, 0%, 100%, .11);
+}
+
+.boosting > div{
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(255, 255, 255, .7)
+}
+
+.boosting > button{
+  height: 100%;
+  padding: 8px 2rem;
+  border-radius: 3px;
+  background: rgb(81, 120, 246);
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.boosting > button:hover{
+  background: rgb(113, 146, 255);
+}
+
+
 
 

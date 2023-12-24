@@ -81,6 +81,10 @@ export const hacksList = [
     },
 ]
 
+window.onload = () => {
+    document.querySelector(".boosting-container").style.display = "none";
+}
+
 export function createList(array){
     clearList();
 
@@ -166,4 +170,41 @@ document.querySelector(".search > input[type='text']").addEventListener("focus",
 
 document.querySelector(".search > input[type='text']").addEventListener("blur", () => {
     document.querySelector(".search").classList.remove("focus");
+})
+
+const boostingList = [
+    {
+        name: "Znajdowanie danego przedziału po cyfrach",
+        link: "./boosting_numbers"
+    },
+    {
+        name: "Znajdowanie danego przedziału po literach",
+        link: "./boosting_letters"
+    }
+]
+
+for(let x = 0; x < boostingList.length; x++){
+    const el1 = document.createElement("div");
+    const el2 = document.createElement("div");
+    const bt = document.createElement("button");
+
+    el1.classList.add("boosting");
+    document.querySelector(".boosting-list").appendChild(el1);
+
+    el2.textContent = boostingList[x].name;
+    el1.appendChild(el2);
+
+    bt.textContent = "Wybierz";
+    bt.dataset.link = boostingList[x].link;
+    el1.appendChild(bt);
+}
+
+const button = document.querySelectorAll(".boosting > button");
+
+button.forEach((button) => {
+    const link = button.dataset.link;
+
+    button.addEventListener("click", () => {
+        window.open(link, "_self");
+    })
 })

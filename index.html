@@ -10,6 +10,17 @@
     <title>Hub</title>
 </head>
 <body>
+    <div class="boosting-container">
+        <div class="boosting-modal">
+            <div class="modal-header">
+                <div>Boosting Hacks</div>
+                <div id="close-modal" onclick="document.querySelector('.boosting-container').style.display = 'none'">
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/></svg>
+                </div>
+            </div>
+            <div class="boosting-list"></div>
+        </div>
+    </div>
     <div class="container">
         <div class="header">
             <div class="title">Lista odwzorowanych hacków / minigier z serwera 5City Origins</div>
@@ -28,6 +39,11 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4l-6 6Z"/></svg>
                     </div>
                     <div class="dropdown-menu">
+                    </div>
+                </div>
+                <div class="boosting-button" onclick="document.querySelector('.boosting-container').style.display = ''">
+                    <div class="boosting-header">
+                        <div>Boosting</div>
                     </div>
                 </div>
             </div>
