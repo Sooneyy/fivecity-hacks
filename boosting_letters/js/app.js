@@ -8,12 +8,11 @@ const startButton = document.querySelector(".start-hack");
 const buttons = document.querySelector(".play-buttons");
 const progressBarBox = document.querySelector(".hack-progress");
 const progressBarFn = document.getElementById("progress-bar-fn");
-const hackOptions = document.querySelector(".hack-options");
 const modal = document.getElementById("modal");
 const timer = document.querySelector(".timer");
 
 var progressBarInterval, timerInterval;
-var playTime = 10;
+var playTime = 15;
 var resetStatus = 1000;
 var height = 9;
 var width = 9;
@@ -65,7 +64,6 @@ function startHack() {
 
     el.classList.add("select");
   }
-  hackOptions.style.display = "none";
   buttons.style.display = "none";
   hackTitleBox.style.display = "none";
   hackInfoBox.style.display = "";
@@ -122,7 +120,6 @@ function progressBar(w, t) {
       if (w === "end") {
         hackFunction.style.display = "none";
         hackTitleBox.style.display = "none";
-        hackOptions.style.display = "";
         buttons.style.display = "";
         progressBarBox.style.display = "none";
         hackInfoBox.style.display = "none";
