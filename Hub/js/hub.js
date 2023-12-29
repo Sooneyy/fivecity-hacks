@@ -174,13 +174,9 @@ document.querySelector(".search > input[type='text']").addEventListener("blur", 
 
 const boostingList = [
     {
-        name: "Znajdowanie danego przedziału po cyfrach",
-        link: "./boosting_numbers"
+        name: "Znajdowanie danego przedziału po wybranych znakach",
+        link: "./boosting_chars"
     },
-    {
-        name: "Znajdowanie danego przedziału po literach",
-        link: "./boosting_letters"
-    }
 ]
 
 for(let x = 0; x < boostingList.length; x++){

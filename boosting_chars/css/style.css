@@ -1,0 +1,393 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(-125deg, #05152E, #062d29);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: "IBM Sans Plex", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play-buttons{
+  margin-top: 15px;
+}
+
+.start-hack {
+  background: #091218;
+  border: 1px solid #11212c;
+  height: 4.5rem;
+  width: 100%;
+  color: rgba(255, 255, 255, .8);
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 18px;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background linear .3s, border-color linear .3s;
+}
+
+.start-hack:hover {
+  background: rgb(55, 98, 131);
+  border-color: rgb(55, 98, 131);
+}
+
+#back {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0D1921;
+  width: 40px;
+  height: 40px;
+  left: -300px;
+  top: 15px;
+  box-sizing: border-box;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 0 10px #15151B;
+  border-left: 1px solid rgba(0, 230, 111, .3);
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 999;
+  animation: show-home 0.3s ease forwards;
+  animation-delay: 0.5s;
+  transition: background 0.1s linear;
+}
+
+#back::before {
+  content: "";
+  position: absolute;
+  background: rgb(55, 98, 131);
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: -3px;
+  filter: blur(3px);
+}
+
+#back:hover {
+  background: #101e28;
+}
+
+@keyframes show-home {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 15px;
+  }
+}
+
+.timer{
+  padding: 7px 10px;
+  background: #22222C;
+  position: absolute;
+  display: none;
+  top: -100px;
+  right: 400px;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #00000080;
+  border-bottom: 2px solid #313C43;
+  animation: show-timer 1.5s ease forwards;
+}
+
+@keyframes show-timer {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 75px;
+  }
+}
+
+.hack-options{
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hack-option{
+  flex: 1;
+  display: flex;
+  background: #091218;
+  color: rgba(255, 255, 255, .8);
+  padding: 8px 10px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.hack-option div{
+  flex: 1;
+}
+
+.dropdown{
+  position: relative;
+}
+
+.dropdown-header{
+  background: #0c171f;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #12242f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color .3s ease;
+  user-select: none;
+}
+
+.dropdown-header.open{
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-color: transparent;
+}
+
+.dropdown-header:not(.open):hover{
+  border-color: #193042;
+}
+
+.dropdown-header.open > svg{
+  transform: rotate(-180deg);
+}
+
+.dropdown-menu{
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: #0c171f;
+  border: 1px solid #12242f;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.dropdown-menu.open{
+  display: block;
+  border-top: none;
+}
+
+.option{
+  padding: 5px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  box-sizing: inherit;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.option:hover{
+  background: #2b6790;
+}
+
+.option p{
+  transition: transform .2s ease;
+}
+
+.option:hover p{
+  transform: translateX(10px);
+}
+
+.hack-box {
+  width: 700px;
+  height: 720px;
+  background: #0D1921;
+  box-shadow: 0 -10px 28px rgba(13, 25, 33, .9);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px 25px;
+  position: relative;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.hack-header {
+  position: absolute;
+  top: -1.25rem;
+  left: 0px;
+  width: 700px;
+  display: flex;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background: #0D1921;
+  color: rgb(255, 255, 255);
+  isolation: isolate;
+
+}
+
+.hack-header .buttons {
+  height: 22px;
+  display: flex;
+  gap: 1px;
+}
+
+.name{
+  font-size: 14px;
+}
+
+.button {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  border: none;
+  width: 24px;
+  background: transparent;
+  font-size: 14px;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  transition: background .085s linear;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, .1)
+}
+
+#mini::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 30%;
+  background: #fff;
+  bottom: 4px;
+  left: 3px;
+}
+
+#resize::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 6px;
+  left: 25%;
+  bottom: 4px;
+  border: 1px solid #ffffff;
+  border-top: 2px solid #ffffff;
+}
+
+#close > svg{
+  position: absolute;
+  bottom: 3px;
+  left: 6px;
+}
+
+#close:hover{
+  background: rgb(84, 0, 0);
+}
+
+.hack-info {
+  color: #fff;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  translate: 0 110%;
+}
+
+.hack-title {
+  color: #fff;
+  margin-top: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#hack-title-text {
+  font-size: 19px;
+}
+
+#hack-info-text {
+  font-size: 14px;
+}
+
+.hack-footer {
+  position: absolute;
+  bottom: 15px;
+  width: 650px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 18px;
+  background: #1A1A22;
+  border-radius: 15px;
+  margin-block: 20px 15px;
+}
+
+#progress-bar-fn {
+  position: relative;
+  height: 100%;
+  background: rgb(43, 219, 99);
+  box-shadow: 0 20px 25px rgba(43, 219, 99, .3),
+              0 50px 45px rgba(43, 219, 99, .3),
+              0 100px 90px rgba(43, 219, 99, .3);
+  border-radius: 15px;
+}
+
+.hack-fn {
+  position: relative;
+  margin: 0 auto;
+  height: 485px;
+  width: 485px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.el, .search-el{
+  box-shadow: 0 0 8px #0000004a;
+  color: #fff;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.el{
+  background: #1c1e25;
+  font-weight: 600;
+}
+
+.hack-select-squares{
+  display: flex;
+  gap: 2px;
+}
+
+.search-el, .select{
+  background: #58FF82;
+  color: #000;
+  font-weight: 600
+}
+
+
