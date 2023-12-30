@@ -13,7 +13,7 @@ body {
   place-items: center;
   position: relative;
   overflow: hidden;
-  font-family: "IBM Sans Plex", sans-serif;
+  font-family: 'IBM Sans Plex', sans-serif;
 }
 
 .container {
@@ -206,9 +206,9 @@ body {
 }
 
 .hack-box {
-  width: 700px;
+  width: 820px;
   height: 720px;
-  background: #0D1921;
+  background: #0F1921;
   box-shadow: 0 -10px 28px rgba(13, 25, 33, .9);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -222,7 +222,7 @@ body {
   position: absolute;
   top: -1.25rem;
   left: 0px;
-  width: 700px;
+  width: 820px;
   display: flex;
   padding: 5px 10px;
   box-sizing: border-box;
@@ -231,7 +231,7 @@ body {
   border-top-right-radius: 10px;
   justify-content: space-between;
   align-items: center;
-  background: #0D1921;
+  background: #0F1921;
   color: rgb(255, 255, 255);
   isolation: isolate;
 
@@ -329,7 +329,7 @@ body {
 .hack-footer {
   position: absolute;
   bottom: 15px;
-  width: 650px;
+  width: 770px;
 }
 
 .progress-bar {
@@ -370,14 +370,14 @@ body {
   text-align: center;
   align-items: center;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 8px;
 }
 
 .el{
-  background: #1c1e25;
-  font-weight: 600;
-}
+  background: #1A1D24;
+  border: 1px solid #20252c;
+} 
 
 .hack-select-squares{
   display: flex;
@@ -387,7 +387,6 @@ body {
 .search-el, .select{
   background: #58FF82;
   color: #000;
-  font-weight: 600
 }
 
 
