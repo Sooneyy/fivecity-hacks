@@ -90,6 +90,7 @@ function progressBar(w, t) {
                 hackOptions.style.display = '';
                 hackInfoBox.style.display = 'none';
                 startButton.style.display = '';
+                document.removeEventListener('keydown', handleKeyPress);
             }
         }
     }
