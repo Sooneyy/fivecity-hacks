@@ -152,18 +152,6 @@ function clearList(){
     heistsList.querySelectorAll(".heist").forEach((item) => item.remove());
 }
 
-const copyToClipboard = () => {
-    document.getElementById("copied").style.display = "block";
-
-    setTimeout(() => {
-        document.getElementById("copied").style.display = "none";
-    }, 500);
-
-    navigator.clipboard.writeText("sooney");
-}
-
-document.getElementById("discord").addEventListener("click", copyToClipboard)
-
 document.querySelector(".search > input[type='text']").addEventListener("focus", () => {
     document.querySelector(".search").classList.add("focus");
 })

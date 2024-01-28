@@ -265,7 +265,7 @@ body {
 .contact{
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .35rem;
   border-radius: 10px;
   font-size: 16px;
   padding: 15px 25px;
@@ -274,37 +274,19 @@ body {
 }
 
 .content{
-  padding-right: 1rem;
+  padding-right: .35rem;
   border-right: 1px solid rgba(255, 255, 255, .3);
 }
 
-.socials{
-  position: relative;
-}
-
-.socials a{
+.website{
+  font-weight: 900;
+  font-size: 12px;
   color: #fff;
-  margin-right: 15px;
-  cursor: pointer;
-  transition: color .15s ease;
+  transition: color .2s linear;
 }
 
-.socials a:last-child{
-  margin-right: 0;
-}
-
-.socials a:hover{
-  color: #006EEF;
-}
-
-#copied{
-  position: absolute;
-  bottom: 100%;
-  left: -35%;
-  background: #000320;
-  text-align: center;
-  padding: 8px;
-  border-radius: 5px;
+.website:hover{
+  color: #3787FF;
 }
 
 .last-heist {
