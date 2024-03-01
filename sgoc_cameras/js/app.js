@@ -167,6 +167,7 @@ function generateQuestion(){
   answers.push(question.answer);
 
   answers = shuffle(answers);
+  answers = answers.map((a) => typeof a === "number" ? a.toFixed(2) : a);
   answers = checkRepeatability(answers);
 
   questionEl.innerHTML = question.question;

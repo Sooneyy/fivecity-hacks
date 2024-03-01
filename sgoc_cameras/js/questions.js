@@ -119,7 +119,7 @@ const questions = {
             {
                 question: `Jaka jest objętość ostrosłupa, którego podstawą jest kwadrat o boku ${aos["pyramid"].values[0]} i wysokości ${aos["pyramid"].values[1]}?`,
                 shape: "pyramid",
-                answer: aos["pyramid"].answer.toFixed(1),
+                answer: aos["pyramid"].answer,
                 badAnswers: aos["pyramid"].bad
             }
         ]
