@@ -79,6 +79,12 @@ export const hacksList = [
         minigame: "Coś typu aim lab",
         link: './cardealer_gps'
     },
+    {
+        heist: 'SGOC',
+        name: 'Wyłączanie kamer',
+        minigame: "Pytania xd",
+        link: './sgoc_cameras'
+    },
 ]
 
 window.onload = () => {

@@ -30,6 +30,11 @@ const heistFilters = [
     {
         text: "Car Dealer",
         date: new Date("2023-11-19T19:00:00"),
+        latest: 0
+    },
+    {
+        text: "SGOC",
+        date: "",
         latest: 1
     },
     {
@@ -47,14 +52,9 @@ for(let i = 0; i < heistFilters.length; i++) {
     heistOption.className = "heist-option";
     dropdownMenu.appendChild(heistOption);
 
-
     if(heistFilters[i].latest){
-        let ago = heistFilters[i].date;
-        let diff = new Date();
-        diff.setTime(new Date() - ago)
-
         document.querySelector(".last-heist > b").textContent = heistFilters[i].text;
-        document.querySelector("#timestamp").textContent =  `${diff.getMonth().toString().padStart(2, '0')}m ${diff.getDate().toString().padStart(2, '0')}d ${diff.getHours().toString().padStart(2, '0')}h ${diff.getMinutes().toString().padStart(2, '0')}min ${diff.getSeconds().toString().padStart(2, '0')}s temu`;
+        document.querySelector("#timestamp").textContent =  "iles czas temu";
     }
 }
 
