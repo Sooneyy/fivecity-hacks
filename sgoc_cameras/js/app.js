@@ -16,6 +16,7 @@ var progressBarInterval, timerInterval, progressTimerInterval;
 var playTime = 0;
 var questionTypes = Object.keys(questions);
 var levelCount = 0;
+var canAnswer = false;
 var question;
 var answers;
 var reversed;
@@ -34,6 +35,7 @@ function hack() {
 
 function startHack() {
   levelCount = 0;
+  canAnswer = true;
   hackTimer();
   progressTimer.style.display = "none";
   clearInterval(progressTimerInterval);
@@ -167,7 +169,6 @@ function generateQuestion(){
   answers.push(question.answer);
 
   answers = shuffle(answers);
-  answers = answers.map((a) => typeof a === "number" ? a.toFixed(2) : a);
   answers = checkRepeatability(answers);
 
   questionEl.innerHTML = question.question;
@@ -177,9 +178,10 @@ function generateQuestion(){
   })
 
   answerButtons.forEach((el, i) => {
-    el.onclick = function(){
-      checkAnswer(answerEls[i].textContent);
-    } 
+    el.onclick = function (){
+      if(canAnswer) checkAnswer(answerEls[i].textContent);
+      else return;
+    };
   })
 
   answerButtons.forEach((el) => {
@@ -216,8 +218,9 @@ function checkAnswer(answer){
   }
 
   answerButtons[answers.indexOf(question.answer)].classList.add('good');
+  canAnswer = false;
 
-  answerButtons.forEach((el) => {
+  answerButtons.forEach((el, i) => {
     if(!el.classList.contains("good")) el.classList.add('bad');
     el.classList.add('shown');
   });
@@ -291,7 +294,7 @@ setInterval(function() {
   let hours = time.getHours() <= 12 ? time.getHours() : time.getHours() - 12;
   let midDay = time.getHours() <= 12 ? "AM" : "PM";
 
-  document.querySelector(".current-time").textContent = `${midDay} ${hours.toString().padStart("2", 0)}:${time.getMinutes().toString().padStart("2", 0)}`;
+  document.querySelector(".current-time").textContent = `${midDay} ${hours}:${time.getMinutes().toString().padStart("2", 0)}`;
 }, 1000)
 
 
