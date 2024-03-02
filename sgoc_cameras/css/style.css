@@ -130,6 +130,16 @@ body {
   overflow: hidden;
 }
 
+.os-icons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .os-icon {
   display: flex;
   flex-direction: column;
@@ -137,7 +147,6 @@ body {
   border-radius: 2px;
   gap: 5px;
   align-items: center;
-  position: absolute;
   margin: 5px;
   padding-block: 5px;
 }
@@ -158,11 +167,6 @@ body {
   color: #ffffff;
   text-shadow: 0 0 3px #000;
   user-select: none;
-}
-
-.start-hack{
-  left: 0;
-  top: 0;
 }
 
 .hack-box {

@@ -14,7 +14,8 @@ const timer = document.querySelector(".timer");
 
 var progressBarInterval, timerInterval, progressTimerInterval;
 var playTime = 0;
-var questionTypes = Object.keys(questions);
+var hackType;
+var questionTypes;
 var levelCount = 0;
 var canAnswer = false;
 var question;
@@ -33,10 +34,12 @@ function hack() {
   }, 5000)
 }
 
-function startHack() {
+function startHack(button) {
   levelCount = 0;
   canAnswer = true;
   hackTimer();
+  hackType = button.dataset.hack;
+  questionTypes = Object.keys(questions[hackType]);
   progressTimer.style.display = "none";
   clearInterval(progressTimerInterval);
   hackBox.style.display = '';
@@ -90,7 +93,7 @@ function progressBar(w, t) {
         hackTitle.textContent = "Odpowiedz na pytanie i kliknij odpowiednią odpowiedź";
         hackInfoBox.style.display = "none";
         progressTimer.style.display = "";
-        playTime = randomInt(4, 8);
+        playTime = 765675//randomInt(4, 8);
         progressTime(playTime);
         progressBar("game", playTime);
         return;
@@ -158,10 +161,10 @@ function hackTimer(){
 }
 
 function generateQuestion(){
-  let randomType = questionTypes[randomInt(0, questionTypes.length)];
+  let randomType = "teoria"//questionTypes[randomInt(0, questionTypes.length)];
   operators = shuffle(operators);
 
-  callFunc(randomType);
+  if(hackType == "math") callFunc(randomType);
 
   answers = [...question.badAnswers];
 
@@ -169,7 +172,8 @@ function generateQuestion(){
   answers.push(question.answer);
 
   answers = shuffle(answers);
-  answers = checkRepeatability(answers);
+
+  if(hackType == "math") answers = checkRepeatability(answers);
 
   questionEl.innerHTML = question.question;
 
@@ -206,8 +210,8 @@ function nextQuestion(){
 
 function checkAnswer(answer){
   if(answer == question.answer){
+    levelCount++;
     if(levelCount < 7){
-      levelCount++;
       document.getElementById("level-count").textContent = levelCount;
       nextQuestion();
       return;
@@ -233,11 +237,11 @@ function checkAnswer(answer){
 function callFunc(type){
   if(type === "teoria"){
     drawTheoryNumbers();
-    question = questions[type](natural, rational, integer, reversed)[randomInt(0, questions[type](natural, rational, integer, reversed).length)];
+    question = questions[hackType][type](natural, rational, integer, reversed)[randomInt(0, questions[hackType][type](natural, rational, integer, reversed).length)];
   }
   if(type === "silnia") {
     drawFactorial();
-    question = questions[type](factorial)[randomInt(0, questions[type](factorial).length)];
+    question = questions[hackType][type](factorial)[randomInt(0, questions[hackType][type](factorial).length)];
   };
   if(type === "pola") {
     let types = Object.keys(areasOfQuadrangles);
@@ -246,7 +250,7 @@ function callFunc(type){
       calculateShapeAreas(types[i]);
     }
 
-    question = questions[type](areasOfQuadrangles)[randomInt(0, questions[type](areasOfQuadrangles).length)];
+    question = questions[hackType][type](areasOfQuadrangles)[randomInt(0, questions[hackType][type](areasOfQuadrangles).length)];
   }
   if(type === "dodawanie"){
     let types = Object.keys(addition);
@@ -255,16 +259,16 @@ function callFunc(type){
       drawAddNumbers(types[i]);
     }
     
-    question = questions[type](addition)[randomInt(0, questions[type](addition).length)];
+    question = questions[hackType][type](addition)[randomInt(0, questions[hackType][type](addition).length)];
   } 
   if(type === "bezwzgledna") {
     let n = absolute();
-    questions.bezwzgledna(n);
-    question = questions[type](n)[randomInt(0, questions[type](n).length)];
+    questions["math"].bezwzgledna(n);
+    question = questions[hackType][type](n)[randomInt(0, questions[hackType][type](n).length)];
   }
   if(type === "ulamki"){
     drawFractionNumbers();
-    question = questions[type](fractions)[randomInt(0, questions[type](fractions).length)];
+    question = questions[hackType][type](fractions)[randomInt(0, questions[hackType][type](fractions).length)];
   } 
   if(type === "potegi"){
     let types = Object.keys(power);
@@ -273,19 +277,19 @@ function callFunc(type){
       drawPowerNumbers(types[i]);
     }
 
-    question = questions[type](power)[randomInt(0, questions[type](power).length)];
+    question = questions[hackType][type](power)[randomInt(0, questions[hackType][type](power).length)];
   } 
   if(type === "logarytmy"){
     drawLogNumbers();
-    question = questions[type](log)[randomInt(0, questions[type](log).length)];
+    question = questions[hackType][type](log)[randomInt(0, questions[hackType][type](log).length)];
   } 
   if(type === "pierwiastki"){
     drawSqrtNumbers();
-    question = questions[type](sqrt)[randomInt(0, questions[type](sqrt).length)];
+    question = questions[hackType][type](sqrt)[randomInt(0, questions[hackType][type](sqrt).length)];
   } 
   if(type === "procenty"){
     drawPercentNumbers();
-    question = questions[type](percent)[randomInt(0, questions[type](percent).length)];
+    question = questions[hackType][type](percent)[randomInt(0, questions[hackType][type](percent).length)];
   }
 }
 
@@ -296,6 +300,7 @@ setInterval(function() {
 
   document.querySelector(".current-time").textContent = `${midDay} ${hours}:${time.getMinutes().toString().padStart("2", 0)}`;
 }, 1000)
+
 
 
 

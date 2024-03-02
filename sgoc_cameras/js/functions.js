@@ -16,7 +16,7 @@ function drawTheoryNumbers(){
     integer.num = mark[randomInt(0, mark.length)] + Math.random() > 0.5 ? `√${Math.pow(randomInt(0, 12), 2)}` : randomInt(0,100);
     integer.bad = drawBadTheoryNumbers("calkowite");
     
-    questions.teoria(natural, rational, integer);
+    questions["math"].teoria(natural, rational, integer);
 }
 
 function drawBadTheoryNumbers(type){
@@ -120,7 +120,7 @@ function drawFactorial(){
     factorial.bad[1] = Math.random() < 0.5 ? good + factorial.num[0] : good - factorial.num[0];
     factorial.bad[2] = factorial.num[0];
 
-    questions.bezwzgledna(factorial)
+    questions["math"].bezwzgledna(factorial)
 }
 
 function shape(sh){
@@ -197,7 +197,7 @@ function calculateShapeAreas(sh){
     }
 
     drawBadShapeAreas(sh);
-    questions.pola(areasOfQuadrangles);
+    questions["math"].pola(areasOfQuadrangles);
 }
 
 function drawBadShapeAreas(sh){
@@ -289,7 +289,7 @@ function drawAddNumbers(type){
         addition[type].bad[2] = addition[type].answer + 33;
     }
 
-    questions.dodawanie(addition);
+    questions["math"].dodawanie(addition);
 }
 
 function drawFractionNumbers(){
@@ -314,7 +314,7 @@ function drawFractionNumbers(){
     fractions.bad[1] = `${fractions.values[0][0] + fractions.values[0][1]}/${Math.max(fractions.values[1][0], fractions.values[1][1])}`;
     fractions.bad[2] = `${fractions.values[0][0] + fractions.values[0][1]}/${fractions.values[1][0] + fractions.values[1][1]}`;
 
-    questions.ulamki(fractions);
+    questions["math"].ulamki(fractions);
 }
 
 class Fractions {
@@ -392,7 +392,7 @@ function drawPowerNumbers(type){
         power[type].bad[2] = power[type].answer + 10
     }
 
-    questions.potegi(power);
+    questions["math"].potegi(power);
 }
 
 function drawLogNumbers(){
@@ -406,7 +406,7 @@ function drawLogNumbers(){
     log.bad[1] = log.answer * 2;
     log.bad[2] = Math.log2(randomLog) + randomInt(1, 3);
 
-    questions.logarytmy(log);
+    questions["math"].logarytmy(log);
 }
 
 function drawSqrtNumbers(){
@@ -419,7 +419,7 @@ function drawSqrtNumbers(){
     sqrt.bad[1] = sqrt.answer + randomInt(1, 3);
     sqrt.bad[2] = sqrt.answer + randomInt(1, 3);
 
-    questions.pierwiastki(sqrt);
+    questions["math"].pierwiastki(sqrt);
 }
 
 function drawPercentNumbers(){
@@ -434,7 +434,7 @@ function drawPercentNumbers(){
     percent.bad[1] = randomValue - Number(percent.answer.toString()[percent.answer.toString().length - 1]);
     percent.bad[2] = randomPercent * 2;
 
-    questions.pierwiastki(percent);
+    questions["math"].pierwiastki(percent);
 }
 
 function checkRepeatability(arr){
