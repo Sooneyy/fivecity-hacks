@@ -93,7 +93,7 @@ function progressBar(w, t) {
         hackTitle.textContent = "Odpowiedz na pytanie i kliknij odpowiednią odpowiedź";
         hackInfoBox.style.display = "none";
         progressTimer.style.display = "";
-        playTime = 765675//randomInt(4, 8);
+        playTime = randomInt(4, 8);
         progressTime(playTime);
         progressBar("game", playTime);
         return;
