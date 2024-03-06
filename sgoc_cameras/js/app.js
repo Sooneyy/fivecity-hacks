@@ -161,7 +161,7 @@ function hackTimer(){
 }
 
 function generateQuestion(){
-  let randomType = "teoria"//questionTypes[randomInt(0, questionTypes.length)];
+  let randomType = questionTypes[randomInt(0, questionTypes.length)];
   operators = shuffle(operators);
 
   if(hackType == "math") callFunc(randomType);
