@@ -329,6 +329,7 @@ function generateChar() {
 function check() {
   let selectedChars = [];
   const selectedElements = document.querySelectorAll(".select");
+  let good = 0;
 
   selectedElements.forEach((el) =>
     selectedChars.push(el.textContent)
@@ -336,10 +337,15 @@ function check() {
 
   for (let i = 0; i < 4; i++) {
     if (selectedChars[i] == goodChars[charsToFind[i]]) {
-      gameWin();
-      return;
+      good++;
     }
   }
+
+  if(good === 4){
+    gameWin();
+    return;
+  }
+
   gameOver();
 }
 
