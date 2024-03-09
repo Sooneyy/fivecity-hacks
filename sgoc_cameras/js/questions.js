@@ -221,7 +221,102 @@ const questions = {
             ]
         }
     },
-    "science": {
-        
-    }
+    "science": [
+        {
+            question: "Co to jest sublimacja",
+            answer: "Przejscie substancji z fazy stalej do gazu",
+            badAnswers: ["przejscie substancji z fazy gazowej do stalej", "przejscie substancji z fazy cieklej do gazu", "przejscie substancji z fazy gazowej do cieklej"]
+        },
+        {
+            question: "Co oznacza skrot CH3COOH",
+            answer: "kwas octowy",
+            badAnswers: ["kwas azotowy", "kwas solny", "kwas siarkowy"]
+        },
+        {
+            question: "Co oznacza skrot C6H12O6",
+            answer: "glukoza",
+            badAnswers: ["sacharoza", "skrobia", "maltoza"]
+        },
+        {
+            question: "Jakie jest przyspieszenie ziemnskie",
+            answer: "9,8 m/s2",
+            badAnswers: ["9,8 kg/m2", "9,8 N", "9,8 km/h"]
+        },
+        {
+            question: "Co to jest reakcja redoks",
+            answer: "reakcja utleniania i redukcji",
+            badAnswers: ["reakcja wymiany jonów", "reakcja syntezy", "reakcja substytucji"]
+        },
+        {
+            question: "Jaka jest jednostka ciśnienia w układzie SI",
+            answer: "paskal",
+            badAnswers: ["newton", "kilogram", "sekunda"]
+        },
+        {
+            question: "Jak nazywa się pionowy rząd w układzie okresowym pierwiastków",
+            answer: "grupa",
+            badAnswers: ["wiesz", "okres", "blok"]
+        },
+        {
+            question: "Którą z poniższych substancji jest kwas azotowy V",
+            answer: "HNO3",
+            badAnswers: ["NaOH", "H2SO4", "HCl"]
+        },
+        {
+            question: "Jaka jest jednostka energii w ukladzie SI",
+            answer: "dżul",
+            badAnswers: ["paskal", "sekunda", "kg/m3"]
+        },
+        {
+            question: "Która substancja jest głównym składnikiem wody",
+            answer: "tlen",
+            badAnswers: ["węgiel", "azot", "rtęć"]
+        },
+        {
+            question: "Co to jest efekt dopplera",
+            answer: "zmiana czestotliwosci fali spowodowana ruchem zrodla fali wzgledem obserwatora",
+            badAnswers: ["rozprzestrzenianie się fal wokół przeszkod", "łamanie swiatła przez pryzmat", "zmiana kierunku fali z powodu zmiany prędkości"]
+        },
+        {
+            question: "Który organizm jest autotroficzny",
+            answer: "rośliny",
+            badAnswers: ["ludzie", "grzyby", "zwierzęta"]
+        },
+        {
+            question: "Co to jest elektrolit",
+            answer: "substancja, która w roztworze lub stopnionym stanie przewodzi prąd elektryczny",
+            badAnswers: ["substancja, która w stanie stałym przewodzi prąd elektryczny", "substancja, która zawsze jest ciekła w temperaturze pokojowej", "substancja, która w roztworze nie przewodzi prądu elektrycznego"]
+        },
+        {
+            question: "Co to jest indukcja elektromagnetyczna",
+            answer: "zjawisko, w którym powstaje prąd elektryczny w obwodzie w wyniku zmiay pola magnetycznego",
+            badAnswers: ["zjawisko, w którym prąd płynie bez oporu", "zjawisko, w którym prąd płynie tylko w jednym kierunku", "zjawisko, w którym powstaje pole magnetyczne w wyniku prądu elektrycznego"]
+        },
+        {
+            question: "Co oznacza tlen cząsteczkowy",
+            answer: "O2",
+            badAnswers: ["CO2", "O", "H2O"]
+        },
+        {
+            question: "Jaka jest jednostka czasu w ukladzie SI",
+            answer: "sekunda",
+            badAnswers: ["minuta", "godzina", "dzien"]
+        },
+        {
+            question: "Jaka jest funkcja witaminy D w organizmie",
+            answer: "promowanie wchłaniania wapnia w kościach",
+            badAnswers: ["zapobieganie skurczom mięśni", "wzmacnianie układu odpornościowego", "wzmacnianie wzroku"]
+        },
+        {
+            question: "Który pierwiastek jest stosowany jako materiał do produkcji ceramiki",
+            answer: "Al",
+            badAnswers: ["Au", "Ag", "As"]
+        },
+        {
+            question: "Jaka jest suma protonów i neutronów w jądrze atomowym",
+            answer: "liczba masowa",
+            badAnswers: ["liczba walencyjna", "liczba elektronów", "liczba atomowa"]
+        },
+
+    ]
 }

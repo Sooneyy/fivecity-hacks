@@ -17,8 +17,10 @@ var playTime = 0;
 var hackType;
 var questionTypes;
 var levelCount = 0;
+var maxLevels = 0;
 var canAnswer = false;
 var question;
+var randomQuestions = [];
 var answers;
 var reversed;
 
@@ -39,7 +41,9 @@ function startHack(button) {
   canAnswer = true;
   hackTimer();
   hackType = button.dataset.hack;
-  questionTypes = Object.keys(questions[hackType]);
+  if(hackType === "math") questionTypes = Object.keys(questions[hackType]);
+  maxLevels = hackType === "math" ? 7 : 10;
+  document.getElementById("max-levels").textContent = `/${maxLevels}`;
   progressTimer.style.display = "none";
   clearInterval(progressTimerInterval);
   hackBox.style.display = '';
@@ -159,23 +163,33 @@ function hackTimer(){
   clearInterval(timerInterval);
   timerInterval = setInterval(updateTime, 1000);
 }
-
+//pierdolone gowno
 function generateQuestion(){
-  let randomType = questionTypes[randomInt(0, questionTypes.length)];
-  operators = shuffle(operators);
-
-  if(hackType == "math") callFunc(randomType);
-
-  answers = [...question.badAnswers];
+  let randomType;
+  
+  if(hackType == "math"){
+    randomType = questionTypes[randomInt(0, questionTypes.length)];
+    operators = shuffle(operators);
+  
+    callFunc(randomType);
+  }else{
+    if(randomQuestions.length <= 0){
+      randomQuestions = shuffle(questions["science"]);
+      randomQuestions = randomQuestions.slice(0, 10);
+    }
+    console.log(randomQuestions)
+  }
+  
+  answers = hackType === "math" ? [...question.badAnswers]: randomQuestions[levelCount].badAnswers;
 
   answers = answers.slice(0, 3);
-  answers.push(question.answer);
+  answers.push(hackType === "math" ? question.answer : randomQuestions[levelCount].answer);
 
   answers = shuffle(answers);
 
   if(hackType == "math") answers = checkRepeatability(answers);
 
-  questionEl.innerHTML = question.question;
+  questionEl.innerHTML = hackType === "math" ? question.question : randomQuestions[levelCount].question;
 
   answerEls.forEach((el, i) => {
     el.innerHTML = answers[i];
@@ -204,14 +218,17 @@ function nextQuestion(){
   clearInterval(progressTimerInterval);
   reversed = Math.random() > 0.5 ? 1 : 0;
   reversed ? hackFunction.classList.add("reversed") : hackFunction.classList.remove("reversed");
+  console.log(levelCount);
   generateQuestion();
   progressBar("start", 6);
 }
 
 function checkAnswer(answer){
-  if(answer == question.answer){
+  let correctAnswer = hackType === "math" ? question.answer : randomQuestions[levelCount].answer;
+
+  if(answer == correctAnswer){
     levelCount++;
-    if(levelCount < 7){
+    if(levelCount < maxLevels){
       document.getElementById("level-count").textContent = levelCount;
       nextQuestion();
       return;
@@ -221,7 +238,7 @@ function checkAnswer(answer){
     }
   }
 
-  answerButtons[answers.indexOf(question.answer)].classList.add('good');
+  answerButtons[answers.indexOf(correctAnswer)].classList.add('good');
   canAnswer = false;
 
   answerButtons.forEach((el, i) => {
@@ -229,9 +246,11 @@ function checkAnswer(answer){
     el.classList.add('shown');
   });
 
-  clearInterval(progressTimerInterval);
-  progressTime(4);
-  progressBar("game", 3);
+  if(levelCount < maxLevels){
+    clearInterval(progressTimerInterval);
+    progressTime(4);
+    progressBar("game", 3);
+  }
 }
 
 function callFunc(type){
