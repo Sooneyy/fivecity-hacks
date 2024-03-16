@@ -352,13 +352,13 @@ body {
   padding: 0 20px 25px 20px;
   box-shadow: 0 12px 24px #000318;
   transform: scale(.7);
-  animation: pop-up .3s linear forwards;
+  animation: pop-up .3s ease forwards;
 }
 
 @keyframes pop-up{
-  0%{ transform: scale(.7) }
-  40%{ transform: scale(.9) }
-  70%{ transform: scale(.8) }
+  0%{ transform: scale(.85) }
+  33%{ transform: scale(.9) }
+  66%{ transform: scale(.85) }
   100%{ transform: scale(1) }
 }
 
