@@ -15,8 +15,8 @@ const timer = document.querySelector('.timer');
 
 var progressBarInterval, timerInterval;
 var playTime = timeInput;
-var defaultTime = 5;
-var defaultCellsCount = 5;
+var defaultTime = 10;
+var defaultCellsCount = 8;
 var height = cellsInput;
 var width = cellsInput;
 var antiSolverMode = false;

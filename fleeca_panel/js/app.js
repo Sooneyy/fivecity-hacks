@@ -184,6 +184,7 @@ function createGrid() {
         }
         if (goodPositions.includes(i.toString())) {
             value = bestRoute[i];
+            console.log(value)
             index = shuffledNumbers.indexOf(value);
             text = `<div class='${shuffledColors[index]}'></div>`;
         }
