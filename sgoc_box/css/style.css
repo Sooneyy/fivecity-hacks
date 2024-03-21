@@ -11,6 +11,9 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'IBM Sans Plex', sans-serif;
 }
 
@@ -59,9 +62,8 @@ body {
   flex-direction: column;
   margin: 0 auto;
   position: relative;
-  top: 2.5rem;
   width: 1200px;
-  height: 850px;
+  height: 750px;
   border: 1px solid black;
   background: #1B1E23;
   border-radius: 5px;
@@ -170,7 +172,7 @@ body {
   height: 600px;
   background: #21232B;
   border-radius: 10px;
-  margin: 5rem auto 0 auto;
+  margin: 2.5rem auto 0 auto;
   position: relative;
   box-shadow: 0 0 10px rgba(0 0 0 / 60%),
               0 0 20px rgba(0 0 0 / 50%),

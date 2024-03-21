@@ -11,6 +11,9 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'IBM Sans Plex', sans-serif;
 }
 
@@ -59,9 +62,8 @@ body {
   flex-direction: column;
   margin: 0 auto;
   position: relative;
-  top: 2.5rem;
   width: 1200px;
-  height: 850px;
+  height: 750px;
   border: 1px solid black;
   background: #1B1E23;
   border-radius: 5px;
@@ -166,11 +168,11 @@ body {
 }
 
 .hack-box {
-  width: 700px;
-  height: 700px;
+  width: 650px;
+  height: 650px;
   background: #21232B;
   border-radius: 10px;
-  margin: 2.5rem auto 0 auto;
+  margin: 1.75rem auto 0 auto;
   position: relative;
   box-shadow: 0 0 10px rgba(0 0 0 / 60%),
               0 0 20px rgba(0 0 0 / 50%),
@@ -397,7 +399,7 @@ body {
 .hack-footer {
   position: absolute;
   bottom: 15px;
-  width: 650px;
+  width: 600px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -423,8 +425,8 @@ body {
 .hack-fn {
   position: relative;
   margin: 0 auto;
-  height: 500px;
-  width: 500px;
+  height: 450px;
+  width: 450px;
   display: grid;
   gap: 3px;
   translate: 0 35px;
@@ -464,7 +466,7 @@ body {
   position: relative;
   background: rgba(164, 149, 70, .5);
   border-color: #a49546;
-  font-size: 1em;
+  font-size: .75em;
   opacity: 1;
   color: #fff;
   filter: drop-shadow(0 40px 25px #d6c157)
