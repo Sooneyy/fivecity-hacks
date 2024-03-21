@@ -4,86 +4,82 @@ export const hacksList = [
     {
         heist: 'Vangelico',
         name: 'Przełączanie zasilania',
-        minigame: "Zapamiętywanie ilości kwadratów",
         link: './vangelico_switch'
     },
     {
         heist: 'Vangelico',
         name: 'Wyłączanie zasilania',
-        minigame: "Maze game",
         link: './vangelico_power'
     },
     {
         heist: 'Vangelico',
         name: 'Włamywanie do drzwi',
-        minigame: "Szachownica (cyfry)",
         link: './vangelico_doors'
     },
     {
         heist: 'Vangelico',
         name: 'Włamywanie do sejfu',
-        minigame: "Lights out",
         link: './vangelico_safe'
     },
     {
         heist: 'Willa',
         name: 'Wyłączanie zabezpieczenia',
-        minigame: "Szachownica (pionki)",
         link: './willa_serv'
     },
     {
         heist: 'Willa',
         name: 'Otwieranie drzwi do winiarni',
-        minigame: "Zapamiętywanie miejsca kwadratów",
         link: './willa_winedoors'
     },
     {
         heist: 'Willa',
         name: 'Włamywanie do małego sejfu',
-        minigame: "Password game",
         link: './willa_minisafe'
     },
     {
         heist: 'Willa',
         name: 'Włamywanie do głównego sejfu',
-        minigame: "Rozplątywanie liny",
         link: './willa_safe'
     },
     {
         heist: 'Fleeca',
         name: 'Wyłączanie zabezpieczeń',
-        minigame: "Zapamiętywanie liczb/kolorów",
         link: './fleeca_box'
     },
     {
         heist: 'Fleeca',
         name: 'Otwieranie drzwi do sejfu',
-        minigame: "Zapamiętywanie miejsca kwadratów po obróceniu",
         link: './fleeca_doors1'
     },
     {
         heist: 'Fleeca',
         name: 'Otwieranie głównych drzwi sejfu',
-        minigame: "Szachownica (kolory)",
         link: './fleeca_panel'
     },
     {
         heist: 'Fleeca',
         name: 'Otwieranie drugich drzwi do sejfu',
-        minigame: "Kwadraty pacyfik 1.0",
         link: './fleeca_doors2'
     },
     {
         heist: 'Car Dealer',
         name: 'Zdejmowanie nadajnika',
-        minigame: "Coś typu aim lab",
         link: './cardealer_gps'
     },
     {
         heist: 'SGOC',
         name: 'Wyłączanie kamer',
-        minigame: "Pytania xd",
         link: './sgoc_cameras'
+    },
+    {
+        heist: 'SGOC',
+        name: 'Wyłaczanie PC',
+        link: './sgoc_pc'
+    },
+    {
+        heist: 'SGOC',
+        name: 'Wyłączanie prądu',
+        link: './sgoc_box'
     },
 ]
 
@@ -98,7 +94,6 @@ export function createList(array){
         const heist = document.createElement("div");
         const heistName = document.createElement("div");
         const hackName = document.createElement("div");
-        const minigameName = document.createElement("div");
         const linkButton = document.createElement("button");
         const favouriteButton = document.createElement("button");
     
@@ -112,10 +107,6 @@ export function createList(array){
         hackName.innerHTML = `Hack: <b>${array[i].name}</b>`;
         hackName.classList.add("hack-name");
         heist.appendChild(hackName);
-    
-        minigameName.innerHTML = `Minigame: <b>${array[i].minigame}</b>`;
-        minigameName.classList.add("minigame-name");
-        heist.appendChild(minigameName);
     
         linkButton.textContent = "Przejdź";
         linkButton.dataset.link = array[i].link;

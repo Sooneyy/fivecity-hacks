@@ -197,17 +197,18 @@ body {
 .heist{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   min-width: 450px;
   max-width: 450px;
   height: 100%;
   max-height: 260px;
   background: #030018;
-  border-radius: 20px;
+  border-radius: 10px;
+  border: 1px solid #050020;
   margin-bottom: 35px;
   padding: 25px 20px;
   font-size: 17px;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, .2);
+  box-shadow: 0 6px 8px rgba(6, 0, 41, 0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateX(100%);
@@ -241,15 +242,16 @@ body {
 
 .heist button{
   margin-top: auto;
-  padding: 15px 55px;
-  border-radius: .5vw;
+  padding-block: 1rem;
+  width: 100%;
+  border-radius: 5px;
   background: rgb(72, 106, 219);
   border: none;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   color: #fff;
-  transition: background .2s linear;
+  transition: background .2s ease;
 }
 
 .heist button:hover{
