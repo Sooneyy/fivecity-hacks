@@ -189,7 +189,7 @@ body {
   top: -25px;
   left: 0;
   font-size: 14px;
-  height: 25px;
+  height: 26px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   justify-content: space-between;
@@ -199,13 +199,9 @@ body {
 }
 
 .hack-header .buttons {
-  height: 22px;
+  height: 26px;
   display: flex;
   gap: 1px;
-}
-
-.buttons{
-  height: 25px !important;
 }
 
 .name{
@@ -216,8 +212,8 @@ body {
   height: 100%;
   display: grid;
   place-content: center;
+  aspect-ratio: 1 / 1;
   border: none;
-  width: 28px;
   background: transparent;
   font-size: 14px;
   color: #fff;
@@ -464,7 +460,5 @@ body {
               inset 2px 2px 16px rgba(255, 148, 148, .4);
   transition: background .3s ease, border-color .3s ease;
 }
-
-
 
 

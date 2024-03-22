@@ -318,7 +318,10 @@ setInterval(function() {
   let midDay = time.getHours() <= 12 ? "AM" : "PM";
 
   document.querySelector(".current-time").textContent = `${midDay} ${hours}:${time.getMinutes().toString().padStart("2", 0)}`;
-}, 1000)
+}, 1000);
+
+
+
 
 
 
