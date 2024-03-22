@@ -104,10 +104,6 @@ function progressBar(w, t) {
                     document.getElementById("close").addEventListener("click", gameOver);
                 }, 2000);
 
-                let randomTurn = Math.ceil(Math.random() * 3);
-                
-                hackFunctionBox.style.transform = `rotate(${90 * randomTurn}deg)`;
-
                 active.forEach((el) => {
                     el.classList.remove('good')
                 })
