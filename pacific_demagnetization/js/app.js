@@ -130,7 +130,7 @@ function checkLetter(e){
     let pressedKey = e.key;
 
     if(gameStarted){
-        if(pressedKey == elements[currentIndex].textContent && good < 14){
+        if(pressedKey.toLowerCase() == elements[currentIndex].textContent && good < 14){
             elements[currentIndex].classList.add("good");
             elements[currentIndex].classList.remove("current");
     
