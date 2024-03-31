@@ -11,7 +11,7 @@ dropdownHeader.addEventListener("click", () => {
 
 window.addEventListener("keyup", filterByInput);
 
-const heistFilters = ["Vangelico", "Willa", "Fleeca", "Car Dealer", "SGOC", "Wszystkie"];
+const heistFilters = ["Vangelico", "Willa", "Fleeca", "Car Dealer", "SGOC", "Pacyfik", "Wszystkie"];
 
 for(let i = 0; i < heistFilters.length; i++) {
     const heistOption = document.createElement("div");

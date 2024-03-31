@@ -81,6 +81,11 @@ export const hacksList = [
         desc: 'Wyłączanie prądu',
         link: './sgoc_box',
     },
+    {
+        heist: 'Pacyfik',
+        desc: 'Rozgmagnetozywywanie',
+        link: './pacific_demagnetization',
+    },
 ]
 
 export function createList(array){
