@@ -26,11 +26,18 @@ var height = 5;
 var width = 5;
 var wrong = 0;
 var good = 0;
+var rotateMode = false;
 
 function hack() {
     hackInfoBox.style.display = 'none';
     hackFunctionBox.style.display = 'none';
     progressBarBox.style.display = 'none';
+    do{
+        rotate = prompt("Jeśli chcesz obracanie wpisz cokolwiek jak nie to 0\ndefaultowo jest wyłączone");
+
+        if(rotate != 0) rotateMode = true;
+        else rotateMode = false;
+    }while(!rotate);
 }
 
 function startHack() {
@@ -107,6 +114,10 @@ function progressBar(w, t) {
                 active.forEach((el) => {
                     el.classList.remove('good')
                 })
+
+                if(rotateMode){
+                    hackFunctionBox.style.transform = `rotate(${Math.ceil(Math.random() * 3) * 90}deg)`;
+                }
 
                 progressBar('game', playTime);
             }
