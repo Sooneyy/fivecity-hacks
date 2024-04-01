@@ -10,12 +10,11 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const timer = document.querySelector('.timer');
 
 var progressBarInterval, timerInterval;
-var playTime = 8.5;
+var playTime = 9;
 var height = 3;
 var width = 5;
 var chars = "abcdefghijklmnopqrstuwxyz";
 var currentIndex = 0;
-var letters = [];
 var good = 0;
 
 function hack() {
@@ -33,7 +32,7 @@ function startHack() {
         timer.style.display = "block";
         let now = new Date();
         let diff = new Date();
-
+    
         diff.setTime(now - start);
         timer.textContent = diff.getMinutes().toString().padStart("2", 0) + ":" + diff.getSeconds().toString().padStart("2", 0);
     }
@@ -49,7 +48,7 @@ function startHack() {
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Przygotuj się...';
     progressBarBox.style.display = 'block';
-    progressBar('start', 9);
+    progressBar('start', 12);
 }
 
 function gameWin() {
@@ -58,7 +57,7 @@ function gameWin() {
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Hack udany';
     progressBarBox.style.display = 'block';
-    progressBar('end', 9);
+    progressBar('end', 12);
 }
 
 function gameOver() {
@@ -68,7 +67,7 @@ function gameOver() {
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Hack nieudany'
     gameStarted = false;
-    progressBar('end', 9);
+    progressBar('end', 12);
 }
 
 function progressBar(w, t) {
