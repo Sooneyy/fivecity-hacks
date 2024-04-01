@@ -67,6 +67,7 @@ function gameOver() {
     progressBarBox.style.display = 'block';
     hackInfoBox.style.display = '';
     hackInfo.textContent = 'Hack nieudany'
+    gameStarted = false;
     progressBar('end', 9);
 }
 
@@ -96,7 +97,6 @@ function progressBar(w, t) {
                 progressBarBox.style.display = 'none';
                 hackInfoBox.style.display = 'none';
                 hackBox.style.display = 'none';
-                gameStarted = false;
                 clearInterval(progressBarInterval);
             }
         }
