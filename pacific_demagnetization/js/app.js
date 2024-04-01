@@ -10,7 +10,7 @@ const progressBarFn = document.getElementById('progress-bar-fn');
 const timer = document.querySelector('.timer');
 
 var progressBarInterval, timerInterval;
-var playTime = 3;
+var playTime = 8.5;
 var height = 3;
 var width = 5;
 var chars = "abcdefghijklmnopqrstuwxyz";
@@ -75,8 +75,7 @@ function progressBar(w, t) {
     let width = 1000;
     function updateProgress() {
         if (width > 0) {
-            if (w === 'start' || w === 'end') width -= 3;
-            else width--;
+            if (w === 'start' || w === 'end' || w === 'game') width -= 3;
             progressBarFn.style.width = (width * 100) / 1000 + '%';
         } else {
             if (w === 'start') {
