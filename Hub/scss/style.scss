@@ -200,7 +200,6 @@ body{
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 3rem 6rem;
-
             overflow: auto;
 
             .heist-wrapper{
@@ -214,6 +213,13 @@ body{
                 flex-direction: column;
                 gap: .75rem;
                 font-size: 20px;
+
+                &:nth-child(2n-1):last-child{
+                    min-width: 418px;
+                    min-height: 240px;
+                    grid-column: span 2;
+                    margin: 0 auto;
+                }
 
                 button{
                     margin-top: auto;

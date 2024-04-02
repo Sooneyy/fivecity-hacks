@@ -2,6 +2,11 @@ const heists = document.querySelector(".heists");
 
 export const hacksList = [
     {
+        heist: 'Szachownica',
+        desc: 'Szachownica n x n (n - liczba opisujaca wielkosc pol na szachownicy np. 6x6)',
+        link: './global_chessboard',
+    },
+    {
         heist: 'Vangelico',
         desc: 'Przełączanie zasilania',
         link: './vangelico_switch',
@@ -21,26 +26,26 @@ export const hacksList = [
         desc: 'Włamywanie do sejfu',
         link: './vangelico_safe',
     },
-    {
-        heist: 'Willa',
-        desc: 'Wyłączanie zabezpieczenia',
-        link: './willa_serv',
-    },
-    {
-        heist: 'Willa',
-        desc: 'Otwieranie drzwi do winiarni',
-        link: './willa_winedoors',
-    },
-    {
-        heist: 'Willa',
-        desc: 'Włamywanie do małego sejfu',
-        link: './willa_minisafe',
-    },
-    {
-        heist: 'Willa',
-        desc: 'Włamywanie do głównego sejfu',
-        link: './willa_safe',
-    },
+    // {
+    //     heist: 'Willa',
+    //     desc: 'Wyłączanie zabezpieczenia',
+    //     link: './willa_serv',
+    // },
+    // {
+    //     heist: 'Willa',
+    //     desc: 'Otwieranie drzwi do winiarni',
+    //     link: './willa_winedoors',
+    // },
+    // {
+    //     heist: 'Willa',
+    //     desc: 'Włamywanie do małego sejfu',
+    //     link: './willa_minisafe',
+    // },
+    // {
+    //     heist: 'Willa',
+    //     desc: 'Włamywanie do głównego sejfu',
+    //     link: './willa_safe',
+    // },
     {
         heist: 'Fleeca',
         desc: 'Wyłączanie zabezpieczeń',
@@ -73,14 +78,14 @@ export const hacksList = [
     },
     {
         heist: 'SGOC',
-        desc: 'Wyłaczanie PC',
-        link: './sgoc_pc',
-    },
-    {
-        heist: 'SGOC',
         desc: 'Wyłączanie prądu',
         link: './sgoc_box',
     },
+    // {
+    //     heist: 'SGOC',
+    //     desc: 'Wyłączanie PC',
+    //     link: './sgoc_pc',
+    // },
     {
         heist: 'Pacyfik',
         desc: 'Rozgmagnetozywywanie',

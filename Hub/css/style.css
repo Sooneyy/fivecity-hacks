@@ -184,6 +184,12 @@ body {
   gap: 0.75rem;
   font-size: 20px;
 }
+.wrapper .heists-wrapper .heists .heist-wrapper:nth-child(2n-1):last-child {
+  min-width: 418px;
+  min-height: 240px;
+  grid-column: span 2;
+  margin: 0 auto;
+}
 .wrapper .heists-wrapper .heists .heist-wrapper button {
   margin-top: auto;
   max-width: 50%;
