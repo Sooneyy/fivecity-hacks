@@ -24,6 +24,23 @@ body,
     align-items: center;
     color: #fff;
 
+    a{
+        position: absolute;
+        background: $backgroundColor_3;
+        padding: 8px 40px;
+        left: 15px;
+        top: 15px;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        z-index: 999;
+
+        &:hover{
+            background: $backgroundColor_2;
+        }
+    }
+
     .wrapper{
         display: flex;
         flex-direction: column;

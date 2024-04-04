@@ -18,6 +18,23 @@ body,
   align-items: center;
   color: #fff;
 }
+body a,
+#app a {
+  position: absolute;
+  background: #3E2C2C;
+  padding: 8px 40px;
+  left: 15px;
+  top: 15px;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 999;
+}
+body a:hover,
+#app a:hover {
+  background: #5E4545;
+}
 body .wrapper,
 #app .wrapper {
   display: flex;
