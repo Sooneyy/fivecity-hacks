@@ -49,9 +49,6 @@ const app = Vue.createApp({
     computed: {
         getProgressWidth(){
             return this.width / 1000 * 100;
-        },
-        datexd(){
-            return new Date().getTime();
         }
     },
     methods: {
