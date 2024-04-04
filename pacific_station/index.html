@@ -36,12 +36,12 @@
                 <div class="hack-timer" v-if="showHackTimer">{{ hackMinutes }}:{{ hackSeconds }}</div>
 
                 <div class="desktop-buttons">
-                    <div class="desktop-button" @click="startGame">
+                    <button class="desktop-button" @click="startGame">
                         <div class="button-icon">
                             <img src="./img/hacking.png" alt="xd">
                         </div>
                         <p class="button-text">hacking.exe</p>
-                    </div>
+                    </button>
                 </div>
 
                 <div class="hack-wrapper" v-if="showHackBox">
@@ -54,10 +54,15 @@
                         </div>
                     </div>
                     <div class="hack-container">
-                        <div class="hack-title" v-if="gameStarted">{{ hackTitle }}</div>
+                        <div class="hack-title" v-if="gameStarted">
+                            {{ hackTitle }} <br>
+                            <p>{{ level }}/{{ levelCount }}</p>
+                        </div>
                         <div class="hack-info" v-if="!gameStarted">{{ hackInfo }}</div>
-                        <div class="hack-function" v-if="gameStarted">
-                            <div v-for="item, i in lettersArr" class="box-letter" :class="{good: item.good, current: currentIndex === i}">{{ item.letter }}</div>
+                        <div class="hack-function" v-if="gameStarted">{{ randomWord }}</div>
+                        <div class="hack-function2" v-if="gameStarted">
+                            <button class="hack-button" id="been" @click="checkBeenWord">Było</button>
+                            <button class="hack-button" id="new" @click="checkNewWord">Nowe</button>
                         </div>
                         <div class="hack-progress">
                             <div class="progress" :style="{width: getProgressWidth + '%'}"></div>

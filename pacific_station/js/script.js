@@ -1,11 +1,25 @@
-// Wartości czasowe są dzielone przez 3 -> np. endTime: 12 to 4 sekundy
+const words = {
+    "arr1": ["Radio", "Zapałki", "Git", "Przełącznik", "Kołdra", "Szafka", "Myszka komputerowa", "Klawiatura", "Rzeka", "Portfel"],
+    "arr2": ["Talerz", "Telefon", "Ramka", "Basen", "Kabel", "Drzewo", "Klip", "Balon", "Głośniki", "Pudełko"],
+    "arr3": ["Worek", "Koc", "Klamka", "Ściana", "Led", "Wat", "Bateria", "Maskotka", "Banknot", "Lodówka"],
+    "arr4": ["Kot", "Niedźwiedź", "Filtr", "Chusteczki higieniczne", "Procesor", "Zmywarka", "Piekarnik", "Serwetka", "Przewód", "Gniazko"],
+    "arr5": ["Opiekacz", "Dokument", "Język", "Ręcznik", "Pies", "Butelka", "Moneta", "Kieszeń", "Czapka z daszkiem", "Plecak"],
+    "arr6": ["Obiektyw", "Krzesło", "Album", "Klej", "Rondel", "Spinacz", "Morze", "Rzeka", "Podziemie", "Klucz do drzwi"],
+    "arr7": ["Kamera", "Zdalne sterowanie", "Sztuczna inteligencja", "Maszyna", "Robot", "Programowanie", "Rakieta", "Samolot", "Pompka", "Farba", "Jedzenie"],
+    "arr8": ["Deska", "Tkanina", "Kuchenka", "Instagram", "Okap", "Zamrażarka", "Piec", "Król", "Książe", "Kryształ"],
+    "arr9": ["Kokaina", "Serial", "Film", "Nazwa", "Witamina", "Podkładka", "Mięsień", "Przedłużacz", "Design", "Pokój"],
+    "arr10": ["Dwór", "Huśtawka", "Miasto", "Kraj", "Wojna", "Dodawanie", "Ciąg liczb", "Panel podłogowy", "Monitor", "Aplikacja konsolowa"]
+}
+
 const gameConfig = {
-    playTime: 9, 
-    startTime: 12, 
-    endTime: 12, 
+    playTime: 20, // Normalny czas
+    startTime: 12, // 4 sekundy
+    endTime: 12, // 4 sekundy
     gameStarted: false,
-    hackTitle: "Wpisz odpowiedni ciąg znaków",
+    hackTitle: "Kliknij w odpowiedni",
     hackInfo: "",
+    level: 0,
+    levelCount: 15
 }
 
 const app = Vue.createApp({
@@ -26,9 +40,10 @@ const app = Vue.createApp({
             gameType: "start",
             gameResult: false,
             width: 1000,
-            chars: "abcdefghijklmnopqrstuwxyz",
-            currentIndex: 0,
-            lettersArr: [],
+            words: { ...words },
+            wordsArr: [],
+            aldBeenWords: [],
+            randomWord: "",
         }
     },
     computed: {
@@ -69,6 +84,12 @@ const app = Vue.createApp({
         startGame(){
             if(this.showHackBox) return;
 
+            this.wordArr = [];
+            this.level = 0;
+            this.aldBeenWords = [];
+
+            this.createGame();
+
             this.gameType = "start";
             this.hackTimerStart();
             this.initGame();
@@ -92,7 +113,6 @@ const app = Vue.createApp({
                     this.updateProgress(this.playTime);
 
                     this.gameStarted = true;
-                    this.createGame();
 
                     this.gameType = "end";
                     break;
@@ -119,14 +139,20 @@ const app = Vue.createApp({
             this.initGame();
         },
         createGame(){
-            for(let i = 0; i < 15; i++){
-                let randomLetter = this.chars.charAt(Math.floor(Math.random() * this.chars.length));
+            for(let i = 1; i <= 10; i++){
+                let word = this.words["arr" + i][Math.floor(Math.random() * 10)];
 
-                this.lettersArr.push({
-                    letter: randomLetter,
-                    good: false,
-                });
+                this.wordsArr.push(word);
             }
+
+            this.createWord();
+        },
+        createWord(){
+            let word = this.wordsArr[Math.floor(Math.random() * this.wordsArr.length)];
+
+            if(word === this.randomWord) this.createWord();
+
+            this.randomWord = word;
         },
         // Progress
         updateProgress(time){
@@ -136,7 +162,8 @@ const app = Vue.createApp({
             this.progressInterval = setInterval(this.updateProgressWidth, time);
         },
         updateProgressWidth(){
-            this.width -= 3;
+            if(this.gameType === "inProgress" || this.gameType === "endGame") this.width -= 3;
+            else this.width--; 
 
             if(this.getProgressWidth <= 0){
                 if(this.gameType === "endGame"){
@@ -149,31 +176,41 @@ const app = Vue.createApp({
                 }
             }
         },
-        // Event
-        onKeypress(e){
-            if(this.gameStarted){
-                if(e.key.toLowerCase() === this.lettersArr[this.currentIndex].letter){
-                    this.lettersArr[this.currentIndex].good = true;
-                    this.currentIndex++;
-                }else{
-                    this.gameLose();
-                    return;
-                }
+        //Events
+        checkBeenWord(){
+            if(this.aldBeenWords.includes(this.randomWord)){
+                this.createWord();
+                this.level++;
+            }else{
+                this.gameLose();
+            }
 
-                if(this.lettersArr.every(el => el.good)){
-                    this.gameWin();
-                }
-            }else return;
+            this.checkLevel();
+        },
+        checkNewWord(){
+            if(!this.aldBeenWords.includes(this.randomWord)){
+                this.aldBeenWords.push(this.randomWord);
+
+                this.createWord();
+                this.level++;
+            }else{
+                this.gameLose();
+            }
+
+            this.checkLevel();
+        },
+        checkLevel(){
+            if(this.level === 15){
+                this.gameWin();
+            }
         }
     },
     mounted(){
-        window.addEventListener('keypress', this.onKeypress);
         this.timeInterval = setInterval(this.timeCounter, 1000);
 
         this.timeCounter();
     },
     beforeUnmount(){
-        window.removeEventListener('keypress', this.onKeypress);
         clearInterval(timeInterval);
     },
 }).mount("#app")

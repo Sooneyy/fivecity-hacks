@@ -105,7 +105,7 @@ body .wrapper .header .row:last-child,
 }
 body .wrapper .header .row:last-child > div,
 #app .wrapper .header .row:last-child > div {
-  padding-inline: 0.75rem;
+  padding-inline: 1rem;
   font-size: 14px;
 }
 body .wrapper .header .row:last-child > div:last-child,
@@ -156,6 +156,8 @@ body .wrapper .container .desktop-buttons .desktop-button,
   flex-direction: column;
   justify-content: center;
   border-radius: 2px;
+  border: none;
+  background: transparent;
   gap: 5px;
   align-items: center;
   margin: 5px;
@@ -183,7 +185,7 @@ body .wrapper .container .hack-wrapper,
 #app .wrapper .container .hack-wrapper {
   display: flex;
   flex-direction: column;
-  width: 850px;
+  width: 950px;
   height: 650px;
   background: #241015;
   border-radius: 10px;
@@ -270,6 +272,8 @@ body .wrapper .container .hack-wrapper .hack-container,
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 8.75rem;
   position: relative;
   padding: 20px;
 }
@@ -280,6 +284,13 @@ body .wrapper .container .hack-wrapper .hack-container .hack-title,
   left: 50%;
   transform: translateX(-50%);
   font-weight: 600;
+  text-align: center;
+  margin-top: 15px;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-title p,
+#app .wrapper .container .hack-wrapper .hack-container .hack-title p {
+  font-size: 12px;
+  margin-top: 10px;
 }
 body .wrapper .container .hack-wrapper .hack-container .hack-info,
 #app .wrapper .container .hack-wrapper .hack-container .hack-info {
@@ -292,36 +303,43 @@ body .wrapper .container .hack-wrapper .hack-container .hack-function,
 #app .wrapper .container .hack-wrapper .hack-container .hack-function {
   position: relative;
   margin: 0 auto;
-  height: 400px;
-  width: 700px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1rem;
-  border-radius: 5px;
-}
-body .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
+  width: 650px;
+  height: 225px;
+  background: #1e0d12;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.75em;
+  font-size: 2.75rem;
   font-weight: bold;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  color: white;
-  transition: 0.1s linear;
+  border-radius: 5px;
+  transform: translateY(30px);
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter.current,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter.current {
-  background: rgba(255, 255, 255, 0.1);
+body .wrapper .container .hack-wrapper .hack-container .hack-function2,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function2 {
+  display: flex;
+  gap: 1.75rem;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter.good,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .box-letter.good {
-  background: rgba(255, 0, 0, 0.6);
-  border-color: rgb(255, 0, 0);
+body .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button {
+  width: 175px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  background: #1e0d12;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button#been:hover,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button#been:hover {
+  border-color: #46212a;
+  box-shadow: inset 0 0 16px #46212a;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button#new:hover,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function2 .hack-button#new:hover {
+  border-color: #1e2112;
+  box-shadow: inset 0 0 14px #1e2112;
 }
 body .wrapper .container .hack-wrapper .hack-container .hack-progress,
 #app .wrapper .container .hack-wrapper .hack-container .hack-progress {
