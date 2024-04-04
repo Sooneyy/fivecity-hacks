@@ -31,6 +31,13 @@ body{
     padding: .75rem 26.25rem;
     background: $body;
     color: white;
+    opacity: 0;
+    animation: blur .5s ease forwards;
+
+    @keyframes blur{
+        from { opacity: 0 }
+        to { opacity: 1 }
+    }
 }
 
 .wrapper{
