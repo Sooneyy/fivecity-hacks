@@ -147,8 +147,11 @@ const app = Vue.createApp({
         createWord(){
             let word = this.wordsArr[Math.floor(Math.random() * this.wordsArr.length)];
 
-            if(word === this.randomWord) this.createWord();
-
+            if(word === this.randomWord){
+                this.createWord();
+                return;
+            };
+            
             this.randomWord = word;
         },
         // Progress
@@ -188,8 +191,8 @@ const app = Vue.createApp({
             if(!this.aldBeenWords.includes(this.randomWord)){
                 this.aldBeenWords.push(this.randomWord);
 
-                this.createWord();
                 this.level++;
+                this.createWord();
             }else{
                 this.gameLose();
             }
