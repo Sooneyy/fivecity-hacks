@@ -65,6 +65,11 @@ function startHack() {
     clearInterval(timerInterval);
     timerInterval = setInterval(updateTime, 1000);
     createGrid();
+    document.querySelectorAll(".hack-fn > .square[data-value='undefined']").forEach((item) => {
+        if(height.value >= 8) item.style.fontSize = ".7rem";
+        else if(height.value >= 6 && height.value < 8) item.style.fontSize = ".9rem";
+        else item.style.fontSize = "1.25rem";
+    })
     hackTitle.innerHTML = 'Dotrzyj z lewego górnego rogu, do prawego dolnego';
     hackTitleBox.style.display = 'none';
     heistButtons.style.display = 'none';
@@ -266,9 +271,10 @@ function maxHorizontal(pos) {
 }
 
 function check(value){
-    if(value > 4){
-        return value - 4;
-    } else return value;
+    while(value > 4){
+        value -= 4;
+    } 
+    return value;
 }
 
 function generateNextPosition(pos) {
