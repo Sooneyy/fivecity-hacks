@@ -137,7 +137,7 @@ function randomPath(sizeX, sizeY) {
         path.push([x, y]);
     }
     for (let i = path.length - 4; i >= 0; i--) {
-        if (i + 3 < path.length && path[i][1] === path[i + 3][1] + 1 && path[i][0] === path[i + 3][0]) {
+        if (path[i][1] === path[i + 3][1] + 1 && path[i][0] === path[i + 3][0]) {
             path.splice(i + 1, 2);
         }
     }

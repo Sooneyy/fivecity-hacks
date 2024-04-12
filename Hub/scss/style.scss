@@ -315,7 +315,7 @@ body{
                         translate: -50% 0;
                         user-select: none;
                         opacity: 0;
-                        visibility: none;
+                        visibility: hidden;
                         transform: scale(.9);
                         transition: all .1s ease .15s;
                     }
