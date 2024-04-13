@@ -201,6 +201,27 @@ body{
             }
         }
 
+        .loader{
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: none;
+            border-radius: 50%;
+            border: 6px solid $cyan;
+            border-bottom: transparent;
+            border-right: none;
+            animation: spin 1s ease infinite;
+
+            @keyframes spin{
+                from{
+                    transform: rotate(0)
+                }
+                to{
+                    transform: rotate(2turn);
+                }
+            }
+        }
+
         .heists{
             width: 100%;
             max-height: 100%;

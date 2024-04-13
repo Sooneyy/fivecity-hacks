@@ -9,8 +9,6 @@ dropdownHeader.addEventListener("click", () => {
     dropdownHeader.classList.toggle("open");
 });
 
-window.addEventListener("keyup", filterByInput);
-
 const heistFilters = ["Vangelico", "Fleeca", "Car Dealer", "SGOC", "Pacyfik", "Szachownica", "Wszystkie"];
 
 for(let i = 0; i < heistFilters.length; i++) {
@@ -24,43 +22,77 @@ for(let i = 0; i < heistFilters.length; i++) {
 const filters = document.querySelectorAll(".filter");
 const selectedFilter = document.querySelector(".filter-name");
 
-filters.forEach((item) => {
-    item.addEventListener("click", () => {
-        selectedFilter.textContent = item.textContent === "Wszystkie" ? "Heist" : item.textContent;
-        dropdownHeader.classList.remove("open");
-        dropdownMenu.classList.remove("open");
-        filterByDropdown();
-    })
-})
-
 var selectedHeist = hacksList;
 
-function filterByDropdown(){
-    let filter = selectedFilter.textContent.toLowerCase();
+const heists = document.querySelector(".heists");
+const loader = document.querySelector(".loader");
 
-    selectedHeist = hacksList;
-    
-    if(filter !== "heist"){
-        selectedHeist = selectedHeist.filter((hack) => filter === hack.heist.toLowerCase());
-        createList(selectedHeist);
-    }else{
-        selectedHeist = hacksList;
-        createList(selectedHeist);
+function debounce(func, delay){
+    let timerId;
+
+    return function(){
+        clearInterval(timerId);
+        return timerId = setTimeout(() => {
+            func();
+        }, delay);
     }
+}
+
+function filterByDropdown(){
+    loader.style.display = 'block';
+    heists.style.display = 'none';
+
+    setTimeout(() => {
+        let filter = selectedFilter.textContent.toLowerCase();
+
+        selectedHeist = hacksList;
+        
+        if(filter !== "heist"){
+            selectedHeist = selectedHeist.filter((hack) => filter === hack.heist.toLowerCase());
+            createList(selectedHeist);
+        }else{
+            selectedHeist = hacksList;
+            createList(selectedHeist);
+        }
+
+        heists.style.display = '';
+        loader.style.display = 'none';
+    }, 250)
 }
 
 function filterByInput(){
-    let listArr = selectedHeist;
+    loader.style.display = 'block';
+    heists.style.display = 'none';
 
-    if(input.value.trim().length > 0){
-        listArr = listArr.filter((hack) => 
-            hack.desc.toLowerCase().includes(input.value.trim().toLowerCase()) || 
-            hack.heist.toLowerCase().includes(input.value.trim().toLowerCase())
-        );
-    }
+    setTimeout(() => {
+        let listArr = selectedHeist;
 
-    createList(listArr);
+        if(input.value.trim().length > 0){
+            listArr = listArr.filter((hack) => 
+                hack.desc.toLowerCase().includes(input.value.trim().toLowerCase()) || 
+                hack.heist.toLowerCase().includes(input.value.trim().toLowerCase())
+            );
+        }
+
+        createList(listArr);
+
+        heists.style.display = '';
+        loader.style.display = 'none';
+    }, 250)
 }
 
+const inputDebounce = debounce(filterByInput, 300);
+const dropdownDebounce = debounce(filterByDropdown, 300);
+
+window.addEventListener("input", inputDebounce);
+
+filters.forEach((item) => {
+    item.addEventListener("click", () => {
+        dropdownDebounce();
+        selectedFilter.textContent = item.textContent === "Wszystkie" ? "Heist" : item.textContent;
+        dropdownHeader.classList.remove("open");
+        dropdownMenu.classList.remove("open");
+    })
+})
 
 
