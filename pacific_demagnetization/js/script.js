@@ -133,9 +133,9 @@ const app = Vue.createApp({
             this.progressInterval = setInterval(this.updateProgressWidth, time);
         },
         updateProgressWidth(){
-            this.width -= 3;
-
-            if(this.getProgressWidth <= 0){
+            if(this.width > 0){
+                this.width -= 3;
+            }else{
                 if(this.gameType === "endGame"){
                     clearInterval(this.progressInterval);
                     clearInterval(this.hackTimerInterval);
@@ -165,6 +165,7 @@ const app = Vue.createApp({
     },
     mounted(){
         window.addEventListener('keypress', this.onKeypress);
+
         this.timeInterval = setInterval(this.timeCounter, 1000);
 
         this.timeCounter();
