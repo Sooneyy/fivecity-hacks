@@ -96,6 +96,11 @@ export const hacksList = [
         desc: 'Przełączanie zasilania',
         link: './pacific_station',
     },
+    {
+        heist: 'Pacyfik',
+        desc: 'Włamywanie się do komputera czy coś',
+        link: './pacific_pc',
+    },
 ]
 
 export function createList(array){

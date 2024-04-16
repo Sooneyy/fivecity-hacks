@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: IBM Sans Plex, sans-serif;
+}
+
+body,
+#app {
+  background: black;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+body a,
+#app a {
+  position: absolute;
+  display: flex;
+  background: #130707;
+  padding: 12px;
+  left: 15px;
+  top: 15px;
+  border-radius: 25%;
+  border: 1px solid #5a1d1d;
+  box-shadow: 0 8px 16px rgba(79, 25, 25, 0.6);
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 999;
+  animation: shadow 4s ease-in-out infinite;
+  transition: all 0.2s ease;
+}
+body a:hover,
+#app a:hover {
+  border-color: #b83636;
+  background: #2f1111;
+}
+@keyframes shadow {
+  0%, 100% {
+    box-shadow: 0 8px 16px rgba(79, 25, 25, 0.6);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgb(101, 32, 32);
+  }
+}
+body .wrapper,
+#app .wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  border: 1px solid black;
+  background: linear-gradient(15deg, #591c1c, rgb(27, 2, 3));
+  border-radius: 3px;
+}
+body .wrapper .header,
+#app .wrapper .header {
+  width: 100%;
+  background: #241015;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .wrapper .header .row,
+#app .wrapper .header .row {
+  display: flex;
+  height: 100%;
+}
+body .wrapper .header .row > div,
+#app .wrapper .header .row > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .wrapper .header .row .icon,
+#app .wrapper .header .row .icon {
+  aspect-ratio: 1/1;
+  background-color: #5E4545;
+}
+body .wrapper .header .row .title,
+#app .wrapper .header .row .title {
+  background-color: #3E2C2C;
+  padding-inline: 1rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+body .wrapper .header .row .img,
+#app .wrapper .header .row .img {
+  padding-inline: 1rem;
+}
+body .wrapper .header .row:last-child,
+#app .wrapper .header .row:last-child {
+  background: #3E2C2C;
+}
+body .wrapper .header .row:last-child > div,
+#app .wrapper .header .row:last-child > div {
+  padding-inline: 0.75rem;
+  font-size: 14px;
+}
+body .wrapper .header .row:last-child > div:last-child,
+#app .wrapper .header .row:last-child > div:last-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+body .wrapper .container,
+#app .wrapper .container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+body .wrapper .container .hack-timer,
+#app .wrapper .container .hack-timer {
+  padding: 7px 10px;
+  background: #2B2121;
+  position: absolute;
+  top: 200px;
+  right: 15px;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5019607843);
+  border-bottom: 2px solid #553D3C;
+  animation: show-timer 1.5s ease forwards;
+}
+@keyframes show-timer {
+  0% {
+    top: -200px;
+  }
+  100% {
+    top: 15px;
+  }
+}
+body .wrapper .container .desktop-buttons,
+#app .wrapper .container .desktop-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+body .wrapper .container .desktop-buttons .desktop-button,
+#app .wrapper .container .desktop-buttons .desktop-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px;
+  gap: 5px;
+  align-items: center;
+  margin: 5px;
+  padding-block: 5px;
+}
+body .wrapper .container .desktop-buttons .desktop-button:hover,
+#app .wrapper .container .desktop-buttons .desktop-button:hover {
+  background: rgba(107, 38, 38, 0.5);
+  outline: 1px solid rgb(107, 38, 38);
+}
+body .wrapper .container .desktop-buttons .desktop-button .button-icon img,
+#app .wrapper .container .desktop-buttons .desktop-button .button-icon img {
+  user-select: none;
+  padding-inline: 20px;
+}
+body .wrapper .container .desktop-buttons .desktop-button .button-text,
+#app .wrapper .container .desktop-buttons .desktop-button .button-text {
+  color: #fff;
+  font-size: 13px;
+  color: #ffffff;
+  text-shadow: 0 0 3px #000;
+  user-select: none;
+}
+body .wrapper .container .hack-wrapper,
+#app .wrapper .container .hack-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 850px;
+  height: 650px;
+  background: #241015;
+  border-radius: 10px;
+  margin: 2.5rem auto 0 auto;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+body .wrapper .container .hack-wrapper .hack-header,
+#app .wrapper .container .hack-wrapper .hack-header {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+body .wrapper .container .hack-wrapper .hack-header .hack-header-title,
+#app .wrapper .container .hack-wrapper .hack-header .hack-header-title {
+  font-size: 14px;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons,
+#app .wrapper .container .hack-wrapper .hack-header .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 26px;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  border: none;
+  width: 28px;
+  background: transparent;
+  font-size: 14px;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.085s linear;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button:hover,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 20%;
+  background: #fff;
+  bottom: 5px;
+  left: 3px;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 8px;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 90%);
+  border: 1px solid #ffffff;
+  border-top: 2px solid #ffffff;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close {
+  border-top-right-radius: 10px;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg {
+  position: absolute;
+  bottom: 4px;
+  left: 7px;
+}
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover {
+  background: rgb(84, 0, 0);
+}
+body .wrapper .container .hack-wrapper .hack-container,
+#app .wrapper .container .hack-wrapper .hack-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-title,
+#app .wrapper .container .hack-wrapper .hack-container .hack-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  margin-top: 15px;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-info,
+#app .wrapper .container .hack-wrapper .hack-container .hack-info {
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  font-size: 14px;
+  font-weight: 600;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function {
+  position: relative;
+  margin: 0 auto;
+  height: 500px;
+  width: 700px;
+  position: relative;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box {
+  width: 48px;
+  height: 48px;
+  background: var(--random-color);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  color: white;
+  transition: 0.1s linear;
+  font-family: serif;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  user-select: none;
+  transition: background 0.065s linear;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good {
+  background: #160C0F !important;
+  outline: 1px solid rgba(255, 255, 255, 0.25);
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden {
+  color: transparent;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-progress,
+#app .wrapper .container .hack-wrapper .hack-container .hack-progress {
+  width: calc(100% - 50px);
+  height: 18px;
+  background: #190B0C;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 30px;
+  margin: 0 auto;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-progress .progress,
+#app .wrapper .container .hack-wrapper .hack-container .hack-progress .progress {
+  height: 100%;
+  background: #ff8180;
+  box-shadow: 0 20px 25px rgba(255, 129, 128, 0.4), 0 50px 45px rgba(255, 129, 128, 0.2), 0 100px 90px rgba(255, 129, 128, 0.2);
+  border-radius: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */
