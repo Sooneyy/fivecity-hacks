@@ -42,9 +42,15 @@
                         </div>
                         <p class="button-text">hacking.exe</p>
                     </div>
+                    <div class="desktop-button" @click="showSettingsBox = true">
+                        <div class="button-icon">
+                            <img src="./img/settings.png" alt="xd">
+                        </div>
+                        <p class="button-text">hack settings.exe</p>
+                    </div>
                 </div>
 
-                <div class="hack-wrapper" ref="wr" v-if="showHackBox">
+                <div class="hack-wrapper" ref="wr" v-if="showHackBox" >
                     <div class="hack-header">
                         <div class="hack-header-title">hacking.exe</div>
                         <div class="buttons">
@@ -64,6 +70,36 @@
                         </div>
                     </div>
                 </div>
+
+                <transition name="fade">
+                    <div class="settings-wrapper" v-if="showSettingsBox && !showHackBox">
+                        <div class="settings-header">
+                            <div class="settings-header-title">hack settings.exe</div>
+                            <div class="buttons">
+                                <button class="button"><span id="mini"></span></button>
+                                <button class="button"><span id="resize"></span></button>
+                                <button class="button" id="close" @click="showSettingsBox = false"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"></path></svg></button>
+                            </div>
+                        </div>
+                        <div class="settings">
+                            <div class="setting">
+                                <div class="description">Ilość kwadratów</div>
+                                <div class="input">
+                                    <input type="range" v-model="squaresCount" min="3" max="12" value="6">
+                                </div>
+                                <div class="value">{{ squaresCount }}</div>
+                            </div>
+                            <div class="setting">
+                                <div class="description">Czas gry [s]</div>
+                                <div class="input">
+                                    <input type="range" class="input-value" v-model="playTime" min="5" max="35" value="10">
+                                </div>
+                                <div class="value">{{ playTime }}</div>
+                            </div>
+                            <p class="hint">Najlepiej zostawić tak jak jest defaultowo (6, 10)</p>
+                        </div>
+                    </div>
+                </transition>
             </div>
         </div>
     </div>

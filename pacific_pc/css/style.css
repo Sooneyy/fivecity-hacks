@@ -22,32 +22,23 @@ body a,
 #app a {
   position: absolute;
   display: flex;
-  background: #130707;
+  background: rgba(184, 54, 54, 0.1);
   padding: 12px;
   left: 15px;
   top: 15px;
-  border-radius: 25%;
+  border-radius: 6px;
   border: 1px solid #5a1d1d;
-  box-shadow: 0 8px 16px rgba(79, 25, 25, 0.6);
+  box-shadow: 0 8px 24px rgba(79, 25, 25, 0.75);
   color: #fff;
   cursor: pointer;
   user-select: none;
   z-index: 999;
-  animation: shadow 4s ease-in-out infinite;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 body a:hover,
 #app a:hover {
   border-color: #b83636;
-  background: #2f1111;
-}
-@keyframes shadow {
-  0%, 100% {
-    box-shadow: 0 8px 16px rgba(79, 25, 25, 0.6);
-  }
-  50% {
-    box-shadow: 0 8px 32px rgb(101, 32, 32);
-  }
+  background: rgba(184, 54, 54, 0.2);
 }
 body .wrapper,
 #app .wrapper {
@@ -160,16 +151,23 @@ body .wrapper .container .desktop-buttons .desktop-button,
   align-items: center;
   margin: 5px;
   padding-block: 5px;
+  width: 105px;
+  transition: background 0.065s ease;
 }
 body .wrapper .container .desktop-buttons .desktop-button:hover,
 #app .wrapper .container .desktop-buttons .desktop-button:hover {
   background: rgba(107, 38, 38, 0.5);
   outline: 1px solid rgb(107, 38, 38);
 }
+body .wrapper .container .desktop-buttons .desktop-button .button-icon,
+#app .wrapper .container .desktop-buttons .desktop-button .button-icon {
+  display: flex;
+}
 body .wrapper .container .desktop-buttons .desktop-button .button-icon img,
 #app .wrapper .container .desktop-buttons .desktop-button .button-icon img {
+  height: 60px;
+  width: 60px;
   user-select: none;
-  padding-inline: 20px;
 }
 body .wrapper .container .desktop-buttons .desktop-button .button-text,
 #app .wrapper .container .desktop-buttons .desktop-button .button-text {
@@ -178,9 +176,12 @@ body .wrapper .container .desktop-buttons .desktop-button .button-text,
   color: #ffffff;
   text-shadow: 0 0 3px #000;
   user-select: none;
+  text-align: center;
+  word-wrap: break-word;
 }
-body .wrapper .container .hack-wrapper,
-#app .wrapper .container .hack-wrapper {
+body .wrapper .container .hack-wrapper, body .wrapper .container .settings-wrapper,
+#app .wrapper .container .hack-wrapper,
+#app .wrapper .container .settings-wrapper {
   display: flex;
   flex-direction: column;
   width: 925px;
@@ -192,25 +193,41 @@ body .wrapper .container .hack-wrapper,
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
 }
-body .wrapper .container .hack-wrapper .hack-header,
-#app .wrapper .container .hack-wrapper .hack-header {
+body .wrapper .container .hack-wrapper .hack-header, body .wrapper .container .hack-wrapper .settings-header, body .wrapper .container .settings-wrapper .hack-header, body .wrapper .container .settings-wrapper .settings-header,
+#app .wrapper .container .hack-wrapper .hack-header,
+#app .wrapper .container .hack-wrapper .settings-header,
+#app .wrapper .container .settings-wrapper .hack-header,
+#app .wrapper .container .settings-wrapper .settings-header {
   width: 100%;
   padding: 0.5rem 1rem;
 }
-body .wrapper .container .hack-wrapper .hack-header .hack-header-title,
-#app .wrapper .container .hack-wrapper .hack-header .hack-header-title {
+body .wrapper .container .hack-wrapper .hack-header .hack-header-title, body .wrapper .container .hack-wrapper .hack-header .settings-header-title, body .wrapper .container .hack-wrapper .settings-header .hack-header-title, body .wrapper .container .hack-wrapper .settings-header .settings-header-title, body .wrapper .container .settings-wrapper .hack-header .hack-header-title, body .wrapper .container .settings-wrapper .hack-header .settings-header-title, body .wrapper .container .settings-wrapper .settings-header .hack-header-title, body .wrapper .container .settings-wrapper .settings-header .settings-header-title,
+#app .wrapper .container .hack-wrapper .hack-header .hack-header-title,
+#app .wrapper .container .hack-wrapper .hack-header .settings-header-title,
+#app .wrapper .container .hack-wrapper .settings-header .hack-header-title,
+#app .wrapper .container .hack-wrapper .settings-header .settings-header-title,
+#app .wrapper .container .settings-wrapper .hack-header .hack-header-title,
+#app .wrapper .container .settings-wrapper .hack-header .settings-header-title,
+#app .wrapper .container .settings-wrapper .settings-header .hack-header-title,
+#app .wrapper .container .settings-wrapper .settings-header .settings-header-title {
   font-size: 14px;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons,
-#app .wrapper .container .hack-wrapper .hack-header .buttons {
+body .wrapper .container .hack-wrapper .hack-header .buttons, body .wrapper .container .hack-wrapper .settings-header .buttons, body .wrapper .container .settings-wrapper .hack-header .buttons, body .wrapper .container .settings-wrapper .settings-header .buttons,
+#app .wrapper .container .hack-wrapper .hack-header .buttons,
+#app .wrapper .container .hack-wrapper .settings-header .buttons,
+#app .wrapper .container .settings-wrapper .hack-header .buttons,
+#app .wrapper .container .settings-wrapper .settings-header .buttons {
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   height: 26px;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button, body .wrapper .container .hack-wrapper .settings-header .buttons .button, body .wrapper .container .settings-wrapper .hack-header .buttons .button, body .wrapper .container .settings-wrapper .settings-header .buttons .button,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button {
   height: 100%;
   display: grid;
   place-content: center;
@@ -224,12 +241,18 @@ body .wrapper .container .hack-wrapper .hack-header .buttons .button,
   position: relative;
   transition: background 0.085s linear;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button:hover,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button:hover {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button:hover, body .wrapper .container .hack-wrapper .settings-header .buttons .button:hover, body .wrapper .container .settings-wrapper .hack-header .buttons .button:hover, body .wrapper .container .settings-wrapper .settings-header .buttons .button:hover,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button:hover,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button:hover,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button:hover,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before, body .wrapper .container .hack-wrapper .settings-header .buttons .button > #mini::before, body .wrapper .container .settings-wrapper .hack-header .buttons .button > #mini::before, body .wrapper .container .settings-wrapper .settings-header .buttons .button > #mini::before,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::before,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button > #mini::before,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button > #mini::before,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button > #mini::before {
   content: "";
   position: absolute;
   height: 2px;
@@ -238,8 +261,11 @@ body .wrapper .container .hack-wrapper .hack-header .buttons .button > #mini::be
   bottom: 5px;
   left: 3px;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before, body .wrapper .container .hack-wrapper .settings-header .buttons .button > #resize::before, body .wrapper .container .settings-wrapper .hack-header .buttons .button > #resize::before, body .wrapper .container .settings-wrapper .settings-header .buttons .button > #resize::before,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::before,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button > #resize::before,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button > #resize::before,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button > #resize::before {
   content: "";
   position: absolute;
   width: 10px;
@@ -250,22 +276,32 @@ body .wrapper .container .hack-wrapper .hack-header .buttons .button > #resize::
   border: 1px solid #ffffff;
   border-top: 2px solid #ffffff;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button#close,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close, body .wrapper .container .hack-wrapper .settings-header .buttons .button#close, body .wrapper .container .settings-wrapper .hack-header .buttons .button#close, body .wrapper .container .settings-wrapper .settings-header .buttons .button#close,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button#close,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button#close,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button#close {
   border-top-right-radius: 10px;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg, body .wrapper .container .hack-wrapper .settings-header .buttons .button#close > svg, body .wrapper .container .settings-wrapper .hack-header .buttons .button#close > svg, body .wrapper .container .settings-wrapper .settings-header .buttons .button#close > svg,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close > svg,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button#close > svg,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button#close > svg,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button#close > svg {
   position: absolute;
   bottom: 4px;
   left: 7px;
 }
-body .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover,
-#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover {
+body .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover, body .wrapper .container .hack-wrapper .settings-header .buttons .button#close:hover, body .wrapper .container .settings-wrapper .hack-header .buttons .button#close:hover, body .wrapper .container .settings-wrapper .settings-header .buttons .button#close:hover,
+#app .wrapper .container .hack-wrapper .hack-header .buttons .button#close:hover,
+#app .wrapper .container .hack-wrapper .settings-header .buttons .button#close:hover,
+#app .wrapper .container .settings-wrapper .hack-header .buttons .button#close:hover,
+#app .wrapper .container .settings-wrapper .settings-header .buttons .button#close:hover {
   background: rgb(84, 0, 0);
 }
-body .wrapper .container .hack-wrapper .hack-container,
-#app .wrapper .container .hack-wrapper .hack-container {
+body .wrapper .container .hack-wrapper .hack-container, body .wrapper .container .settings-wrapper .hack-container,
+#app .wrapper .container .hack-wrapper .hack-container,
+#app .wrapper .container .settings-wrapper .hack-container {
   flex: 1;
   display: flex;
   align-items: center;
@@ -273,8 +309,9 @@ body .wrapper .container .hack-wrapper .hack-container,
   position: relative;
   padding: 20px;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-title,
-#app .wrapper .container .hack-wrapper .hack-container .hack-title {
+body .wrapper .container .hack-wrapper .hack-container .hack-title, body .wrapper .container .settings-wrapper .hack-container .hack-title,
+#app .wrapper .container .hack-wrapper .hack-container .hack-title,
+#app .wrapper .container .settings-wrapper .hack-container .hack-title {
   position: absolute;
   top: 0;
   left: 50%;
@@ -282,29 +319,33 @@ body .wrapper .container .hack-wrapper .hack-container .hack-title,
   font-weight: 600;
   margin-top: 15px;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-info,
-#app .wrapper .container .hack-wrapper .hack-container .hack-info {
+body .wrapper .container .hack-wrapper .hack-container .hack-info, body .wrapper .container .settings-wrapper .hack-container .hack-info,
+#app .wrapper .container .hack-wrapper .hack-container .hack-info,
+#app .wrapper .container .settings-wrapper .hack-container .hack-info {
   position: absolute;
   text-align: center;
   top: calc(50% - 1.5rem);
   font-size: 14px;
   font-weight: 600;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-info span,
-#app .wrapper .container .hack-wrapper .hack-container .hack-info span {
+body .wrapper .container .hack-wrapper .hack-container .hack-info span, body .wrapper .container .settings-wrapper .hack-container .hack-info span,
+#app .wrapper .container .hack-wrapper .hack-container .hack-info span,
+#app .wrapper .container .settings-wrapper .hack-container .hack-info span {
   color: rgba(255, 255, 255, 0.25);
   font-size: 10px;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function {
+body .wrapper .container .hack-wrapper .hack-container .hack-function, body .wrapper .container .settings-wrapper .hack-container .hack-function,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function,
+#app .wrapper .container .settings-wrapper .hack-container .hack-function {
   position: relative;
   margin: 0 auto;
   height: 500px;
   width: 800px;
   position: relative;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box {
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box, body .wrapper .container .settings-wrapper .hack-container .hack-function .number-box,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box,
+#app .wrapper .container .settings-wrapper .hack-container .hack-function .number-box {
   width: 48px;
   height: 48px;
   background: var(--random-color);
@@ -324,17 +365,20 @@ body .wrapper .container .hack-wrapper .hack-container .hack-function .number-bo
   user-select: none;
   transition: background 0.025s ease;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good {
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good, body .wrapper .container .settings-wrapper .hack-container .hack-function .number-box.good,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good,
+#app .wrapper .container .settings-wrapper .hack-container .hack-function .number-box.good {
   background: #160C0F !important;
   outline: 1px solid rgba(255, 255, 255, 0.25);
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden,
-#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden {
+body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden, body .wrapper .container .settings-wrapper .hack-container .hack-function .number-box.hidden,
+#app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.hidden,
+#app .wrapper .container .settings-wrapper .hack-container .hack-function .number-box.hidden {
   color: transparent;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-progress,
-#app .wrapper .container .hack-wrapper .hack-container .hack-progress {
+body .wrapper .container .hack-wrapper .hack-container .hack-progress, body .wrapper .container .settings-wrapper .hack-container .hack-progress,
+#app .wrapper .container .hack-wrapper .hack-container .hack-progress,
+#app .wrapper .container .settings-wrapper .hack-container .hack-progress {
   width: calc(100% - 50px);
   height: 18px;
   background: #190B0C;
@@ -343,12 +387,113 @@ body .wrapper .container .hack-wrapper .hack-container .hack-progress,
   bottom: 30px;
   margin: 0 auto;
 }
-body .wrapper .container .hack-wrapper .hack-container .hack-progress .progress,
-#app .wrapper .container .hack-wrapper .hack-container .hack-progress .progress {
+body .wrapper .container .hack-wrapper .hack-container .hack-progress .progress, body .wrapper .container .settings-wrapper .hack-container .hack-progress .progress,
+#app .wrapper .container .hack-wrapper .hack-container .hack-progress .progress,
+#app .wrapper .container .settings-wrapper .hack-container .hack-progress .progress {
   height: 100%;
   background: #ff8180;
   box-shadow: 0 20px 25px rgba(255, 129, 128, 0.4), 0 50px 45px rgba(255, 129, 128, 0.2), 0 100px 90px rgba(255, 129, 128, 0.2);
   border-radius: 15px;
+}
+body .wrapper .container .settings-wrapper,
+#app .wrapper .container .settings-wrapper {
+  width: 500px !important;
+  height: 650px !important;
+  margin: 2.5rem auto 0 auto;
+  background: #241015;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.3);
+}
+body .wrapper .container .settings-wrapper .settings,
+#app .wrapper .container .settings-wrapper .settings {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+body .wrapper .container .settings-wrapper .settings .setting,
+#app .wrapper .container .settings-wrapper .settings .setting {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background: #250a0a;
+  outline: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  transition: outline 0.2s ease;
+  font-size: 14px;
+  color: #f00;
+}
+body .wrapper .container .settings-wrapper .settings .setting:hover,
+#app .wrapper .container .settings-wrapper .settings .setting:hover {
+  outline-color: #3b1010;
+}
+body .wrapper .container .settings-wrapper .settings .setting .description,
+#app .wrapper .container .settings-wrapper .settings .setting .description {
+  min-width: 100px;
+}
+body .wrapper .container .settings-wrapper .settings .setting .input,
+#app .wrapper .container .settings-wrapper .settings .setting .input {
+  flex: 1;
+}
+body .wrapper .container .settings-wrapper .settings .setting .input input,
+#app .wrapper .container .settings-wrapper .settings .setting .input input {
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 15px;
+  background: #170000;
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+body .wrapper .container .settings-wrapper .settings .setting .input input::-webkit-slider-thumb,
+#app .wrapper .container .settings-wrapper .settings .setting .input input::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5), 0 0 0 4px rgb(34, 0, 0);
+  border-radius: 50%;
+  background: red;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+body .wrapper .container .settings-wrapper .settings .setting .input input::-webkit-slider-thumb:hover,
+#app .wrapper .container .settings-wrapper .settings .setting .input input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+body .wrapper .container .settings-wrapper .settings .setting .value,
+#app .wrapper .container .settings-wrapper .settings .setting .value {
+  min-width: 20px;
+  text-align: center;
+}
+body .wrapper .container .settings-wrapper .settings .hint,
+#app .wrapper .container .settings-wrapper .settings .hint {
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: left;
+  width: 100%;
+}
+body .wrapper .container .settings-wrapper.fade-enter-active, body .wrapper .container .settings-wrapper.fade-leave-active,
+#app .wrapper .container .settings-wrapper.fade-enter-active,
+#app .wrapper .container .settings-wrapper.fade-leave-active {
+  transition: all 0.2s ease;
+}
+body .wrapper .container .settings-wrapper.fade-enter-from,
+#app .wrapper .container .settings-wrapper.fade-enter-from {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+body .wrapper .container .settings-wrapper.fade-leave-to,
+#app .wrapper .container .settings-wrapper.fade-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
 }
 
 /*# sourceMappingURL=style.css.map */

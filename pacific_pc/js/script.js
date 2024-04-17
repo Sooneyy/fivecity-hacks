@@ -3,6 +3,7 @@ const gameConfig = {
     startTime: 4, 
     endTime: 4, 
     canClick: false,
+    squaresCount: 6,
     hackTitle: "Wciśnij bloki w dobrej kolejności",
     hackInfo: "",
 }
@@ -33,6 +34,7 @@ const app = Vue.createApp({
             ...time,
             showHackTimer: false,
             showHackBox: false,
+            showSettingsBox: false,
             gameType: "start",
             gameResult: false,
             width: 1000,
@@ -79,6 +81,7 @@ const app = Vue.createApp({
             this.numberToClick = 1;
             this.numbersArr = [];
             this.canClick = false;
+            this.showSettingsBox = false;
 
             this.gameType = "start";
             this.hackTimerStart();
@@ -124,7 +127,7 @@ const app = Vue.createApp({
             this.initGame();
         },
         createNumbers(){
-            for(let i = 1; i <= 6; i++){
+            for(let i = 1; i <= this.squaresCount; i++){
                 this.numbersArr.push({
                     number: i,
                     good: false,
@@ -172,7 +175,7 @@ const app = Vue.createApp({
                     if(this.numbersArr[i].x <= 0) this.numbersArr[i].x = 0;
                     if(this.numbersArr[i].x >= 752) this.numbersArr[i].x = 752;
                     if(this.numbersArr[i].y <= 0) this.numbersArr[i].y = 0;
-                    if(this.numbersArr[i].y >= 452) this.numbersArr[i].y = 452;
+                    if(this.numbersArr[i].y >= 452) this.numbersArr[i].y = 452; 
                 }
             }, 10)
         },
@@ -237,6 +240,7 @@ const app = Vue.createApp({
                 this.showHackTimer = false;
                 this.gameStarted = false;
 
+                clearInterval(this.progressInterval);
                 clearTimeout(this.offsetTimeout);
                 clearTimeout(this.clickTimeout);
                 clearInterval(this.movingInterval);
