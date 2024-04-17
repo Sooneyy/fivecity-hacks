@@ -38,7 +38,7 @@ const app = Vue.createApp({
             width: 1000,
             numbersArr: [],
             numberToClick: 1,
-            randomColors: ["#0384FF", "#FE0298", "#FF5B01", "#1FC900", "#E66500"]
+            randomColors: ["#0384FF", "#FE0298", "#FFB401", "#1FC900", "#E66500"]
         }
     },
     computed: {
