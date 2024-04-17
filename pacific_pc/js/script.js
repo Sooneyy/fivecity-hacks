@@ -212,6 +212,8 @@ const app = Vue.createApp({
             }
         },
         onClick(i){
+            if(this.numbersArr[i - 1].good) return; // Idk czy jest tak na 5c ale dodam
+
             if(this.canClick){
                 if(this.numberToClick === this.numbersArr[i - 1].number){
                     this.numbersArr[i - 1].good = true;
