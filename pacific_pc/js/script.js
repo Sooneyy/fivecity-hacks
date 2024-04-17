@@ -7,21 +7,30 @@ const gameConfig = {
     hackInfo: "",
 }
 
+const intervals = {
+    timeInterval: null,
+    hackTimerInterval: null,
+    progressInterval: null,
+    offsetTimeout: null,
+    movingInterval: null,
+    clickTimeout: null,
+}
+
+const time = {
+    hours: 0,
+    minutes: 0,
+    midDay: "",
+    hackTimeStart: 0,
+    hackMinutes: 0,
+    hackSeconds: 0,
+}
+
 const app = Vue.createApp({
     data(){
         return{
             ...gameConfig,
-            timeInterval: null,
-            hackTimerInterval: null,
-            progressInterval: null,
-            offsetTimeout: null,
-            movingInterval: null,
-            hours: 0,
-            minutes: 0,
-            midDay: "",
-            hackTimeStart: 0,
-            hackMinutes: 0,
-            hackSeconds: 0,
+            ...intervals,
+            ...time,
             showHackTimer: false,
             showHackBox: false,
             gameType: "start",
@@ -29,7 +38,7 @@ const app = Vue.createApp({
             width: 1000,
             numbersArr: [],
             numberToClick: 1,
-            randomColors: ["#0384FF", "#FE0298", "#FFC601", "#1FC900", "#E66500", "#005DE6", "#6D22F4"]
+            randomColors: ["#0384FF", "#FE0298", "#FF5B01", "#1FC900", "#E66500"]
         }
     },
     computed: {
@@ -76,7 +85,7 @@ const app = Vue.createApp({
             this.initGame();
         },
         initGame(){
-            this.hackInfo = "Przygotuj się";
+            this.hackInfo = "Przygotuj się<br><br><span>By szybciej zakończyć minigrę naciśnij ESC</span>";
             this.numbersArr = [];
             this.numberToClick = 1;
 
@@ -120,7 +129,7 @@ const app = Vue.createApp({
                     number: i,
                     good: false,
                     color: this.randomColors[Math.floor(Math.random() * this.randomColors.length)],
-                    x: this.randomInt(15, 635),
+                    x: this.randomInt(15, 735),
                     y: this.randomInt(15, 435),
                     velocityX: [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)],
                     velocityY: [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)],
@@ -129,11 +138,11 @@ const app = Vue.createApp({
                 });
             }
 
-            setTimeout(() => {
+            this.clickTimeout = setTimeout(() => {
                 this.canClick = true;
             }, 4000)
 
-            this.movingNumbers();
+            this.moveNumbers();
             this.randomOffset();
         },
         randomOffset(){
@@ -151,17 +160,17 @@ const app = Vue.createApp({
 
             this.offsetTimeout = setTimeout(this.randomOffset, 3500);
         },
-        movingNumbers(){
+        moveNumbers(){
             this.movingInterval = setInterval(() => {
                 for(let i = 0; i < this.numbersArr.length; i++){
                     this.numbersArr[i].x += this.numbersArr[i].velocityX * this.numbersArr[i].directionX;
                     this.numbersArr[i].y += this.numbersArr[i].velocityY * this.numbersArr[i].directionY;
 
-                    if(this.numbersArr[i].x <= 0 || this.numbersArr[i].x >= 652) this.numbersArr[i].directionX *= -1;
+                    if(this.numbersArr[i].x <= 0 || this.numbersArr[i].x >= 752) this.numbersArr[i].directionX *= -1;
                     if(this.numbersArr[i].y <= 0 || this.numbersArr[i].y >= 452) this.numbersArr[i].directionY *= -1;
 
                     if(this.numbersArr[i].x <= 0) this.numbersArr[i].x = 0;
-                    if(this.numbersArr[i].x >= 625) this.numbersArr[i].x = 625;
+                    if(this.numbersArr[i].x >= 752) this.numbersArr[i].x = 752;
                     if(this.numbersArr[i].y <= 0) this.numbersArr[i].y = 0;
                     if(this.numbersArr[i].y >= 452) this.numbersArr[i].y = 452;
                 }
@@ -220,6 +229,18 @@ const app = Vue.createApp({
         },
     },
     mounted(){
+        window.addEventListener("keyup", (e) => {
+            if(e.key === "Escape"){
+                this.showHackBox = false;
+                this.showHackTimer = false;
+                this.gameStarted = false;
+
+                clearTimeout(this.offsetTimeout);
+                clearTimeout(this.clickTimeout);
+                clearInterval(this.movingInterval);
+            }
+        })
+
         this.timeInterval = setInterval(this.timeCounter, 1000);
 
         this.timeCounter();

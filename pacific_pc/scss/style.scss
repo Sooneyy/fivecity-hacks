@@ -191,7 +191,7 @@ body,
             .hack-wrapper{
                 display: flex;
                 flex-direction: column;
-                width: 850px;
+                width: 925px;
                 height: 650px;
                 background: $backgroundColor_1;
                 border-radius: 10px;
@@ -293,16 +293,22 @@ body,
 
                     .hack-info{
                         position: absolute;
+                        text-align: center;
                         top: calc(50% - 1.5rem);
                         font-size: 14px;
                         font-weight: 600;
+
+                        span{
+                            color: rgba(255, 255, 255, .25);
+                            font-size: 10px;
+                        }
                     }
 
                     .hack-function{
                         position: relative;
                         margin: 0 auto;
                         height: 500px;
-                        width: 700px;  
+                        width: 800px;  
                         position: relative;
 
                         .number-box{
@@ -320,10 +326,10 @@ body,
                             color: white;
                             transition: .1s linear;
                             font-family: serif;
-                            box-shadow: 0 0 16px rgba(0, 0, 0, .75);
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
                             position: absolute;
                             user-select: none;
-                            transition: background .065s linear;
+                            transition: background .025s ease;
 
                             &.good{
                                 background: #160C0F !important;

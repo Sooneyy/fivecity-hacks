@@ -183,7 +183,7 @@ body .wrapper .container .hack-wrapper,
 #app .wrapper .container .hack-wrapper {
   display: flex;
   flex-direction: column;
-  width: 850px;
+  width: 925px;
   height: 650px;
   background: #241015;
   border-radius: 10px;
@@ -285,16 +285,22 @@ body .wrapper .container .hack-wrapper .hack-container .hack-title,
 body .wrapper .container .hack-wrapper .hack-container .hack-info,
 #app .wrapper .container .hack-wrapper .hack-container .hack-info {
   position: absolute;
+  text-align: center;
   top: calc(50% - 1.5rem);
   font-size: 14px;
   font-weight: 600;
+}
+body .wrapper .container .hack-wrapper .hack-container .hack-info span,
+#app .wrapper .container .hack-wrapper .hack-container .hack-info span {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 10px;
 }
 body .wrapper .container .hack-wrapper .hack-container .hack-function,
 #app .wrapper .container .hack-wrapper .hack-container .hack-function {
   position: relative;
   margin: 0 auto;
   height: 500px;
-  width: 700px;
+  width: 800px;
   position: relative;
 }
 body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box,
@@ -313,10 +319,10 @@ body .wrapper .container .hack-wrapper .hack-container .hack-function .number-bo
   color: white;
   transition: 0.1s linear;
   font-family: serif;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   position: absolute;
   user-select: none;
-  transition: background 0.065s linear;
+  transition: background 0.025s ease;
 }
 body .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good,
 #app .wrapper .container .hack-wrapper .hack-container .hack-function .number-box.good {

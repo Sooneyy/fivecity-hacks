@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.39/vue.global.prod.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.23/vue.global.prod.min.js" integrity="sha512-37VXCurl9R65LR/pKNnXB59OiCK1TlIns5kop8ERkbn1htBz1pJRnmlWLbl5xoQbNGFKfFephfcJ/zjCK2qqeA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Pacific Heist</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="hack-wrapper" v-if="showHackBox">
+                <div class="hack-wrapper" ref="wr" v-if="showHackBox">
                     <div class="hack-header">
                         <div class="hack-header-title">hacking.exe</div>
                         <div class="buttons">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="hack-container">
                         <div class="hack-title" v-if="gameStarted">{{ hackTitle }}</div>
-                        <div class="hack-info" v-if="!gameStarted">{{ hackInfo }}</div>
+                        <div class="hack-info" v-if="!gameStarted" v-html="hackInfo"></div>
                         <div class="hack-function" v-if="gameStarted">
                             <div class="number-box" v-for="item in numbersArr" :class="{good: item.good, hidden: canClick}" @click="onClick(item.number)" :style="{'--random-color': item.color, left: item.x + 'px', top: item.y + 'px'}">{{ item.number }}</div>
                         </div>
