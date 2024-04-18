@@ -136,8 +136,8 @@ const app = Vue.createApp({
                     y: this.randomInt(15, 435),
                     velocityX: [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)],
                     velocityY: [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)],
-                    directionX: Math.floor > 0.5 ? 1 : -1,
-                    directionY: Math.floor > 0.5 ? 1 : -1,
+                    directionX: Math.random() > 0.5 ? 1 : -1,
+                    directionY: Math.random() > 0.5 ? 1 : -1,
                 });
             }
 
@@ -152,8 +152,8 @@ const app = Vue.createApp({
             for(let i = 0; i < this.numbersArr.length; i++){;
                 let randomVelocityX = [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)];
                 let randomVelocityY = [0.25, 0.5, 0.75, 1.25, 1.5][Math.floor(Math.random() * 5)];
-                let randomDirectionX = Math.floor > 0.5 ? 1 : -1;
-                let randomDirectionY = Math.floor > 0.5 ? 1 : -1;
+                let randomDirectionX = Math.random() > 0.5 ? 1 : -1;
+                let randomDirectionY = Math.random() > 0.5 ? 1 : -1;
 
                 this.numbersArr[i].velocityX = randomVelocityX;
                 this.numbersArr[i].velocityY = randomVelocityY;
