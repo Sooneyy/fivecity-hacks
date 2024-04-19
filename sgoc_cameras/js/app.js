@@ -177,7 +177,6 @@ function generateQuestion(){
       randomQuestions = shuffle(questions["science"]);
       randomQuestions = randomQuestions.slice(0, 10);
     }
-    console.log(randomQuestions)
   }
   
   answers = hackType === "math" ? [...question.badAnswers]: randomQuestions[levelCount].badAnswers;
@@ -218,7 +217,6 @@ function nextQuestion(){
   clearInterval(progressTimerInterval);
   reversed = Math.random() > 0.5 ? 1 : 0;
   reversed ? hackFunction.classList.add("reversed") : hackFunction.classList.remove("reversed");
-  console.log(levelCount);
   generateQuestion();
   progressBar("start", 6);
 }
@@ -256,7 +254,8 @@ function checkAnswer(answer){
 function callFunc(type){
   if(type === "teoria"){
     drawTheoryNumbers();
-    question = questions[hackType][type](natural, rational, integer, reversed)[randomInt(0, questions[hackType][type](natural, rational, integer, reversed).length)];
+    let isQuestionReversed = hackFunction.className.indexOf("reversed") > -1;
+    question = questions[hackType][type](natural, rational, integer, isQuestionReversed)[randomInt(0, questions[hackType][type](natural, rational, integer, isQuestionReversed).length)];
   }
   if(type === "silnia") {
     drawFactorial();

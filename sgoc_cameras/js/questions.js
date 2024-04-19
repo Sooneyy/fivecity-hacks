@@ -36,6 +36,7 @@ var percent = { prcNum: 0, num: 0, answer: 0, bad: [] };
 const questions = {
     "math": {
         "teoria": (na, ra, int, isRev) => { 
+            let text = isRev ? "powyższych" : "poniższych";
             return [
                 {
                     question: "Jaka jest suma kątów wewnętrznych w trójkącie",
@@ -43,17 +44,17 @@ const questions = {
                     badAnswers: [270, 360, 90, 120, 160, 240, 315]
                 },
                 {
-                    question: `Która z ${isRev ? "powyższych" : "poniższych"} liczb jest liczbą naturalną`,
+                    question: `Która z ${text} liczb jest liczbą naturalną`,
                     answer: na.num,
                     badAnswers: na.bad
                 },
                 {
-                    question: `Która z ${isRev ? "powyższych" : "poniższych"} liczb jest liczbą wymierną`,
+                    question: `Która z ${text} liczb jest liczbą wymierną`,
                     answer: ra.num,
                     badAnswers: ra.bad
                 },
                 {
-                    question: `Która z ${isRev ? "powyższych" : "poniższych"} liczb jest liczbą całkowitą`,
+                    question: `Która z ${text} liczb jest liczbą całkowitą`,
                     answer: int.num,
                     badAnswers: int.bad
                 },

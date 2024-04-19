@@ -16,7 +16,7 @@ function drawTheoryNumbers(){
     integer.num = mark[randomInt(0, mark.length)] + Math.random() > 0.5 ? `√${Math.pow(randomInt(0, 12), 2)}` : randomInt(0,100);
     integer.bad = drawBadTheoryNumbers("calkowite");
     
-    questions["math"].teoria(natural, rational, integer, reversed);
+    questions["math"].teoria(natural, rational, integer, false);
 }
 
 function drawBadTheoryNumbers(type){
