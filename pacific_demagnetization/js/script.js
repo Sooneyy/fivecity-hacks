@@ -169,9 +169,16 @@ const app = Vue.createApp({
         this.timeInterval = setInterval(this.timeCounter, 1000);
 
         this.timeCounter();
+
+        let time;
+        do{
+            time = prompt("Wpisz ilość czasu na hacka (juz nie wiem ile tam jest albo 3s albo 4s)\nmin - 1\nmax - 8");
+            
+            this.playTime = Number(time) * 3;
+        }while(!time || Number(time) < 1 || Number(time) > 8 || !/\d/.test(time))
     },
     beforeUnmount(){
         window.removeEventListener('keypress', this.onKeypress);
         clearInterval(timeInterval);
     },
-}).mount("#app")
+}).mount("#app");
