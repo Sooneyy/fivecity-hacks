@@ -25,6 +25,7 @@ body {
   color: white;
   opacity: 0;
   animation: blur 0.5s ease forwards;
+  position: relative;
 }
 @keyframes blur {
   from {
@@ -307,6 +308,27 @@ body {
   background: #2D6FBD;
   border-radius: 5vw;
   cursor: pointer;
+}
+
+.cursor-flare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25rem;
+  height: 25rem;
+  background: #7c9fd1;
+  border-radius: 50%;
+  filter: blur(48px);
+  z-index: -1;
+  animation: flare 10s linear infinite;
+}
+@keyframes flare {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
 }
 
 @media only screen and (max-width: 1600px) {

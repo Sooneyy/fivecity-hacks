@@ -145,3 +145,14 @@ export function createList(array){
 
 createList(hacksList);
 
+function moveFlare(e){
+    let x = e.clientX;
+    let y = e.clientY;
+    const cursorFlare = document.querySelector(".cursor-flare");
+
+    cursorFlare.style.left = x - cursorFlare.offsetWidth / 2 + "px";
+    cursorFlare.style.top = y - cursorFlare.offsetHeight / 2 + "px";
+}
+
+window.addEventListener("mousemove", moveFlare)
+
