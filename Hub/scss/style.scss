@@ -311,21 +311,15 @@ body{
 
                     &:hover{
                         translate: 0 -2px;
-                    }
-                }
 
-                a:nth-of-type(2){
-                    position: relative;
-
-                    &:hover{
-                        #copy-tooltip{
+                        .copy-tooltip{
                             opacity: 1;
                             visibility: visible;
                             transform: scale(1);
                         }
                     }
 
-                    #copy-tooltip{
+                    .copy-tooltip{
                         padding: .5rem 1rem;
                         background: rgb(97, 97, 97);
                         font-size: 14px;
@@ -338,8 +332,8 @@ body{
                         user-select: none;
                         opacity: 0;
                         visibility: hidden;
-                        transform: scale(.9);
-                        transition: all .1s ease .15s;
+                        transform: scale(.75);
+                        transition: all .15s ease .25s;
                     }
                 }
             }

@@ -275,15 +275,12 @@ body {
 .wrapper footer .content .socials a:hover {
   translate: 0 -2px;
 }
-.wrapper footer .content .socials a:nth-of-type(2) {
-  position: relative;
-}
-.wrapper footer .content .socials a:nth-of-type(2):hover #copy-tooltip {
+.wrapper footer .content .socials a:hover .copy-tooltip {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
-.wrapper footer .content .socials a:nth-of-type(2) #copy-tooltip {
+.wrapper footer .content .socials a .copy-tooltip {
   padding: 0.5rem 1rem;
   background: rgb(97, 97, 97);
   font-size: 14px;
@@ -296,8 +293,8 @@ body {
   user-select: none;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.9);
-  transition: all 0.1s ease 0.15s;
+  transform: scale(0.75);
+  transition: all 0.15s ease 0.25s;
 }
 .wrapper footer .content button {
   padding: 0.5rem 2rem;
