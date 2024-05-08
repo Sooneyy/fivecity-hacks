@@ -67,6 +67,7 @@ const app = Vue.createApp({
             if(this.showHackBox) return;
 
             this.gameType = "start";
+            this.gameResult = false;
             this.hackTimerStart();
             this.initGame();
         },
@@ -139,6 +140,7 @@ const app = Vue.createApp({
                 if(this.gameType === "endGame"){
                     clearInterval(this.progressInterval);
                     clearInterval(this.hackTimerInterval);
+                    console.log(this.gameType)
                     this.showHackBox = false;
                     this.showHackTimer = false;
                 }else{
