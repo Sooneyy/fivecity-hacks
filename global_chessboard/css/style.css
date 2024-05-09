@@ -295,6 +295,50 @@ body {
   flex: 1;
 }
 
+.option .chess-moves{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.option .chess-moves .move-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.option .chess-moves .move-item .chess-content > *{
+  line-height: 1.75em;
+}
+
+.option .chess-moves .move-item .chess-content h5{
+  background: #272a34;
+  box-sizing: border-box;
+  padding: 2px 6px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.option .chess-moves .move-item .chess-content h3{
+  text-indent: .5em;
+}
+
+.option .chess-moves .move-item .chess-img {
+  padding: 6px;
+  border-radius: 10px;
+  background: #52596f;
+  box-shadow: 0 4px 10px rgba(133, 155, 221, 0.25);
+  box-sizing: border-box;
+}
+
+.option .chess-moves .move-item .chess-img img{
+  max-height: 42px;
+  max-width: 42px;
+}
+
 .option input[type="range"]{
   appearance: none;
   -webkit-appearance: none;
@@ -370,7 +414,7 @@ body {
 
 .hack-info {
   color: #fff;
-  height: 310px;
+  height: 275px;
   width: 100%;
   text-align: center;
   translate: 0 100%;
