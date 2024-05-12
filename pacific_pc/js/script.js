@@ -169,13 +169,13 @@ const app = Vue.createApp({
                     this.numbersArr[i].x += this.numbersArr[i].velocityX * this.numbersArr[i].directionX;
                     this.numbersArr[i].y += this.numbersArr[i].velocityY * this.numbersArr[i].directionY;
 
-                    if(this.numbersArr[i].x <= 0 || this.numbersArr[i].x >= 712) this.numbersArr[i].directionX *= -1;
-                    if(this.numbersArr[i].y <= 0 || this.numbersArr[i].y >= 452) this.numbersArr[i].directionY *= -1;
+                    if(this.numbersArr[i].x <= 0 || this.numbersArr[i].x >= 752) this.numbersArr[i].directionX *= -1;
+                    if(this.numbersArr[i].y <= 0 || this.numbersArr[i].y >= 402) this.numbersArr[i].directionY *= -1;
 
                     if(this.numbersArr[i].x <= 0) this.numbersArr[i].x = 0;
-                    if(this.numbersArr[i].x >= 712) this.numbersArr[i].x = 712;
+                    if(this.numbersArr[i].x >= 752) this.numbersArr[i].x = 752;
                     if(this.numbersArr[i].y <= 0) this.numbersArr[i].y = 0;
-                    if(this.numbersArr[i].y >= 452) this.numbersArr[i].y = 452; 
+                    if(this.numbersArr[i].y >= 402) this.numbersArr[i].y = 402; 
                 }
             }, 10)
         },
