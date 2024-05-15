@@ -101,6 +101,11 @@ export const hacksList = [
         desc: 'Włamywanie się do komputera czy coś',
         link: './pacific_pc',
     },
+    {
+        heist: 'Pacyfik',
+        desc: 'Włamywanie się do skrzynki elektrzynej na elektrowni (ten hack z kropką)',
+        link: './pacific_stationbox',
+    },
 ]
 
 export function createList(array){

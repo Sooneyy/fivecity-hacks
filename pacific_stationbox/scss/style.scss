@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+$gradient: linear-gradient(15deg, #591c1c, rgb(27, 2, 3));
+$backgroundColor_1: #241015;
+$backgroundColor_2: #5E4545;
+$backgroundColor_3: #3E2C2C;
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: IBM Sans Plex, sans-serif;
+}
+
+body, 
+#app{
+    background: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+
+    a{
+        position: absolute;
+        display: flex;
+        background: #130707;
+        padding: 12px;
+        left: 15px;
+        top: 15px;
+        border-radius: 25%;
+        border: 1px solid #5a1d1d;
+        box-shadow: 0 8px 16px rgba(79, 25, 25, .6);
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        z-index: 999;
+        animation: shadow 4s ease-in-out infinite;
+        transition: all .2s ease;
+
+        &:hover{
+            border-color: #b83636;
+            background: #2f1111;
+        }
+
+        @keyframes shadow{
+            0%, 100%{
+                box-shadow: 0 8px 16px rgba(79, 25, 25, .6);
+            }
+            50%{
+                box-shadow: 0 8px 32px rgb(101, 32, 32);
+            }
+        }
+    }
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        position: relative;
+        width: 1200px;
+        height: 800px;
+        border: 1px solid black;
+        background: $gradient;
+        border-radius: 3px;
+
+        .header{
+            width: 100%;
+            background: $backgroundColor_1;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .row{
+                display: flex;
+                height: 100%;
+
+                >div{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .icon{
+                    aspect-ratio: 1 / 1;
+                    background-color: $backgroundColor_2;
+                }
+
+                .title{    
+                    background-color: $backgroundColor_3;
+                    padding-inline: 1rem;
+                    color: #fff;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                .img{
+                    padding-inline: 1rem;
+                }
+
+                &:last-child{
+                    background: $backgroundColor_3;
+
+                    >div{
+                        padding-inline: 1rem;
+                        font-size: 14px;
+
+                        &:last-child{
+                            border-left: 1px solid rgba(255, 255, 255, .05);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .container{
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            padding: .5rem;
+
+            .hack-timer{
+                padding: 7px 10px;
+                background: #2B2121;
+                position: absolute;
+                top: 200px;
+                right: 15px;
+                color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 4px #00000080;
+                border-bottom: 2px solid #553D3C;
+                animation: show-timer 1.5s ease forwards;
+
+                @keyframes show-timer {
+                    0% {
+                        top: -200px;
+                    }
+                    100% {
+                        top: 15px;
+                    }
+                }
+            }      
+
+            .desktop-buttons{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                .desktop-button{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 2px;
+                    border: none;
+                    background: transparent;
+                    gap: 5px;
+                    align-items: center;
+                    margin: 5px;
+                    padding-block: 5px;
+
+                    &:hover{
+                        background: rgba(107, 38, 38, 0.5);
+                        outline: 1px solid rgb(107, 38, 38);
+                    }
+
+                    .button-icon {
+                        img{
+                            user-select: none;
+                            padding-inline: 20px;
+                        }
+                    }
+
+                    .button-text{
+                        color: #fff;
+                        font-size: 13px;
+                        color: #ffffff;
+                        text-shadow: 0 0 3px #000;
+                        user-select: none;
+                    }
+                }
+            }
+
+            .hack-wrapper{
+                display: flex;
+                flex-direction: column;
+                width: 875px;
+                height: 650px;
+                background: $backgroundColor_1;
+                border-radius: 10px;
+                margin: 2.5rem auto 0 auto;
+                position: relative;
+                box-shadow: 0 0 10px rgba(0 0 0 / 40%),
+                            0 0 20px rgba(0 0 0 / 30%),
+                            0 0 40px rgba(0 0 0 / 30%);
+                box-sizing: border-box;
+
+                .hack-header{
+                    width: 100%;
+                    padding: .5rem 1rem;
+
+                    .hack-header-title{
+                        font-size: 14px;
+                    }
+
+                    .buttons{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: flex;
+                        height: 26px;
+
+                        .button{
+                            height: 100%;
+                            display: grid;
+                            place-content: center;
+                            border: none;
+                            width: 28px;
+                            background: transparent;
+                            font-size: 14px;
+                            color: #fff;
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            position: relative;
+                            transition: background .085s linear;
+
+                            &:hover{
+                                background: rgba(255, 255, 255, .1)
+                            }
+
+                            > #mini::before {
+                                content: "";
+                                position: absolute;
+                                height: 2px;
+                                width: 20%;
+                                background: #fff;
+                                bottom: 5px;
+                                left: 3px;
+                            }
+
+                            > #resize::before {
+                                content: "";
+                                position: absolute;
+                                width: 10px;
+                                height: 8px;
+                                left: 50%;
+                                bottom: 50%;
+                                transform: translate(-50%, 90%);
+                                border: 1px solid #ffffff;
+                                border-top: 2px solid #ffffff;
+                            }
+
+                            &#close{
+                                border-top-right-radius: 10px;
+
+                                > svg{
+                                    position: absolute;
+                                    bottom: 4px;
+                                    left: 7px;
+                                }
+
+                                &:hover{
+                                    background: rgb(84, 0, 0);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .hack-container{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    position: relative;
+                    padding: 10px;
+                    gap: 1.5rem;
+
+                    .hack-title{
+                        font-weight: 600;
+                        text-align: center;
+                        margin-top: 10px;
+
+                        p{
+                            font-size: 12px;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .hack-info{
+                        position: absolute;
+                        top: calc(50% - 1.5rem);
+                        font-size: 14px;
+                        font-weight: 600;
+                        text-align: center;
+
+                        .hack-hint{
+                            margin: 2.5rem;
+
+                            .hint-text{
+                                text-align: center;
+                                margin-block: 1rem;
+                            }
+
+                            .hint-box{
+                                width: 150px;
+                                height: 100px;
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                grid-template-rows: 1fr 1fr;
+
+                                .arrow{
+                                    background: rgba(201, 201, 201, 0.5);
+                                    border: 1px solid rgba(201, 201, 201, .75);
+                                    //margin: -1px;
+                                    box-shadow: 0 6px 6px rgba(255, 255, 255, .35),
+                                                inset 0 0 6px rgba(255, 255, 255, .35);
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    &.up{
+                                        grid-column: 2 / 3;
+                                        grid-row: 1 / 2;
+
+                                        svg{
+                                            transform: rotate(-90deg);
+                                        }
+                                    }
+
+                                    &.left{
+                                        grid-column: 1 / 2;
+                                        grid-row: 2 / 3;
+
+                                        svg{
+                                            transform: rotate(180deg);
+                                        }
+                                    }
+
+                                    &.down{
+                                        grid-column: 2 / 3;
+                                        grid-row: 2 / 3;
+                                        
+                                        svg{
+                                            transform: rotate(90deg);
+                                        }
+                                    }
+
+                                    &.right{
+                                        grid-column: 3 / 4;
+                                        grid-row: 2 / 3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .hack-function{
+                        position: relative;
+                        margin: 0 auto;
+                        width: 550px;
+                        height: 450px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 1.75rem;
+
+                        >div{
+                            height: 100%;
+                        }
+
+                        .hack-function-main{
+                            width: 450px;
+                            background: #221115;
+                            box-shadow: 0 0 22px rgba(0, 0, 0, .75);
+                            border-radius: 5px;
+                            position: relative;
+                            cursor: crosshair;
+                            overflow: hidden;
+
+                            >div{
+                                position: absolute;
+                                border-radius: 5vw;
+                            }
+
+                            .main-dot{
+                                width: 18px;
+                                height: 18px;
+                                background: #0F068C;
+                                z-index: 8;
+                                left: 18px;
+                            }
+
+                            .main-dot-mirror{
+                                width: 18px;
+                                height: 18px;
+                                background: #0f068c40;
+                                z-index: 8;
+                                left: 18px;
+                                bottom: 0;
+                            }
+
+                            .target{
+                                width: 8px;
+                                height: 8px;
+                                z-index: 2;
+
+                                &.yellow{
+                                    background: rgba(131, 120, 8, .35);
+                                }
+
+                                &.blue{
+                                    background: rgba(15, 6, 140, 0.251);
+                                }
+                            }
+
+                            .red-dot{
+                                width: 10px;
+                                height: 10px;
+                                background: #CD060A;
+                                z-index: 6;
+                            }
+
+                            .worm{
+                                height: fit-content;
+                                width: fit-content;
+
+                                .worm-health{
+                                    width: 40px;
+                                    height: 5px;
+                                    border: 1px solid #010801;
+                                    background: #E7060B;
+                                    border-radius: 5vw;
+                                    transform: translateY(-1.5rem);
+
+                                    .health{
+                                        height: 100%;
+                                        background: #137A0C;
+                                        border-radius: 5vw;
+                                    }
+                                }
+
+                                .worm-body{
+                                    background: #91080A;
+                                    border: 1px solid #330304;
+                                    border-radius: 10px;
+                                    position: absolute;
+                                    left: 50%;
+                                    translate: -50% 0;
+                                    
+                                    &.skala1{
+                                        height: 10px;
+                                        width: 15px;
+                                        background: #400405 !important;
+                                        border-color: #400405 !important;
+                                    }
+
+                                    &.skala2{
+                                        height: 20px;
+                                        width: 35px;
+                                    }
+
+                                    &.skala3{
+                                        height: 25px;
+                                        width: 45px;
+                                        background: #3a0404 !important;
+                                        border-color: #5c0406 !important;
+                                    }
+                                }
+                            }
+
+                            .worm-mirror{
+                                position: absolute;
+                                border-radius: 10px;
+                                left: 50%;
+                                translate: -50% 0;
+                                background: rgba(90, 5, 7, 0.5);
+                                border-color: rgba(90, 5, 7, .5);
+                                z-index: 1;
+
+                                &.skala1{
+                                    height: 10px;
+                                    width: 15px;
+                                }
+
+                                &.skala2{
+                                    height: 20px;
+                                    width: 35px;
+                                }
+
+                                &.skala3{
+                                    height: 25px;
+                                    width: 45px;
+                                }
+                            }
+
+                            .bullet{
+                                width: 6px;
+                                height: 6px;
+                                border: 1px solid black;
+                                background: #2b802f;
+                            }
+                        }
+
+                        .hack-function-line{
+                            flex: 1;
+                            border-radius: 5vw;
+                            border-width: 2px;
+                            border-style: solid;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: flex-end;
+
+                            .line-progress{
+                                width: 100%;
+                                border-radius: 5vw;
+                            }
+
+                            &.red{
+                                border-color: rgba(125, 9, 10, .25);
+                                background: rgba(125, 9, 10, .1);
+                                box-shadow: inset 0 0 3px rgba(125, 9, 10, .25);
+
+                                .line-progress{
+                                    background: rgb(125, 9, 10);
+                                    box-shadow: 0 -8px 12px rgba(125, 9, 10, .5);
+                                }
+                            }
+
+                            &.yellow{
+                                border-color: rgba(131, 120, 8, .25);
+                                background: rgba(131, 120, 8, .1);
+                                box-shadow: inset 0 0 3px rgba(131, 120, 8, .25);
+
+                                .line-progress{
+                                    background: rgb(131, 120, 8);
+                                    box-shadow: 0 -8px 12px rgba(131, 120, 8, .5);
+                                }
+                            }
+                        }
+                    }
+
+                    .hack-progress{
+                        width: calc(100% - 2 * 25px);
+                        height: 18px;
+                        background: #190B0C;
+                        border-radius: 15px;
+                        position: absolute;
+                        bottom: 30px;
+                        margin: 0 auto;
+
+
+                        .progress{
+                            height: 100%;
+                            background: #ff8180;
+                            box-shadow: 0 20px 25px rgba(255, 129, 128, .4),
+                                        0 50px 45px rgba(255, 129, 128, .2),
+                                        0 100px 90px rgba(255, 129, 128, .2);
+                            border-radius: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
